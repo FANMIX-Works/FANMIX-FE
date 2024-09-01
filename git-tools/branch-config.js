@@ -115,7 +115,7 @@ const checkoutBranch = async () => {
 };
 
 // 브랜치 생성
-async function createBranch() {
+const createBranch = async () => {
   const branchNames = getCurrentBranchNames();
 
   try {
@@ -174,6 +174,6 @@ async function createBranch() {
   } catch (error) {
     console.error(`🙈 앗! 오류가 발생했어요: ${error.message}`);
   }
-}
+};
 
 ask();

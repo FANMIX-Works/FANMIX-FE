@@ -62,13 +62,13 @@ const pushBranch = async () => {
   }
 };
 
-function doesRemoteBranchExist(branch) {
+const doesRemoteBranchExist = async (branch) => {
   try {
     execSync(`git ls-remote --exit-code --heads origin ${branch}`, { encoding: 'utf-8' });
     return true;
   } catch (error) {
     return false;
   }
-}
+};
 
 pushBranch();
