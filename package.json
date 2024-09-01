@@ -13,7 +13,8 @@
     "prepare": "husky",
     "postinstall": "husky install",
     "commit": "./git-tools/commitizen.sh",
-    "branch": "node ./git-tools/branch-config.js"
+    "branch": "node ./git-tools/branch-config.js",
+    "push": "node ./git-tools/push-config.js"
   },
   "config": {
     "commitizen": {

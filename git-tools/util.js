@@ -1,3 +1,5 @@
+const { execSync } = require('child_process');
+
 /**
  * 주어진 메시지를 장식하여 콘솔에 출력합니다.
  * @param {string} message - 출력할 메시지
