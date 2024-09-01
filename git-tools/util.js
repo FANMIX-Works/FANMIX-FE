@@ -4,7 +4,7 @@
  * @param {string} [dividerChar='='] - 구분선에 사용할 문자
  * @returns {string} decoratedMessage - 구분선과 합쳐진 메시지
  */
-function showDecoratedMessage(message, dividerChar = '=') {
+const showDecoratedMessage = (message, dividerChar = '=') => {
   const divider = dividerChar.repeat(message.length + 20);
   const decoratedMessage = `
       ${divider}
@@ -13,8 +13,22 @@ function showDecoratedMessage(message, dividerChar = '=') {
       `;
   console.log(decoratedMessage);
   return decoratedMessage;
-}
+};
+
+/**
+ * 현재 브랜치 리스트 돌려주기
+ */
+const getCurrentBranchNames = () => {
+  const branches = execSync('git branch --format="%(refname:short)"', { encoding: 'utf-8' })
+    .trim()
+    .split('\n');
+
+  return branches.map((branch) => {
+    return { value: branch, name: branch };
+  });
+};
 
 module.exports = {
   showDecoratedMessage,
+  getCurrentBranchNames,
 };

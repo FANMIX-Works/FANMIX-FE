@@ -2,10 +2,10 @@ const inquirer = require('inquirer');
 const { execSync } = require('child_process');
 
 const branchLabels = require('./constant');
-const { showDecoratedMessage } = require('./util');
+const { showDecoratedMessage, getCurrentBranchNames } = require('./util');
 
 // 생성/전환/삭제 질문
-async function ask() {
+const ask = async () => {
   const { action } = await inquirer.prompt([
     {
       type: 'list',
@@ -25,7 +25,7 @@ async function ask() {
       await createBranch();
       break;
     case 'checkout':
-      await checkOutBranch();
+      await checkoutBranch();
       break;
     case 'delete':
       await deleteBranch();
@@ -36,10 +36,10 @@ async function ask() {
   }
 
   return;
-}
+};
 
 // 브랜치 삭제
-async function deleteBranch() {
+const deleteBranch = async () => {
   const branchNames = getCurrentBranchNames();
   const { branch } = await inquirer.prompt([
     {
@@ -92,10 +92,10 @@ async function deleteBranch() {
   } else {
     showDecoratedMessage('👌 브랜치 삭제가 취소되었어요.');
   }
-}
+};
 
 // 브랜치 전환
-async function checkOutBranch() {
+const checkoutBranch = async () => {
   const branchNames = getCurrentBranchNames();
   const { branch } = await inquirer.prompt([
     {
@@ -112,7 +112,7 @@ async function checkOutBranch() {
   } catch (error) {
     console.error(`🙈 앗! 오류가 발생했어요: ${error.message}`);
   }
-}
+};
 
 // 브랜치 생성
 async function createBranch() {
@@ -174,17 +174,6 @@ async function createBranch() {
   } catch (error) {
     console.error(`🙈 앗! 오류가 발생했어요: ${error.message}`);
   }
-}
-
-// 현재 브랜치 리스트
-function getCurrentBranchNames() {
-  const branches = execSync('git branch --format="%(refname:short)"', { encoding: 'utf-8' })
-    .trim()
-    .split('\n');
-
-  return branches.map((branch) => {
-    return { value: branch, name: branch };
-  });
 }
 
 ask();
