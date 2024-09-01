@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Husky 환경 설정
-. "$(dirname "$0")/.husky/_/husky.sh"
+. "./.husky/_/husky.sh"
 
 # pre-commit 훅 실행
 if [ -f .husky/pre-commit ]; then
