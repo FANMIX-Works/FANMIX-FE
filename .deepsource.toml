@@ -1,14 +1,12 @@
 version = 1
 
-exclude_patterns = [  
-  "sw.js",
-]
-
 [[analyzers]]
 name = "javascript"
 enabled = true
 
   [analyzers.meta]
-  environment = ["nodejs", "browser"]
-  dialect = "typescript"      # TypeScript 사용 설정
   plugins = ["react"]         # React 플러그인 사용
+  environment = ["nodejs", "browser"]
+  dependency_file_paths = [
+    "app/"
+  ]
