@@ -25,19 +25,6 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <AppHead />
-      <body className={inter.className}>{children}</body>
-    </html>
-  );
-}
-
 const AppHead = () => {
   return (
     <head>
@@ -51,3 +38,16 @@ const AppHead = () => {
     </head>
   );
 };
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <AppHead />
+      <body className={inter.className}>{children}</body>
+    </html>
+  );
+}
