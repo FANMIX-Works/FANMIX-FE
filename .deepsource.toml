@@ -1,8 +1,10 @@
-version = 1
+version = 3
 
 exclude_patterns = [
-    "public/**,",
-    "git-tools/**,",
+    "**/*",
+    "!app/**/*",
+    "public/**",
+    "git-tools/**",
 ]
 
 [[analyzers]]
