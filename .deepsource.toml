@@ -1,10 +1,9 @@
 version = 3
 
 exclude_patterns = [
-    "**/*",
-    "!app/**/*",
-    "public/**",
-    "git-tools/**",
+    "**/public/",
+    "**/git-tools/",
+    "**/messages/",
 ]
 
 [[analyzers]]
