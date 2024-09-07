@@ -41,5 +41,5 @@
     ]
   },
 
-  "ignorePatterns": ["**/git-tools/", "sw.js"]
+  "ignorePatterns": ["**/git-tools/", "custom-sw.js"]
 }
