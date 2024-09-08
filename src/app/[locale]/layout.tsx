@@ -4,7 +4,6 @@ import localFont from 'next/font/local';
 import '../globals.css';
 
 import { getMessages } from 'next-intl/server';
-
 import { NextIntlClientProvider } from 'next-intl';
 
 const suit = localFont({
@@ -63,7 +62,13 @@ export default async function RootLayout({
     <html lang={locale} className={suit.variable}>
       <AppHead />
       <body className={suit.className}>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages} locale={locale}>
+          <div className="h-screen w-screen bg-slate-600 flex-center">
+            <div className="h-full max-h-[900px] w-full bg-black text-white sm:w-[393px]">
+              {children}
+            </div>
+          </div>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

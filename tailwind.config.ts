@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 import tailwindcssAnimate from 'tailwindcss-animate';
+import plugin from 'tailwindcss/plugin';
 
 const config: Config = {
   darkMode: ['class'],
@@ -66,6 +67,24 @@ const config: Config = {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [
+    tailwindcssAnimate,
+    plugin(({ addUtilities }) => {
+      const newUtilities = {
+        '.flex-center': {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
+        '.flex-col-center': {
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
+      };
+      addUtilities(newUtilities);
+    }),
+  ],
 };
 export default config;
