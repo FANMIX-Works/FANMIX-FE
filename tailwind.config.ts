@@ -64,6 +64,8 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+        orange: { 1: { DEFAULT: '#FF4D33', action: '#B93825' } },
+        darkgray: { 1: '#1F2021', 2: '#353637' },
       },
     },
   },
@@ -81,6 +83,12 @@ const config: Config = {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
+        },
+        '.bg-gradient': {
+          background: 'linear-gradient(to bottom, #320C06 0%, #000000 100%)',
+        },
+        '.fanmix-gradient': {
+          background: 'linear-gradient(to bottom, #FF3A1C 0%, #FF5B46 100%)',
         },
       };
       addUtilities(newUtilities);
