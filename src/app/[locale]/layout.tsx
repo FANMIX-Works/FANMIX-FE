@@ -5,8 +5,7 @@ import '../globals.css';
 
 import { getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
-import Header from '@/components/layout/Header';
-import BottomNavigation from '@/components/layout/BottomNavigation';
+import ResponsiveLayout from '@/components/layout/ResponsiveLayout';
 
 const suit = localFont({
   src: '../../../public/assets/fonts/SUIT-Variable.woff2',
@@ -63,13 +62,7 @@ export default async function RootLayout({
       <AppHead />
       <body className={suit.className}>
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <div className="h-screen w-screen bg-slate-900 flex-center">
-            <div className="relative h-screen max-h-[900px] w-screen overflow-hidden rounded-md border border-slate-600 bg-black text-white flex-col-center sm:w-[393px]">
-              <Header />
-              {children}
-              <BottomNavigation />
-            </div>
-          </div>
+          <ResponsiveLayout>{children}</ResponsiveLayout>
         </NextIntlClientProvider>
       </body>
     </html>
