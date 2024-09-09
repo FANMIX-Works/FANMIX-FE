@@ -14,6 +14,29 @@ const config: Config = {
       fontFamily: {
         suit: ['var(--font-suit-variable)', 'sans-serif'],
       },
+      fontWeight: {
+        bold: '700',
+        semibold: '600',
+        medium: '500',
+        regular: '400',
+        light: '300',
+      },
+      fontSize: {
+        'button-r': ['14px', { lineHeight: '1.4', fontWeight: '400' }], // Regular
+        'button-m': ['14px', { lineHeight: '1.4', fontWeight: '500' }], // Medium
+        'h1-sb': ['24px', { lineHeight: '1.5', fontWeight: '600' }], // SemiBold
+        'h2-sb': ['20px', { lineHeight: '1.2', fontWeight: '600' }],
+        'body1-r': ['18px', { lineHeight: '1.4', fontWeight: '400' }],
+        'body1-m': ['18px', { lineHeight: '1.4', fontWeight: '500' }],
+        'body2-r': ['16px', { lineHeight: '1.5', fontWeight: '400' }],
+        'body2-m': ['16px', { lineHeight: '1.5', fontWeight: '500' }],
+        'body2-sb': ['16px', { lineHeight: '1.5', fontWeight: '600' }],
+        'body3-r': ['14px', { lineHeight: '1.4', fontWeight: '400' }],
+        'body3-m': ['14px', { lineHeight: '1.4', fontWeight: '500' }],
+        'sub1-r': ['12px', { lineHeight: '1.4', fontWeight: '400' }],
+        'sub1-m': ['12px', { lineHeight: '1.4', fontWeight: '500' }],
+        'sub2-m': ['10px', { lineHeight: '1.4', fontWeight: '500' }],
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
@@ -73,6 +96,7 @@ const config: Config = {
     tailwindcssAnimate,
     plugin(({ addUtilities }) => {
       const newUtilities = {
+        // custom-flex
         '.flex-center': {
           display: 'flex',
           alignItems: 'center',
@@ -84,6 +108,7 @@ const config: Config = {
           alignItems: 'center',
           justifyContent: 'center',
         },
+        // custom-gradient
         '.bg-gradient': {
           background: 'linear-gradient(to bottom, #320C06 0%, #000000 100%)',
         },
