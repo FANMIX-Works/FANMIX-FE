@@ -5,6 +5,8 @@ import '../globals.css';
 
 import { getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
+import Header from '@/components/layout/Header';
+import BottomNavigation from '@/components/layout/BottomNavigation';
 
 const suit = localFont({
   src: '../../../public/assets/fonts/SUIT-Variable.woff2',
@@ -54,8 +56,6 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages();
 
   return (
@@ -63,9 +63,11 @@ export default async function RootLayout({
       <AppHead />
       <body className={suit.className}>
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <div className="h-screen w-screen bg-slate-600 flex-center">
-            <div className="h-full max-h-[900px] w-full bg-black text-white sm:w-[393px]">
+          <div className="h-screen w-screen bg-slate-900 flex-center">
+            <div className="relative h-screen max-h-[900px] w-screen overflow-hidden rounded-md border border-slate-600 bg-black text-white flex-col-center sm:w-[393px]">
+              <Header />
               {children}
+              <BottomNavigation />
             </div>
           </div>
         </NextIntlClientProvider>
