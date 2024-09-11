@@ -11,7 +11,7 @@ const BottomNavigation = () => {
     { label: '홈', icon: LiaHomeSolid, path: '/' },
     { label: '팔로우', icon: LiaBookmark, path: '/follow' },
     { label: '팬채널', icon: LiaEnvelope, path: '/fan-channel' },
-    { label: '마이', icon: LiaUser, path: '/mypage' },
+    { label: '마이', icon: LiaUser, path: '/my' },
   ];
   return (
     <nav className="absolute bottom-0 z-10 flex h-[80px] w-full justify-between bg-darkgray/70 px-5 backdrop-blur-[4px]">

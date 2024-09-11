@@ -9,8 +9,7 @@ export default function MainPage() {
   return (
     <main className="h-full w-full overflow-y-auto bg-gray-700 scrollbar-hide-smooth">
       메이인 메이인 메이인 메이인 메이인 메이인 메이인 메이인 메이인
-      <h1 className="h-[1500px] text-orange-400">{t('나중에 하기')}</h1>
-      <h1>{t2('{nickName}님 안녕하세요', { nickName: 'tpdud' })}</h1>
+      <h1>{t('나중에 하기')}</h1>
       <h1>{t2('{nickName}님 안녕하세요', { nickName: 'tpdud' })}</h1>
       <h1>{t2('{nickName}님 안녕하세요', { nickName: 'tpdud' })}</h1>
       <h1>{t2('{nickName}님 안녕하세요', { nickName: 'tpdud' })}</h1>
@@ -24,6 +23,8 @@ export default function MainPage() {
       <Link href="/" locale="ko">
         Switch to ko
       </Link>
+      <Link href="/login">login</Link>
+      <h1 className="h-[3000px]">{t2('{nickName}님 안녕하세요', { nickName: 'tpdud' })}</h1>s
     </main>
   );
 }
