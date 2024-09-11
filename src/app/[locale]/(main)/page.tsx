@@ -1,3 +1,5 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
 
 // 메인 페이지
@@ -15,7 +17,8 @@ export default function MainPage() {
       <h1>{t2('{nickName}님 안녕하세요', { nickName: 'tpdud' })}</h1>
       <h1>{t2('{nickName}님 안녕하세요', { nickName: 'tpdud' })}</h1>
       <hr />
-      <h1 className="h-[3000px]">{t2('{nickName}님 안녕하세요', { nickName: 'tpdud' })}</h1>s
+      <h1 className="h-[3000px]">{t2('{nickName}님 안녕하세요', { nickName: 'tpdud' })}</h1>
+      <h2>블러어어</h2>
     </main>
   );
 }

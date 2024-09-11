@@ -91,6 +91,7 @@ const config: Config = {
         orange: {
           1: { DEFAULT: '#FF4D33', action: '#B93825' },
           2: { DEFAULT: '#FF634F' },
+          5: { DEFAULT: '#FFDBD6' },
           bg: { DEFAULT: '#D74833' },
         },
         darkgray: '#262626',
@@ -132,6 +133,10 @@ const config: Config = {
         // 스케일 부드럽게 키우기
         '.scale-transition-105': {
           '@apply transform transition duration-300 ease-in-out scale-105 cursor-pointer': {},
+        },
+        // blur
+        '.bg-blur-10': {
+          '@apply backdrop-blur-[4px] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]': {},
         },
       };
       addUtilities(newUtilities);
