@@ -8,7 +8,7 @@ import { Link, usePathname } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
 const BottomNavigation = () => {
-  const t = useTranslations('BottomNav');
+  const t = useTranslations('bottomNav');
   const pathname = usePathname();
 
   const navItems = [

@@ -10,7 +10,7 @@ import useCurrentRouteLabel from '@/hooks/useCurrentRouteLabel';
 import { ROUTES } from '@/constants/routes';
 
 const Header = () => {
-  const t = useTranslations('TopTitle');
+  const t = useTranslations('topTitle');
   const currentLabel = useCurrentRouteLabel();
 
   return (
