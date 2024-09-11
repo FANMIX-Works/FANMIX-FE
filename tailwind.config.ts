@@ -35,6 +35,7 @@ const config: Config = {
         'body3-m': ['14px', { lineHeight: '1.4', fontWeight: '500' }],
         'sub1-r': ['12px', { lineHeight: '1.4', fontWeight: '400' }],
         'sub1-m': ['12px', { lineHeight: '1.4', fontWeight: '500' }],
+        'sub1-sb': ['12px', { lineHeight: '1.4', fontWeight: '600' }],
         'sub2-m': ['10px', { lineHeight: '1.4', fontWeight: '500' }],
       },
       backgroundImage: {
