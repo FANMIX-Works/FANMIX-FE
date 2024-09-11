@@ -1,5 +1,6 @@
 import Header from '@/components/layout/Header';
 import BottomNavigation from '@/components/layout/BottomNavigation';
+import ModalPortal from '@/components/layout/ModalPortal';
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -7,6 +8,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       <Header />
       {children}
       <BottomNavigation />
+      <ModalPortal />
     </>
   );
 }
