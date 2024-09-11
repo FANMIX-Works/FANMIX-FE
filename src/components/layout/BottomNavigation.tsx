@@ -5,14 +5,17 @@ import { LiaHomeSolid, LiaBookmark, LiaEnvelope, LiaUser } from 'react-icons/lia
 
 import { ROUTES } from '@/constants/routes';
 import { Link, usePathname } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
 const BottomNavigation = () => {
+  const t = useTranslations('BottomNav');
   const pathname = usePathname();
+
   const navItems = [
-    { label: '홈', icon: LiaHomeSolid, path: ROUTES.HOME },
-    { label: '팔로우', icon: LiaBookmark, path: ROUTES.FOLLOW },
-    { label: '팬채널', icon: LiaEnvelope, path: ROUTES.FANCHANNEL },
-    { label: '마이', icon: LiaUser, path: ROUTES.MY },
+    { label: ROUTES.HOME.LABEL, icon: LiaHomeSolid, path: ROUTES.HOME.PATH },
+    { label: ROUTES.FOLLOW.LABEL, icon: LiaBookmark, path: ROUTES.FOLLOW.PATH },
+    { label: ROUTES.FANCHANNEL.LABEL, icon: LiaEnvelope, path: ROUTES.FANCHANNEL.PATH },
+    { label: ROUTES.MYPAGE.LABEL, icon: LiaUser, path: ROUTES.MYPAGE.PATH },
   ];
   return (
     <nav className="z-5 absolute bottom-0 flex h-[80px] w-full justify-between bg-darkgray/70 px-5 backdrop-blur-[4px]">
@@ -23,7 +26,7 @@ const BottomNavigation = () => {
           <Link href={item.path} key={item.path}>
             <div className="h-14 w-14 gap-[2px] text-sub1-m text-neutral-400 flex-col-center hover:scale-transition-105">
               <Icon className={cn('h-6 w-6', isActive && 'text-orange-1')} />
-              <span className={cn(isActive && 'sb text-white')}>{item.label}</span>
+              <span className={cn(isActive && 'sb text-white')}>{t(item.label)}</span>
             </div>
           </Link>
         );

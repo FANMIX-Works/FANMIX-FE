@@ -1,3 +1,3 @@
 export default function FanChannelPage() {
-  return <main className="h-full w-full bg-gray-700">팬채널</main>;
+  return <main className="h-full w-full px-5">팬채널 페이지</main>;
 }

@@ -3,6 +3,18 @@
     "확인": "Confirm",
     "취소": "Cancel"
   },
+  "TopTitle": {
+    "home": "Home",
+    "follow": "Follow",
+    "fanChannel": "Fan Channel",
+    "myPage": "MyPage"
+  },
+  "BottomNav": {
+    "home": "Home",
+    "follow": "Follow",
+    "fanChannel": "Fan",
+    "myPage": "My"
+  },
   "LoginPage": {
     "회원가입 완료": "Registration Complete",
     "나중에 하기": "Do it Later",

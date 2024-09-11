@@ -3,6 +3,18 @@
     "확인": "확인",
     "취소": "취소"
   },
+  "TopTitle": {
+    "home": "홈",
+    "follow": "팔로우",
+    "fanChannel": "팬채널",
+    "myPage": "마이페이지"
+  },
+  "BottomNav": {
+    "home": "홈",
+    "follow": "팔로우",
+    "fanChannel": "팬채널",
+    "myPage": "마이"
+  },
   "LoginPage": {
     "회원가입 완료": "회원가입 완료",
     "나중에 하기": "나중에 하기",
