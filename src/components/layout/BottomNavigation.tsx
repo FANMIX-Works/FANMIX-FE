@@ -21,7 +21,7 @@ const BottomNavigation = () => {
         const isActive = pathname === item.path;
         return (
           <Link href={item.path} key={item.path}>
-            <div className="h-14 w-14 gap-[2px] text-sub1-m text-neutral-400 flex-col-center">
+            <div className="h-14 w-14 gap-[2px] text-sub1-m text-neutral-400 flex-col-center hover:scale-transition-105">
               <Icon className={cn('h-6 w-6', isActive && 'text-orange-1')} />
               <span className={cn(isActive && 'sb text-white')}>{item.label}</span>
             </div>

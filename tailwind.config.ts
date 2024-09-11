@@ -129,6 +129,10 @@ const config: Config = {
             display: 'none',
           },
         },
+        // 스케일 부드럽게 키우기
+        '.scale-transition-105': {
+          '@apply transform transition duration-300 ease-in-out scale-105 cursor-pointer': {},
+        },
       };
       addUtilities(newUtilities);
     }),
