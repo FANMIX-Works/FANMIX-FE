@@ -1,17 +1,18 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-
-import { Link, usePathname } from '@/i18n/routing';
 import { LiaHomeSolid, LiaBookmark, LiaEnvelope, LiaUser } from 'react-icons/lia';
+
+import { ROUTES } from '@/constants/routes';
+import { Link, usePathname } from '@/i18n/routing';
 
 const BottomNavigation = () => {
   const pathname = usePathname();
   const navItems = [
-    { label: '홈', icon: LiaHomeSolid, path: '/' },
-    { label: '팔로우', icon: LiaBookmark, path: '/follow' },
-    { label: '팬채널', icon: LiaEnvelope, path: '/fan-channel' },
-    { label: '마이', icon: LiaUser, path: '/my' },
+    { label: '홈', icon: LiaHomeSolid, path: ROUTES.HOME },
+    { label: '팔로우', icon: LiaBookmark, path: ROUTES.FOLLOW },
+    { label: '팬채널', icon: LiaEnvelope, path: ROUTES.FANCHANNEL },
+    { label: '마이', icon: LiaUser, path: ROUTES.MY },
   ];
   return (
     <nav className="absolute bottom-0 z-10 flex h-[80px] w-full justify-between bg-darkgray/70 px-5 backdrop-blur-[4px]">
