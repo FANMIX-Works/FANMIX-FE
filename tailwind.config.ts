@@ -87,8 +87,12 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
-        orange: { 1: { DEFAULT: '#FF4D33', action: '#B93825' } },
-        darkgray: { 1: '#1F2021', 2: '#353637' },
+        orange: {
+          1: { DEFAULT: '#FF4D33', action: '#B93825' },
+          2: { DEFAULT: '#FF634F' },
+          bg: { DEFAULT: '#D74833' },
+        },
+        darkgray: '#262626',
       },
     },
   },
@@ -114,6 +118,15 @@ const config: Config = {
         },
         '.fanmix-gradient': {
           background: 'linear-gradient(to bottom, #FF3A1C 0%, #FF5B46 100%)',
+        },
+        // scroll
+        '.scrollbar-hide-smooth': {
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+          'scroll-behavior': 'smooth',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
         },
       };
       addUtilities(newUtilities);
