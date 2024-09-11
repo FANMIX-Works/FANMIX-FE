@@ -15,7 +15,7 @@ const BottomNavigation = () => {
     { label: '마이', icon: LiaUser, path: ROUTES.MY },
   ];
   return (
-    <nav className="absolute bottom-0 z-10 flex h-[80px] w-full justify-between bg-darkgray/70 px-5 backdrop-blur-[4px]">
+    <nav className="z-5 absolute bottom-0 flex h-[80px] w-full justify-between bg-darkgray/70 px-5 backdrop-blur-[4px]">
       {navItems.map((item) => {
         const Icon = item.icon;
         const isActive = pathname === item.path;
