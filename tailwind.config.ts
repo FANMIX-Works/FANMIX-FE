@@ -138,6 +138,34 @@ const config: Config = {
         '.bg-blur-10': {
           '@apply backdrop-blur-[4px] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]': {},
         },
+        // close-icon
+        '.closeIcon': {
+          width: '24px',
+          height: '24px',
+          marginTop: '70px',
+          marginRight: '24px',
+          cursor: 'pointer',
+        },
+        //custom-imgArea
+        '.imgArea': {
+          width: '394px',
+          height: '450px',
+          marginTop: '58px',
+        },
+        '.logoImg': {
+          marginBottom: '119px',
+        },
+        //custom-loginBtn
+        '.loginBtn': {
+          width: '353px',
+          height: '52px',
+          backgroundColor: '#262626',
+          marginTop: '50px',
+          marginBottom: '25px',
+        },
+        '.hover-loginBtn': {
+          backgroundColor: '#171717',
+        },
       };
       addUtilities(newUtilities);
     }),
