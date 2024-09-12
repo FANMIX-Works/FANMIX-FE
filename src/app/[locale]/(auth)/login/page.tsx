@@ -6,7 +6,6 @@ import LogoImg from '@/assets/logo/logo_vertical.svg';
 import { FcGoogle } from 'react-icons/fc';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Button } from '@/components/ui/button';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -43,10 +42,10 @@ export default function LoginPage() {
         </div>
       </div>
       <div className="flex flex-col items-center">
-        <Button className="mb-[25px] mt-[50px] flex h-[52px] w-[353px] items-center justify-center bg-[#262626] hover:bg-[#171717]">
+        <button className="mb-[25px] mt-[50px] flex h-[52px] w-[353px] items-center justify-center bg-[#262626] hover:bg-[#171717]">
           <FcGoogle className="mr-4 h-5 w-5" />
           <span className="button-r">Google 계정으로 시작하기</span>
-        </Button>
+        </button>
         <button onClick={handleGoBack}>뒤로가기</button>
       </div>
     </main>
