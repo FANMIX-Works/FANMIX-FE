@@ -1,5 +1,7 @@
 'use client';
 
+import { memo, useMemo } from 'react';
+
 import { cn } from '@/lib/utils';
 import { LiaHomeSolid, LiaBookmark, LiaEnvelope, LiaUser } from 'react-icons/lia';
 
@@ -11,12 +13,16 @@ const BottomNavigation = () => {
   const t = useTranslations('bottomNav');
   const pathname = usePathname();
 
-  const navItems = [
-    { label: ROUTES.HOME.LABEL, icon: LiaHomeSolid, path: ROUTES.HOME.PATH },
-    { label: ROUTES.FOLLOW.LABEL, icon: LiaBookmark, path: ROUTES.FOLLOW.PATH },
-    { label: ROUTES.FANCHANNEL.LABEL, icon: LiaEnvelope, path: ROUTES.FANCHANNEL.PATH },
-    { label: ROUTES.MYPAGE.LABEL, icon: LiaUser, path: ROUTES.MYPAGE.PATH },
-  ];
+  const navItems = useMemo(
+    () => [
+      { label: ROUTES.HOME.LABEL, icon: LiaHomeSolid, path: ROUTES.HOME.PATH },
+      { label: ROUTES.FOLLOW.LABEL, icon: LiaBookmark, path: ROUTES.FOLLOW.PATH },
+      { label: ROUTES.FANCHANNEL.LABEL, icon: LiaEnvelope, path: ROUTES.FANCHANNEL.PATH },
+      { label: ROUTES.MYPAGE.LABEL, icon: LiaUser, path: ROUTES.MYPAGE.PATH },
+    ],
+    [],
+  );
+
   return (
     <nav className="z-5 absolute bottom-0 flex h-[80px] w-full justify-between bg-darkgray/70 px-5 bg-blur-10">
       {navItems.map((item) => {
@@ -35,4 +41,4 @@ const BottomNavigation = () => {
   );
 };
 
-export default BottomNavigation;
+export default memo(BottomNavigation);
