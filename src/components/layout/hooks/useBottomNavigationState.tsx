@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import { LiaHomeSolid, LiaBookmark, LiaEnvelope, LiaUser } from 'react-icons/lia';
+import { LiaHomeSolid, LiaBookmark, LiaGem, LiaUser } from 'react-icons/lia';
 
 import { ROUTES } from '@/constants/routes';
 import useScrollDirection from '@/hooks/useScrollDirection';
@@ -24,7 +24,7 @@ const useBottomNavigationState = () => {
     () => [
       { label: ROUTES.HOME.LABEL, icon: LiaHomeSolid, path: ROUTES.HOME.PATH },
       { label: ROUTES.FOLLOW.LABEL, icon: LiaBookmark, path: ROUTES.FOLLOW.PATH },
-      { label: ROUTES.FANCHANNEL.LABEL, icon: LiaEnvelope, path: ROUTES.FANCHANNEL.PATH },
+      { label: ROUTES.FANCHANNEL.LABEL, icon: LiaGem, path: ROUTES.FANCHANNEL.PATH },
       { label: ROUTES.MYPAGE.LABEL, icon: LiaUser, path: ROUTES.MYPAGE.PATH },
     ],
     [],

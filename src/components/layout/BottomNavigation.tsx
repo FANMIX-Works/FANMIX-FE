@@ -26,7 +26,7 @@ const BottomNavigation = () => {
           <Link href={item.path} key={item.path}>
             <div className="h-14 w-14 gap-[2px] text-sub1-m text-neutral-400 flex-col-center hover:scale-transition-105">
               <Icon className={cn('h-6 w-6', isActive && 'text-orange-600')} />
-              <span className={cn(isActive && 'sb text-white')}>{t(item.label)}</span>
+              <span className={cn(isActive && 'text-sub1-sb text-white')}>{t(item.label)}</span>
             </div>
           </Link>
         );
