@@ -135,6 +135,10 @@ const config: Config = {
             display: 'none',
           },
         },
+        // 스크롤 감지가 되어야하는 페이지 영역 최상단에 추가
+        '.page-scrollable-container': {
+          '@apply overflow-y-auto pb-20 scrollbar-hide-smooth': {},
+        },
         // 스케일 부드럽게 키우기
         '.scale-transition-105': {
           '@apply transform transition duration-300 ease-in-out scale-105 cursor-pointer': {},

@@ -19,9 +19,7 @@ export default function MyPage() {
   };
 
   return (
-    <main
-      id={DOM_IDS.CURRENT_SCROLL_PAGE}
-      className="h-full w-full overflow-y-auto pb-20 pt-7 scrollbar-hide-smooth">
+    <main id={DOM_IDS.CURRENT_SCROLL_PAGE} className="h-full w-full pt-7 page-scrollable-container">
       <section
         aria-label="사용자 프로필"
         className="mx-5 mb-4 flex h-[100px] items-center justify-between py-3 pl-4 pr-2.5 fanmix-gradient">
