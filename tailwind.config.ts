@@ -22,9 +22,7 @@ const config: Config = {
         light: '300',
       },
       fontSize: {
-        'button-r': ['14px', { lineHeight: '1.4', fontWeight: '400' }], // Regular
-        'button-m': ['14px', { lineHeight: '1.4', fontWeight: '500' }], // Medium
-        'h1-sb': ['24px', { lineHeight: '1.4', fontWeight: '600' }], // SemiBold
+        'h1-sb': ['24px', { lineHeight: '1.4', fontWeight: '600' }],
         'h2-r': ['20px', { lineHeight: '1.2', fontWeight: '400' }],
         'h2-m': ['20px', { lineHeight: '1.2', fontWeight: '500' }],
         'body1-r': ['18px', { lineHeight: '1.4', fontWeight: '400' }],

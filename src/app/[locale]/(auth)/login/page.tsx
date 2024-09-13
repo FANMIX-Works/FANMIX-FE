@@ -18,17 +18,17 @@ export default function LoginPage() {
 
   return (
     <main className="h-full w-full dark-gradient">
-      <div className="flex items-center justify-end p-3 pb-0">
-        <VscChromeClose className="mt-[10px] h-6 w-6 scale-transition-105" onClick={handleGoBack} />
+      <div className="mr-5 mt-2.5 flex items-center justify-end">
+        <VscChromeClose className="h-6 w-6 hover:scale-transition-105" onClick={handleGoBack} />
       </div>
       <Swiper
-        className="mt-[58px] h-[450px] w-[394px]"
+        className="mt-[58px] h-[450px]"
         modules={[Pagination]}
         slidesPerView={1}
         pagination={{ clickable: true }}>
-        <SwiperSlide className="flex items-center justify-center">
-          <div className="flex items-center justify-center">
-            <LogoImg className="mb-[119px] mt-[167px] max-h-full max-w-full" />
+        <SwiperSlide className="w-full flex-center">
+          <div className="flex-center">
+            <LogoImg className="mb-[119px] mt-[167px]" />
           </div>
         </SwiperSlide>
         <SwiperSlide></SwiperSlide>
@@ -36,10 +36,10 @@ export default function LoginPage() {
         <SwiperSlide></SwiperSlide>
       </Swiper>
 
-      <div className="mx-5 flex flex-col items-center">
-        <button className="mb-[24px] mt-[50px] flex h-[52px] w-full items-center justify-center bg-neutral-800 hover:bg-neutral-900">
+      <div className="mx-5 flex-col-center">
+        <button className="mb-[24px] mt-[50px] h-[52px] w-full bg-neutral-800 flex-center hover:bg-neutral-900">
           <FcGoogle className="mr-4 h-5 w-5" />
-          <span className="button-r">Google 계정으로 시작하기</span>
+          <span className="body3-r">Google 계정으로 시작하기</span>
         </button>
         <button onClick={handleGoBack}>뒤로가기</button>
       </div>
