@@ -11,8 +11,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Button } from '@/components/ui/button';
 
 import { useRouter } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
 export default function LoginPage() {
+  const t = useTranslations('login_page');
   const router = useRouter();
 
   const handleGoBack = () => {
@@ -42,10 +44,10 @@ export default function LoginPage() {
         <div className="w-full gap-6 px-5 flex-col-center">
           <Button className="h-[52px] w-full flex-center">
             <FcGoogle className="mr-4 h-5 w-5" />
-            <span className="text-body3-r">Google 계정으로 시작하기</span>
+            <span className="text-body3-r">{t('Google 계정으로 시작하기')}</span>
           </Button>
           <button className="text-body3-r" onClick={handleGoBack}>
-            뒤로가기
+            {t('뒤로가기')}
           </button>
         </div>
       </section>
