@@ -35,7 +35,9 @@ export default function MyPage() {
             <p className="text-body3-r text-orange-200">0000000@gmail.com</p>
           </div>
         </div>
-        <VscChevronRight className="h-5 w-5 hover:scale-transition-105" />
+        <Link href="/my/edit">
+          <VscChevronRight className="h-5 w-5 hover:scale-transition-105" />
+        </Link>
       </section>
       <section aria-label="한줄 소개" className="mx-5 mb-8">
         <p className="text-body3-r">

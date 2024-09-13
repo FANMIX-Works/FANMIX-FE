@@ -10,16 +10,12 @@ import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Button } from '@/components/ui/button';
 
-import { useRouter } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+import useGoBack from '@/hooks/useGoBack';
 
 export default function LoginPage() {
   const t = useTranslations('login_page');
-  const router = useRouter();
-
-  const handleGoBack = () => {
-    router.back();
-  };
+  const { handleGoBack } = useGoBack();
 
   return (
     <main className="h-full w-full dark-gradient">
