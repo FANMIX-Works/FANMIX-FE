@@ -99,7 +99,6 @@ const config: Config = {
           700: '#B93825',
           800: '#7B1E10',
         },
-        darkgray: '#262626',
       },
     },
   },
@@ -140,7 +139,7 @@ const config: Config = {
           '@apply transform transition duration-300 ease-in-out scale-105 cursor-pointer': {},
         },
         // blur
-        '.bg-blur-10': {
+        '.blur-10': {
           '@apply backdrop-blur-[4px] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]': {},
         },
       };
