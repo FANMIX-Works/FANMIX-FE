@@ -1,5 +1,6 @@
 'use client';
 
+import { DOM_IDS } from '@/constants/domIdentifiers';
 import { useTranslations } from 'next-intl';
 
 // 메인 페이지
@@ -10,7 +11,7 @@ export default function MainPage() {
   // #20240908.syjang, 아래 내용은 다국어 처리 및 언어 전환 예시로 작성해뒀습니다. 다음 pr 때 삭제 예정입니다.
   return (
     <main
-      id="current-scroll-page"
+      id={DOM_IDS.CURRENT_SCROLL_PAGE}
       className="h-full w-full overflow-y-auto px-5 scrollbar-hide-smooth">
       메이인 메이인 메이인 메이인 메이인 메이인 메이인 메이인 메이인
       <h1>{t('나중에 하기')}</h1>
