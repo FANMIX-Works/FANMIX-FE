@@ -8,6 +8,7 @@ import { VscChromeClose } from 'react-icons/vsc';
 import { FcGoogle } from 'react-icons/fc';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Button } from '@/components/ui/button';
 
 import { useRouter } from '@/i18n/routing';
 
@@ -39,10 +40,10 @@ export default function LoginPage() {
           <SwiperSlide></SwiperSlide>
         </Swiper>
         <div className="w-full gap-6 px-5 flex-col-center">
-          <button className="h-[52px] w-full bg-neutral-800 flex-center hover:bg-neutral-900">
+          <Button className="h-[52px] w-full flex-center">
             <FcGoogle className="mr-4 h-5 w-5" />
             <span className="text-body3-r">Google 계정으로 시작하기</span>
-          </button>
+          </Button>
           <button className="text-body3-r" onClick={handleGoBack}>
             뒤로가기
           </button>
