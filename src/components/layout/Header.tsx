@@ -3,13 +3,12 @@
 import { memo } from 'react';
 
 import Logo from '@/assets/logo/logo_symbol.svg';
-import MainSearch from '../features/mainSearch/MainSearch';
-import ExpandableMenu from '../features/expandableMenu/ExpandableMenu';
 
 import { useTranslations } from 'next-intl';
 import useCurrentRouteLabel from '@/hooks/useCurrentRouteLabel';
 
 import { ROUTES } from '@/constants/routes';
+import { ExpandableMenu, MainAlarm, MainSearch } from '../features/header';
 
 const Header = () => {
   const t = useTranslations('topTitle');
@@ -22,6 +21,7 @@ const Header = () => {
       </h2>
       <nav className="gap-[18px] text-white flex-center">
         <MainSearch />
+        <MainAlarm />
         <ExpandableMenu />
       </nav>
     </header>
