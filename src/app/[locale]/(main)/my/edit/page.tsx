@@ -1,4 +1,5 @@
 'use client';
+// import { Metadata } from 'next';
 
 import { Separator } from '@/components/ui/separator';
 import { Switch } from '@/components/ui/switch';
@@ -7,7 +8,11 @@ import { DOM_IDS } from '@/constants/domIdentifiers';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
 
-export default function EditMyPage() {
+// export const metadata: Metadata = {
+//   title: '내 정보 수정',
+// };
+
+export default function MyPageEditPage() {
   const data = {
     userNickName: '닉네임이다',
     imageSrc: '', // 비워질 경우, fallback으로 이름 첫글자 표시

@@ -12,6 +12,11 @@ import { Button } from '@/components/ui/button';
 
 import { useTranslations } from 'next-intl';
 import useGoBack from '@/hooks/useGoBack';
+// import { Metadata } from 'next';
+
+// export const metadata: Metadata = {
+//   title: '로그인',
+// };
 
 export default function LoginPage() {
   const t = useTranslations('login_page');

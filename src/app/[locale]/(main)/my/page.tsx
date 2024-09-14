@@ -1,3 +1,5 @@
+import { Metadata } from 'next';
+
 import { ROUTES } from '@/constants/routes';
 import { DOM_IDS } from '@/constants/domIdentifiers';
 
@@ -8,6 +10,10 @@ import { Separator } from '@/components/ui/separator';
 
 import { MyProfile } from '@/components/features/user';
 import { OnePickInfluencer } from '@/components/features/influencer';
+
+export const metadata: Metadata = {
+  title: '마이페이지',
+};
 
 export default function MyPage() {
   const t = useTranslations('my_page');
