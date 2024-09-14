@@ -1,4 +1,4 @@
-import { HashTagList } from '@/components/common/HashTag';
+import { BadgeList } from '@/components/common/BadgeList';
 import { Button } from '@/components/ui/button';
 import { useTranslations } from 'next-intl';
 
@@ -24,7 +24,7 @@ const OnePickInfluencer = ({ onePickData }: OnePickInfluencerProps) => {
       <div className="flex w-full flex-col">
         <h2 className="mb-1.5 text-sub1-m text-orange-500">{t('MY ONE PICK')}</h2>
         <h3 className="mb-2.5 text-body2-sb">{onePickData.influencerName}</h3>
-        <HashTagList contents={['음악', '보컬', '연예인']} className="mb-5" />
+        <BadgeList contents={['음악', '보컬', '연예인']} className="mb-5" />
         <Button className="h-8 w-full" variant="destructive">
           {t('팬채널로 이동')}
         </Button>
