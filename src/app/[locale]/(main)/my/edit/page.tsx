@@ -3,7 +3,7 @@
 
 import { Separator } from '@/components/ui/separator';
 import { Switch } from '@/components/ui/switch';
-import { UserAvatar } from '@/components/features/user';
+import { UserAvatar } from '@/components/domain/user';
 import { DOM_IDS } from '@/constants/domIdentifiers';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
@@ -32,11 +32,11 @@ export default function MyPageEditPage() {
           <p className="text-body2-r text-neutral-400">0000000@gmail.com</p>
         </div>
       </section>
-      <Separator className="h-[6px] bg-neutral-900" />
+      <Separator className="h-[8px] bg-neutral-900" />
       <section aria-label="사용자 정보 설정" className="mt-8 px-5">
         <UserProfileGrid userData={data} />
       </section>
-      <Separator className="h-[6px] bg-neutral-900" />
+      <Separator className="h-[8px] bg-neutral-900" />
       <footer aria-label="회원탈퇴" className="mx-5 mt-8 flex-center">
         <button className="text-body3-r text-neutral-500">회원탈퇴</button>
       </footer>
@@ -67,7 +67,7 @@ const UserProfileGrid = ({ userData }: UserProfileGrid) => {
 
   return (
     <div>
-      <ul aria-label="사용자 기본 정보" className="grid grid-cols-[auto,1fr] gap-x-4 gap-y-4">
+      <ul aria-label="사용자 기본 정보" className="grid grid-cols-[auto,1fr] gap-x-4 gap-y-6">
         {profileInfo.map((row) => (
           <li key={row.label} className="contents">
             {/* 클릭 시 모달 or select 박스 뜨게 수정 필요 */}
@@ -76,9 +76,7 @@ const UserProfileGrid = ({ userData }: UserProfileGrid) => {
           </li>
         ))}
       </ul>
-      <div
-        aria-label="인플루언서 모드"
-        className="mb-[50px] mt-[42px] flex items-center justify-between">
+      <div aria-label="인플루언서 모드" className="my-[42px] flex items-center justify-between">
         <label htmlFor="influencer-mode" className="text-body3-m text-neutral-200">
           인플루언서 모드
         </label>
