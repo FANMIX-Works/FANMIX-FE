@@ -10,7 +10,7 @@ import useCurrentRouteLabel from '@/hooks/useCurrentRouteLabel';
 
 import { ROUTES } from '@/constants/routes';
 
-import GoBackButton from '../common/GoBackButton';
+import GoBackButton from '../common/button/GoBackButton';
 
 import { MainAlarm } from '../domain/mainAlarm';
 import { MainSearch } from '../domain/mainSearch';

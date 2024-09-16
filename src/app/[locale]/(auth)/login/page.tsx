@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
-import GoBackButton from '@/components/common/GoBackButton';
-import GoogleLoginButton from '@/components/domain/auth/login/GoogleLoginButton';
-import IntroImageCarousel from '@/components/domain/auth/login/IntroImageCarousel';
+import GoBackButton from '@/components/common/button/GoBackButton';
+import GoogleLoginButton from '@/components/domain/auth/GoogleLoginButton';
+import IntroImageCarousel from '@/components/common/carousel/IntroImageCarousel';
 
 export const metadata: Metadata = {
   title: '로그인',
