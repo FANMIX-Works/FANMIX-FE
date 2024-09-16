@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { Switch } from '@/components/ui/switch';
 
 import useInfluencerMode from '../hooks/useInfluencerMode';
+import { useTranslations } from 'next-intl';
 
 interface UserSettingsPanelProps {
   userData: {
@@ -16,14 +17,15 @@ interface UserSettingsPanelProps {
 }
 
 const UserSettingsPanel = ({ userData }: UserSettingsPanelProps) => {
+  const t = useTranslations('my_page_edit_page');
   const { isInfluencerModeActive, handleChangeInfluencerMode } = useInfluencerMode(false);
 
   const profileInfo = [
-    { label: '닉네임', value: userData.userNickName },
-    { label: '내 소개', value: userData.introduction },
-    { label: '성별', value: userData.gender },
-    { label: '출생연도', value: userData.birthYear },
-    { label: '국적', value: userData.nationality },
+    { label: t('닉네임'), value: userData.userNickName },
+    { label: t('내 소개'), value: userData.introduction },
+    { label: t('성별'), value: userData.gender },
+    { label: t('출생연도'), value: userData.birthYear },
+    { label: t('국적'), value: userData.nationality },
   ];
 
   return (
@@ -39,7 +41,7 @@ const UserSettingsPanel = ({ userData }: UserSettingsPanelProps) => {
       </ul>
       <div aria-label="인플루언서 모드" className="my-[42px] flex items-center justify-between">
         <label htmlFor="influencer-mode" className="text-body3-m text-neutral-200">
-          인플루언서 모드
+          {t('인플루언서 모드')}
         </label>
         <div className="gap-2.5 flex-center">
           <span

@@ -4,12 +4,14 @@ import { DOM_IDS } from '@/constants/domIdentifiers';
 
 import { Separator } from '@/components/ui/separator';
 import { UserAvatar, UserSettingsPanel } from '@/components/domain/user';
+import { useTranslations } from 'next-intl';
 
 export const metadata: Metadata = {
   title: '내 정보 수정',
 };
 
 export default function MyPageEditPage() {
+  const t = useTranslations('my_page_edit_page');
   const data = {
     userNickName: '닉네임이다',
     imageSrc: '', // 비워질 경우, fallback으로 이름 첫글자 표시
@@ -35,7 +37,7 @@ export default function MyPageEditPage() {
       </section>
       <Separator className="h-[8px] bg-neutral-900" />
       <footer aria-label="회원탈퇴" className="mx-5 mt-8 flex-center">
-        <button className="text-body3-r text-neutral-500">회원탈퇴</button>
+        <button className="text-body3-r text-neutral-500">{t('회원탈퇴')}</button>
       </footer>
     </main>
   );
