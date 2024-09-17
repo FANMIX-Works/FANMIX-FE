@@ -19,7 +19,7 @@ import MenuContent from './MenuContent';
 import ChangeLanguage from './ChangeLanguage';
 import { ROUTES } from '@/constants/routes';
 
-const ExpandableMenu = () => {
+const MainSlideMenu = () => {
   return (
     <Sheet>
       <SheetTrigger>
@@ -48,4 +48,4 @@ const ExpandableMenu = () => {
   );
 };
 
-export default ExpandableMenu;
+export default MainSlideMenu;
