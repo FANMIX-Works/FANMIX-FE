@@ -1,9 +1,9 @@
+import DOM_IDS from '@/constants/domIdentifiers';
+
 import { Metadata } from 'next';
 
 import { getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-
-import { DOM_IDS } from '@/constants/domIdentifiers';
 
 export async function generateMetadata({
   params: { locale },

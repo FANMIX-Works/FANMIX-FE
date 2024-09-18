@@ -1,9 +1,25 @@
 import { Metadata } from 'next';
+import { GoogleLoginHandler } from '@/components/domain/auth';
+import { getTranslations } from 'next-intl/server';
 
-export const metadata: Metadata = {
-  title: '로그인 중..',
-};
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'top_title' });
+
+  return {
+    title: t('로그인 중'),
+  };
+}
 
 export default function LoginRedirectPage() {
-  return <main>로그인 중 ..</main>;
+  // TODO: 스피너 추가하기
+  return (
+    <main className="h-full w-full flex-center">
+      로딩중..
+      <GoogleLoginHandler />
+    </main>
+  );
 }

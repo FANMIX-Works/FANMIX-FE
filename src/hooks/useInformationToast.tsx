@@ -10,22 +10,28 @@ import { useToast } from './useToast';
 const useInformationToast = () => {
   const { toast } = useToast();
 
-  const showConfirmToast = useCallback((title: string, description?: string) => {
-    toast({
-      duration: 2000,
-      title,
-      description,
-    });
-  }, []);
+  const showConfirmToast = useCallback(
+    (title: string, description?: string) => {
+      toast({
+        duration: 2000,
+        title,
+        description,
+      });
+    },
+    [toast],
+  );
 
-  const showErrorToast = (title: string, description?: string) => {
-    toast({
-      duration: 2000,
-      variant: 'destructive',
-      title,
-      description,
-    });
-  };
+  const showErrorToast = useCallback(
+    (title: string, description?: string) => {
+      toast({
+        duration: 2000,
+        variant: 'destructive',
+        title,
+        description,
+      });
+    },
+    [toast],
+  );
 
   return { showConfirmToast, showErrorToast };
 };

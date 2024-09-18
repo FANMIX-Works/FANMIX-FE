@@ -1,10 +1,11 @@
+import DOM_IDS from '@/constants/domIdentifiers';
+
 import { Metadata } from 'next';
 
 import { getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 
 import { ROUTES } from '@/constants/routes';
-import { DOM_IDS } from '@/constants/domIdentifiers';
 
 import { Link } from '@/i18n/routing';
 import { Separator } from '@/components/ui/separator';
