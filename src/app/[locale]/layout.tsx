@@ -5,7 +5,11 @@ import '../globals.css';
 
 import { getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
+
 import ResponsiveLayout from '@/components/layout/ResponsiveLayout';
+
+import { Toaster } from '@/components/ui/toaster';
+import ModalPortal from '@/components/layout/ModalPortal';
 
 const suit = localFont({
   src: '../../../public/assets/fonts/SUIT-Variable.woff2',
@@ -60,6 +64,8 @@ export default async function RootLayout({
       <body className={suit.className}>
         <NextIntlClientProvider messages={messages} locale={locale}>
           <ResponsiveLayout>{children}</ResponsiveLayout>
+          <ModalPortal />
+          <Toaster />
         </NextIntlClientProvider>
       </body>
     </html>
