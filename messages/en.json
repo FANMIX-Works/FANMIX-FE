@@ -45,7 +45,7 @@
     "회원탈퇴": "Delete Account"
   },
   "api_result": {
-    "다시 시도해 주세요.": "Please try again.",
-    "로그인에 실패했습니다.": "Google login has failed."
+    "다시 시도해 주세요": "Please try again.",
+    "로그인에 실패했습니다": "Google login has failed."
   }
 }

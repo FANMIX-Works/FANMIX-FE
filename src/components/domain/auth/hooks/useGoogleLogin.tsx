@@ -1,3 +1,5 @@
+'use client';
+
 import { login } from '@/services/authService';
 
 import { ROUTES } from '@/constants/routes';
@@ -7,14 +9,21 @@ import { useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 
 import useInformationToast from '@/hooks/useInformationToast';
-import { useAuthStore } from '@/stores/authStore';
-import { LoginResponse } from '@/types/service/authServiceType';
+
 import { useUserStore } from '@/stores/userStore';
+import { useAuthStore } from '@/stores/authStore';
+import { useModalStore } from '@/stores/modalStore';
+
+import SignUpSuccess from '../SignUpSuccess';
+
+import type { LoginResponse } from '@/types/service/authServiceType';
 
 const useGoogleLogin = () => {
   const t = useTranslations('api_result');
   const { showErrorToast } = useInformationToast();
   const router = useRouter();
+
+  const { openModal } = useModalStore();
 
   const setLogin = useAuthStore((state) => state.setLogin);
   const setUser = useUserStore((state) => state.setUser);
@@ -29,7 +38,7 @@ const useGoogleLogin = () => {
 
       // 최초 로그인 여부에 따라 라우팅 분기 처리
       if (isFirstLogin) {
-        router.push(ROUTES.MYPAGE_EDIT.PATH);
+        openModal(<SignUpSuccess />);
       } else {
         router.push(ROUTES.HOME.PATH);
       }
@@ -38,7 +47,7 @@ const useGoogleLogin = () => {
   );
 
   const handleFailLogin = useCallback(() => {
-    showErrorToast(t('로그인에 실패했습니다.'), t('다시 시도해 주세요.'));
+    showErrorToast(t('로그인에 실패했습니다'), t('다시 시도해 주세요'));
     router.push(ROUTES.LOGIN.PATH);
   }, [t, router, showErrorToast]);
 
