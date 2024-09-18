@@ -7,8 +7,8 @@ interface AuthState {
   isLoggedIn: boolean;
   accessToken: string | null;
   refreshToken: string | null;
-  login: (accessToken: string, refreshToken: string) => void;
-  logout: () => void;
+  setLogin: (accessToken: string, refreshToken: string) => void;
+  setLogout: () => void;
   setAccessToken: (newAccessToken: string) => void;
   setRefreshToken: (newRefreshToken: string) => void;
 }
@@ -20,13 +20,13 @@ export const useAuthStore = create<AuthState>()(
         isLoggedIn: false,
         accessToken: null,
         refreshToken: null,
-        login: (accessToken, refreshToken) =>
+        setLogin: (accessToken, refreshToken) =>
           set({
             isLoggedIn: true,
             accessToken,
             refreshToken,
           }),
-        logout: () => {
+        setLogout: () => {
           set({
             isLoggedIn: false,
             accessToken: null,
@@ -53,9 +53,9 @@ if (typeof window !== 'undefined') {
     const authStore = useAuthStore.getState();
 
     if (authStore?.accessToken && authStore?.refreshToken) {
-      authStore.login(authStore.accessToken, authStore.refreshToken);
+      authStore.setLogin(authStore.accessToken, authStore.refreshToken);
     } else {
-      authStore.logout();
+      authStore.setLogout();
     }
   };
 

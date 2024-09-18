@@ -15,7 +15,10 @@ export const useUserStore = create<UserStoreType>()(
     persist(
       (set) => ({
         user: null,
-        setUser: (user: User) => set({ user }),
+        setUser: (userUpdate: Partial<User>) =>
+          set((state) => ({
+            user: state.user ? { ...state.user, ...userUpdate } : (userUpdate as User),
+          })),
         clearUser: () => set({ user: null }),
       }),
       {
