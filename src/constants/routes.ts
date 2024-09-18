@@ -8,7 +8,7 @@ export const ROUTES = {
   MY_ACTIVITY_DETAILS: { PATH: '/my/activity', LABEL: '활동내역', HAS_PREV_BTN: true }, // 라우팅 수정 필요 (로그인 유저, 타인 구분 필요)
   CUSTOMER_CENTER: { PATH: '/customer-center', LABEL: '고객센터', HAS_PREV_BTN: false },
   LOGIN: { PATH: '/auth/login', LABEL: '로그인', HAS_PREV_BTN: false },
-  LOGIN_REDIRECT: { PATH: '/auth/redirect', LABEL: '로그인 리다이렉트', HAS_PREV_BTN: false },
+  LOGIN_REDIRECT: { PATH: '/auth/redirect', LABEL: '로그인 중', HAS_PREV_BTN: false },
 } as const;
 
 // ROUTES 객체의 타입을 정의
