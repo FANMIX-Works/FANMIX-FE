@@ -43,7 +43,7 @@ const useGoogleLogin = () => {
         router.push(ROUTES.HOME.PATH);
       }
     },
-    [router, setLogin, setUser],
+    [router, setLogin, setUser, openModal],
   );
 
   const handleFailLogin = useCallback(() => {
