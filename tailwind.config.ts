@@ -28,6 +28,7 @@ const config: Config = {
         'h2-sb': ['20px', { lineHeight: '1.2', fontWeight: '600' }], // semiBold : 600
         'body1-r': ['18px', { lineHeight: '1.4', fontWeight: '400' }],
         'body1-m': ['18px', { lineHeight: '1.4', fontWeight: '500' }],
+        'body1-sb': ['18px', { lineHeight: '1.4', fontWeight: '600' }],
         'body2-r': ['16px', { lineHeight: '1.5', fontWeight: '400' }],
         'body2-m': ['16px', { lineHeight: '1.5', fontWeight: '500' }],
         'body2-sb': ['16px', { lineHeight: '1.5', fontWeight: '600' }],
@@ -100,6 +101,12 @@ const config: Config = {
           700: '#B93825',
           800: '#7B1E10',
         },
+        lime: {
+          400: '#E6FE74',
+        },
+        lavender: {
+          400: '#C192FF',
+        },
       },
     },
   },
@@ -125,6 +132,12 @@ const config: Config = {
         },
         '.fanmix-gradient': {
           background: 'linear-gradient(to bottom, #FF3A1C 0%, #FF5B46 100%)',
+        },
+        '.orange-600-gradient': {
+          background: 'linear-gradient(to bottom, #FF4D33CC 0%, #FF4D3300 100%)',
+        },
+        '.neutral-800-gradient': {
+          background: 'linear-gradient(to bottom, #26262600 0%, #262626 100%)',
         },
         // scroll
         '.scrollbar-hide-smooth': {
