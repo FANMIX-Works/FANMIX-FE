@@ -7,19 +7,12 @@ import { cn } from '@/lib/utils';
 import { Link, usePathname } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import useBottomNavigationAction from './hooks/useBottomNavigationState';
-import { ROUTES } from '@/constants/routes';
 
 const BottomNavigation = () => {
   const t = useTranslations('bottom_nav');
   const pathname = usePathname();
   const { bottomNavigationItems, isVisible } = useBottomNavigationAction();
 
-  const isActiveRoute = (path: string) => {
-    if (path === ROUTES.MYPAGE.PATH) {
-      return pathname === ROUTES.MYPAGE.PATH || pathname === ROUTES.CUSTOMER_CENTER.PATH;
-    }
-    return pathname === path;
-  };
   return (
     <nav
       className={cn(
@@ -28,7 +21,7 @@ const BottomNavigation = () => {
       )}>
       {bottomNavigationItems.map((item) => {
         const Icon = item.icon;
-        const isActive = isActiveRoute(item.path);
+        const isActive = pathname === item.path;
         return (
           <Link href={item.path} key={item.path}>
             <div className="h-14 w-14 gap-[2px] text-neutral-400 flex-col-center sub1-m hover:scale-transition-105">
