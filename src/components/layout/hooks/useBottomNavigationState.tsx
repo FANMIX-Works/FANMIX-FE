@@ -25,7 +25,12 @@ const useBottomNavigationState = () => {
       { label: ROUTES.HOME.LABEL, icon: LiaHomeSolid, path: ROUTES.HOME.PATH },
       { label: ROUTES.FOLLOW.LABEL, icon: LiaBookmark, path: ROUTES.FOLLOW.PATH },
       { label: ROUTES.FAN_CHANNEL.LABEL, icon: LiaGem, path: ROUTES.FAN_CHANNEL.PATH },
-      { label: ROUTES.MYPAGE.LABEL, icon: LiaUser, path: ROUTES.MYPAGE.PATH },
+      {
+        label: ROUTES.MYPAGE.LABEL,
+        icon: LiaUser,
+        path: ROUTES.MYPAGE.PATH,
+        isActive: ROUTES.MYPAGE.PATH || ROUTES.CUSTOMER_CENTER.PATH,
+      },
     ],
     [],
   );
