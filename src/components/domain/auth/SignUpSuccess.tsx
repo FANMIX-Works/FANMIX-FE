@@ -9,7 +9,7 @@ import { BiCheck } from 'react-icons/bi';
 
 const SignUpSuccess = () => {
   const t = useTranslations('signup_success');
-  const { closeModal } = useModalStore();
+  const closeModal = useModalStore((state) => state.closeModal);
   const router = useRouter();
   const navigateAndCloseModal = (path: string) => {
     router.push(path);
