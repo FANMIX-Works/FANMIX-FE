@@ -108,6 +108,15 @@ const config: Config = {
           400: '#C192FF',
         },
       },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
+      animation: {
+        fadeIn: 'fadeIn 0.1s ease-in forwards',
+      },
     },
   },
   plugins: [
