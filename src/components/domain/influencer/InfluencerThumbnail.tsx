@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useId } from 'react';
-import { FaCheck } from 'react-icons/fa6';
+import { VscPassFilled } from 'react-icons/vsc';
 
 export interface InfluencerThumbnailProps {
   influencerId: string;
@@ -21,9 +21,11 @@ const InfluencerThumbnail = ({
       className="relative h-[130px] w-28 shrink-0 cursor-pointer"
       aria-labelledby={`${figureId}-influencer-${influencerId}`}>
       <Image
+        priority
         src={imageSrc}
         alt={`인플루언서 ${name}의 프로필 이미지`}
         fill
+        sizes="112px"
         className="object-cover"
       />
 
@@ -35,10 +37,10 @@ const InfluencerThumbnail = ({
       </figcaption>
       {isVerified && (
         <>
-          <div
-            className="absolute right-[4.25px] top-[6.25px] h-[17.5px] w-[17.5px] rounded-full bg-lime-400 pt-0.5 flex-center"
-            aria-hidden="true">
-            <FaCheck className="h-3 w-3 text-black" />
+          <div className="absolute right-[3px] top-[5px] inline-block">
+            {/* 체크 표시 검정색으로 채우기용 태그 */}
+            <div className="absolute inset-1 rounded-full bg-black" />
+            <VscPassFilled className="relative h-5 w-5 text-lime-400" />
           </div>
           <div className="absolute bottom-0 left-0 h-0.5 w-full bg-lime-400" aria-hidden="true" />
         </>

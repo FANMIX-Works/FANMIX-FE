@@ -41,8 +41,8 @@ export default function MainPage() {
   const influencerTest3 = {
     influencerId: '3',
     name: '레오제이',
-    imageSrc: '/assets/images/test/leo.png',
-    isVerified: true,
+    imageSrc: '/assets/images/test/alganzi.png',
+    isVerified: false,
   };
 
   const influencerTest4 = {
