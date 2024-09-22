@@ -7,8 +7,7 @@ import { ROUTES } from '@/constants/routes';
 
 import { Link } from '@/i18n/routing';
 import { Separator } from '@/components/ui/separator';
-
-import { MyProfileCard } from '@/components/domain/user';
+import MyProfileCard from './_components/MyProfileCard';
 import OnePickInfluencer from '@/components/domain/influencer/OnePickInfluencer';
 
 export async function generateMetadata({

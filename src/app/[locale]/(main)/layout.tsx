@@ -1,8 +1,9 @@
 'use client';
 
 import { useRef } from 'react';
-import BottomNavigation from '@/components/layout/BottomNavigation';
+
 import Header from '@/components/layout/Header';
+import BottomNavigation from '@/components/layout/BottomNavigation';
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   const mainRef = useRef<HTMLElement>(null);

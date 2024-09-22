@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 
-import SlideBarTabs from '@/components/common/tab/SlideBarTabs';
+import SlideBarTabs from '@/components/common/SlideBarTabs';
 
 export async function generateMetadata({
   params: { locale },
