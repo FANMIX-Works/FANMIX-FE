@@ -32,7 +32,13 @@
     "나중에 하기": "Do it Later"
   },
   "main_page": {
-    "{nickName}님 안녕하세요": "Hello, {nickName}!"
+    "주간 HOT 10": "Weekly HOT 10",
+    "이번 주 가장 핫한 인플루언서를 만나보세요": "Meet this week's hottest influencers",
+    "인증 인플루언서": "Verified Influencers",
+    "절차를 통해 인증된 인플루언서입니다": "These influencers have been verified through our process",
+    "인기 글": "Popular Posts",
+    "인기 리뷰": "Popular Reviews",
+    "전체보기": "View All"
   },
   "my_page": {
     "MY ONE PICK": "MY ONE PICK",
