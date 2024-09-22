@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { Switch } from '@/components/ui/switch';
 
 import { useTranslations } from 'next-intl';
-import useInfluencerMode from '@/app/[locale]/(main)/my/edit/_hooks/useInfluencerMode';
+import useInfluencerMode from '../_hooks/useInfluencerMode';
 
 interface UserSettingsPanelProps {
   userData: {

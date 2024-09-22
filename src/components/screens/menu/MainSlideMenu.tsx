@@ -15,9 +15,10 @@ import {
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 
-import ChangeLanguage from './ChangeLanguage';
-import { ROUTES } from '@/constants/routes';
 import MenuContent from './MenuContent';
+import ChangeLanguage from './ChangeLanguage';
+
+import { ROUTES } from '@/constants/routes';
 
 const MainSlideMenu = () => {
   return (

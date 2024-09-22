@@ -14,9 +14,8 @@ import { useUserStore } from '@/stores/userStore';
 import { useAuthStore } from '@/stores/authStore';
 import { useModalStore } from '@/stores/modalStore';
 
-import SignUpSuccess from '../../../../../components/screens/signup/SignUpSuccess';
-
 import type { LoginResponse } from '@/types/service/authServiceType';
+import { SignUpSuccess } from '@/components/screens';
 
 const useGoogleLogin = () => {
   const t = useTranslations('api_result');
