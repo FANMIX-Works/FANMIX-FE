@@ -1,5 +1,3 @@
-import DOM_IDS from '@/constants/domIdentifiers';
-
 import { Metadata } from 'next';
 
 import { getTranslations } from 'next-intl/server';
@@ -39,7 +37,7 @@ export default function MyPage() {
   };
 
   return (
-    <main id={DOM_IDS.CURRENT_SCROLL_PAGE} className="h-full w-full pt-7 page-scrollable-container">
+    <div className="w-full pt-7">
       <section aria-label="사용자 프로필" className="mx-5 mb-8 flex flex-col gap-4">
         <MyProfileCard
           imageSrc={data.imageSrc}
@@ -59,7 +57,7 @@ export default function MyPage() {
       <footer className="mx-5 mt-6">
         <button className="text-neutral-400 body2-r">{t('로그아웃')}</button>
       </footer>
-    </main>
+    </div>
   );
 }
 

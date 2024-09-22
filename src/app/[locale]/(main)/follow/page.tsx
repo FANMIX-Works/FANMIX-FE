@@ -1,5 +1,3 @@
-import DOM_IDS from '@/constants/domIdentifiers';
-
 import { Metadata } from 'next';
 
 import { getTranslations } from 'next-intl/server';
@@ -17,9 +15,5 @@ export async function generateMetadata({
 }
 
 export default function FollowPage() {
-  return (
-    <main id={DOM_IDS.CURRENT_SCROLL_PAGE} className="h-full w-full px-5">
-      팔로우 페이지
-    </main>
-  );
+  return <div className="w-full px-5">팔로우 페이지</div>;
 }

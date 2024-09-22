@@ -1,5 +1,3 @@
-import DOM_IDS from '@/constants/domIdentifiers';
-
 import { Metadata } from 'next';
 
 import { getTranslations } from 'next-intl/server';
@@ -31,7 +29,7 @@ export default function MyPageEditPage() {
   };
 
   return (
-    <main id={DOM_IDS.CURRENT_SCROLL_PAGE} className="h-full w-full pt-9 page-scrollable-container">
+    <div className="w-full pt-9">
       <section aria-label="유저 프로필 사진 설정" className="mb-9 gap-[18px] flex-col-center">
         <UserAvatar size={82} editable imageSrc={data.imageSrc} userNickName={data.userNickName} />
         <div className="flex gap-1 flex-col-center">
@@ -47,6 +45,6 @@ export default function MyPageEditPage() {
       <footer aria-label="회원탈퇴" className="mx-5 mt-8 flex-center">
         <DeleteAccountButton />
       </footer>
-    </main>
+    </div>
   );
 }
