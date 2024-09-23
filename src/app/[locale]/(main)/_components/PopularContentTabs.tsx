@@ -1,8 +1,13 @@
+import { Fragment } from 'react';
+
 import { useTranslations } from 'next-intl';
 
+import { Separator } from '@/components/ui/separator';
 import SlideBarTabs from '@/components/common/SlideBarTabs';
 import InfluencerReviewCard from '@/components/domain/influencer/InfluencerReviewCard';
+import TextPostCard, { type TextPostCardProps } from '@/components/domain/board/TextPostCard';
 
+import { BOARD_TYPE } from '@/types/domain/board';
 import type { InfluencerReview } from '@/types/domain/influencerType';
 
 const PopularContentTabs = () => {
@@ -13,7 +18,11 @@ const PopularContentTabs = () => {
     {
       value: '1',
       label: t('인기 글'),
-      content: <div className="mt-2.5 w-full text-center">인기 글 내역</div>,
+      content: (
+        <div className="mt-6 w-full">
+          <PopularPost posts={postData} />
+        </div>
+      ),
     },
     {
       value: '2',
@@ -21,7 +30,7 @@ const PopularContentTabs = () => {
       content: <PopularReview reviews={reviewData} />,
     },
   ];
-  return <SlideBarTabs tabs={tabs} defaultValue="2" />;
+  return <SlideBarTabs tabs={tabs} defaultValue="1" />;
 };
 
 export default PopularContentTabs;
@@ -42,6 +51,24 @@ const PopularReview = ({ reviews }: PopularReview) => {
   );
 };
 
+interface PopularPostProps {
+  posts: TextPostCardProps[];
+}
+const PopularPost = ({ posts }: PopularPostProps) => {
+  return (
+    <ul className="mt-6 w-full gap-4 flex-col-center">
+      {posts.map((post) => (
+        <Fragment key={post.postId}>
+          <li className="w-full">
+            <TextPostCard {...post} />
+          </li>
+          <Separator className="h-[0.7px] bg-neutral-600" />
+        </Fragment>
+      ))}
+    </ul>
+  );
+};
+
 // 테스트 데이터.
 const reviewData = [
   {
@@ -54,10 +81,7 @@ const reviewData = [
     },
     rating: { contentScore: 10, communicationScore: 10, trustworthinessScore: 9 }, // 점수 평가
     content: '언니 단발 귀여워 언니 단발 귀여워 언니 단발 귀여워 언니 단발 귀여워', // 한줄리뷰 내용
-    likesCount: 33,
-    dislikesCount: 1,
-    commentsCount: 100,
-    createdAt: new Date(),
+    interaction: { likesCount: 33, dislikesCount: 1, commentsCount: 100, createdAt: new Date() },
   },
   {
     reviewId: '2',
@@ -65,14 +89,16 @@ const reviewData = [
       influencerId: '3',
       name: '빵먹다 살찐 떡',
       imageSrc: '/assets/images/test/alganzi.png',
-      isVerified: true,
+      isVerified: false,
     },
     rating: { contentScore: 10, communicationScore: 10, trustworthinessScore: 9 }, // 점수 평가
     content: '언니 단발 귀여워', // 한줄리뷰 내용
-    likesCount: 33,
-    dislikesCount: 1,
-    commentsCount: 100,
-    createdAt: new Date(),
+    interaction: {
+      likesCount: 33,
+      dislikesCount: 1,
+      commentsCount: 100,
+      createdAt: new Date(),
+    },
   },
   {
     reviewId: '3',
@@ -84,10 +110,7 @@ const reviewData = [
     },
     rating: { contentScore: 10, communicationScore: 10, trustworthinessScore: 9 }, // 점수 평가
     content: '언니 단발 귀여워 언니 단발 귀여워 언니 단발 귀여워 언니 단발 귀여워', // 한줄리뷰 내용
-    likesCount: 33,
-    dislikesCount: 1,
-    commentsCount: 100,
-    createdAt: new Date(),
+    interaction: { likesCount: 33, dislikesCount: 1, commentsCount: 100, createdAt: new Date() },
   },
   {
     reviewId: '4',
@@ -95,13 +118,76 @@ const reviewData = [
       influencerId: '3',
       name: '빵먹다 살찐 떡',
       imageSrc: '/assets/images/test/alganzi.png',
-      isVerified: true,
+      isVerified: false,
     },
     rating: { contentScore: 10, communicationScore: 10, trustworthinessScore: 9 }, // 점수 평가
     content: '언니 단발 귀여워 언니 단발 귀여워', // 한줄리뷰 내용
-    likesCount: 33,
-    dislikesCount: 1,
-    commentsCount: 100,
-    createdAt: new Date(),
+    interaction: { likesCount: 33, dislikesCount: 1, commentsCount: 100, createdAt: new Date() },
+  },
+];
+
+const postData = [
+  {
+    postId: '1',
+    boardType: BOARD_TYPE.FAN,
+    boardName: '테일러 스위프트',
+    content: '근데 아마도 사실은',
+    interaction: {
+      likesCount: 0,
+      dislikesCount: 100,
+      commentsCount: 2,
+      createdAt: new Date(),
+    },
+  },
+  {
+    postId: '2',
+    boardType: BOARD_TYPE.COMMUNITY,
+    boardName: '유튜브',
+    content: '유튜브는 재밌던데 문제는',
+    interaction: {
+      likesCount: 30,
+      dislikesCount: 0,
+      commentsCount: 22,
+      createdAt: new Date(),
+    },
+  },
+  {
+    postId: '3',
+    boardType: BOARD_TYPE.FAN,
+    boardName: '테일러 스위프트',
+    content:
+      '테일러 스위프트 최근 공연 내생각에는 근데 아마도 사실은 테일러 스위프트 최근 공연 내생각에는 근데 아마도 사실은',
+    interaction: {
+      likesCount: 10,
+      dislikesCount: 0,
+      commentsCount: 2,
+      createdAt: new Date(),
+    },
+  },
+  {
+    postId: '4',
+    boardType: BOARD_TYPE.FAN,
+    boardName: '테일러 스위프트',
+    content:
+      '테일러 스위프트 최근 공연 내생각에는 근데 아마도 사실은 테일러 스위프트 최근 공연 내생각에는 근데 아마도 사실은',
+    interaction: {
+      likesCount: 3,
+      dislikesCount: 0,
+      commentsCount: 0,
+      createdAt: new Date(),
+    },
+  },
+  {
+    postId: '5',
+    boardType: BOARD_TYPE.FAN,
+    boardName: '테일러 스위프트',
+    content:
+      '테일러 스위프트 최근 공연 내생각에는 근데 아마도 사실은 테일러 스위프트 최근 공연 내생각에는 근데 아마도 사실은',
+    interaction: {
+      likesCount: 0,
+      dislikesCount: 0,
+      commentsCount: 2,
+      createdAt: new Date(),
+    },
   },
 ];
