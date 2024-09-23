@@ -1,8 +1,7 @@
 import InfluencerThumbnail, {
   type InfluencerThumbnailProps,
 } from '@/components/domain/influencer/InfluencerThumbnail';
-import { ScrollBar } from '@/components/ui/scroll-area';
-import { ScrollArea } from '@radix-ui/react-scroll-area';
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 
 interface InfluencerShowcaseProps {
   influencers: InfluencerThumbnailProps[]; // influencerList에서 변경
@@ -18,7 +17,7 @@ const InfluencerShowcase = ({ influencers }: InfluencerShowcaseProps) => {
           </li>
         ))}
       </ul>
-      <ScrollBar orientation="horizontal" />
+      <ScrollBar orientation="horizontal" className="h-0" />
     </ScrollArea>
   );
 };

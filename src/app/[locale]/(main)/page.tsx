@@ -64,11 +64,9 @@ export default function MainPage() {
             {t('이번 주 가장 핫한 인플루언서를 만나보세요')}
           </p>
         </header>
-        <div className="overflow-y-auto">
-          <InfluencerShowcase
-            influencers={[influencerTest1, influencerTest2, influencerTest3, influencerTest4]}
-          />
-        </div>
+        <InfluencerShowcase
+          influencers={[influencerTest1, influencerTest2, influencerTest3, influencerTest4]}
+        />
       </section>
 
       <section aria-label="인증 인플루언서" className="mb-[50px] flex w-full flex-col gap-4 pl-5">
@@ -81,11 +79,9 @@ export default function MainPage() {
           </div>
           <p className="text-neutral-300 body3-r">{t('절차를 통해 인증된 인플루언서입니다')}</p>
         </header>
-        <div className="overflow-y-auto">
-          <InfluencerShowcase
-            influencers={[influencerTest1, influencerTest2, influencerTest3, influencerTest4]}
-          />
-        </div>
+        <InfluencerShowcase
+          influencers={[influencerTest1, influencerTest2, influencerTest3, influencerTest4]}
+        />
       </section>
 
       <Separator className="h-2 bg-neutral-900" />
