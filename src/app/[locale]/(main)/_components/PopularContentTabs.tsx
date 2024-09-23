@@ -1,14 +1,11 @@
-import { Fragment } from 'react';
-
 import { useTranslations } from 'next-intl';
 
-import { Separator } from '@/components/ui/separator';
 import SlideBarTabs from '@/components/common/SlideBarTabs';
-import InfluencerReviewCard from '@/components/domain/influencer/InfluencerReviewCard';
-import TextPostCard, { type TextPostCardProps } from '@/components/domain/board/TextPostCard';
+
+import PopularPost from './PopularPost';
+import PopularReview from './PopularReview';
 
 import { BOARD_TYPE } from '@/types/domain/board';
-import type { InfluencerReview } from '@/types/domain/influencerType';
 
 const PopularContentTabs = () => {
   const t = useTranslations('main_page');
@@ -34,40 +31,6 @@ const PopularContentTabs = () => {
 };
 
 export default PopularContentTabs;
-
-interface PopularReview {
-  reviews: InfluencerReview[];
-}
-
-const PopularReview = ({ reviews }: PopularReview) => {
-  return (
-    <ul className="mt-6 w-full gap-6 flex-col-center">
-      {reviews.map((review) => (
-        <li key={review.reviewId} className="w-full">
-          <InfluencerReviewCard data={review} />
-        </li>
-      ))}
-    </ul>
-  );
-};
-
-interface PopularPostProps {
-  posts: TextPostCardProps[];
-}
-const PopularPost = ({ posts }: PopularPostProps) => {
-  return (
-    <ul className="mt-6 w-full gap-4 flex-col-center">
-      {posts.map((post) => (
-        <Fragment key={post.postId}>
-          <li className="w-full">
-            <TextPostCard {...post} />
-          </li>
-          <Separator className="h-[0.7px] bg-neutral-600" />
-        </Fragment>
-      ))}
-    </ul>
-  );
-};
 
 // 테스트 데이터.
 const reviewData = [
