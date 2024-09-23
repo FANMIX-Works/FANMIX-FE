@@ -22,7 +22,7 @@ const InfluencerReviewCard = ({ data }: InfluencerReviewCardProps) => {
           src={data.influencer.imageSrc}
           alt={`${data.influencer.name}의 프로필 이미지`}
           fill
-          sizes="100px"
+          sizes="100%"
           className="object-cover"
         />
       </figure>
