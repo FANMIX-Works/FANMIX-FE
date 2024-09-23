@@ -64,7 +64,7 @@ const MyPageMenuList = () => {
   const t = useTranslations('my_page');
 
   const menuItems = [
-    { label: ROUTES.MY_ACTIVITY_DETAILS.LABEL, path: ROUTES.MY_ACTIVITY_DETAILS.PATH },
+    { label: ROUTES.MY_ACTIVITY_HISTORY.LABEL, path: ROUTES.MY_ACTIVITY_HISTORY.PATH },
     { label: ROUTES.FOLLOW.LABEL, path: ROUTES.FOLLOW.PATH },
     { label: ROUTES.CUSTOMER_CENTER.LABEL, path: ROUTES.CUSTOMER_CENTER.PATH },
   ];
