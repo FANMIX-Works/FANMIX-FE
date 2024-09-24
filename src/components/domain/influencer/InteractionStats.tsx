@@ -1,28 +1,17 @@
-import { VscThumbsup, VscThumbsdown, VscComment } from 'react-icons/vsc';
+import { VscThumbsup, VscComment } from 'react-icons/vsc';
 
 import { formatDateToYYMMDD } from '@/lib/date';
 import { cn } from '@/lib/utils';
 import type { InteractionStat } from '@/types/domain/influencerType';
 
 interface InteractionStatsProps extends InteractionStat {}
-const InteractionStats = ({
-  likesCount,
-  dislikesCount,
-  commentsCount,
-  createdAt,
-}: InteractionStatsProps) => {
+const InteractionStats = ({ likesCount, commentsCount, createdAt }: InteractionStatsProps) => {
   const stats = [
     {
       key: 'like',
       count: likesCount,
       color: 'text-orange-500',
       Icon: VscThumbsup,
-    },
-    {
-      key: 'dislike',
-      count: dislikesCount,
-      color: 'text-neutral-300',
-      Icon: VscThumbsdown,
     },
     {
       key: 'comment',
