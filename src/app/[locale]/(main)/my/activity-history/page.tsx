@@ -7,6 +7,7 @@ import SlideBarTabs from '@/components/common/SlideBarTabs';
 
 import MyReview from './_components/MyReview';
 import MyPost from './_components/MyPost';
+import MyComment from './_components/MyComment';
 
 import { BOARD_TYPE } from '@/types/domain/board';
 
@@ -44,7 +45,7 @@ export default function MyActivityHistoryPage() {
     {
       value: '3',
       label: '내 댓글',
-      content: <div>내 댓글</div>,
+      content: <MyComment comments={commentData} />,
     },
   ];
 
@@ -246,5 +247,106 @@ const postData = [
       commentsCount: 22,
       createdAt: new Date(),
     },
+  },
+];
+
+const commentData = [
+  {
+    postId: '1',
+    commentId: '1',
+    boardType: BOARD_TYPE.COMMUNITY,
+    boardName: '뷰티',
+    content:
+      '뷰티 내용뷰티 내용      뷰티 내용 뷰티 내용  뷰티 내용      뷰티 내용 뷰티 내용    뷰티 내용 뷰티 내용',
+    interaction: { likesCount: 0, dislikesCount: 4, createdAt: new Date() },
+  },
+  {
+    postId: '1',
+    commentId: '2',
+    boardType: BOARD_TYPE.FAN,
+    boardName: '테일러 스위프트',
+    content: '뭔가 콘서트에 관련된 내용',
+    interaction: { likesCount: 19, dislikesCount: 4, createdAt: new Date() },
+  },
+  {
+    postId: '1',
+    commentId: '3',
+    boardType: BOARD_TYPE.COMMUNITY,
+    boardName: '뷰티',
+    content:
+      '뷰티 내용뷰티 내용      뷰티 내용 뷰티 내용  뷰티 내용      뷰티 내용 뷰티 내용    뷰티 내용 뷰티 내용',
+    interaction: { likesCount: 3, dislikesCount: 4, createdAt: new Date() },
+  },
+  {
+    postId: '1',
+    commentId: '4',
+    boardType: BOARD_TYPE.COMMUNITY,
+    boardName: '뷰티',
+    content:
+      '뷰티 내용뷰티 내용      뷰티 내용 뷰티 내용  뷰티 내용      뷰티 내용 뷰티 내용    뷰티 내용 뷰티 내용',
+    interaction: { likesCount: 3, dislikesCount: 4, createdAt: new Date() },
+  },
+  {
+    postId: '1',
+    commentId: '5',
+    boardType: BOARD_TYPE.COMMUNITY,
+    boardName: '뷰티',
+    content:
+      '뷰티 내용뷰티 내용      뷰티 내용 뷰티 내용  뷰티 내용      뷰티 내용 뷰티 내용    뷰티 내용 뷰티 내용',
+    interaction: { likesCount: 3, dislikesCount: 4, createdAt: new Date() },
+  },
+  {
+    postId: '1',
+    commentId: '6',
+    boardType: BOARD_TYPE.COMMUNITY,
+    boardName: '뷰티',
+    content:
+      '뷰티 내용뷰티 내용      뷰티 내용 뷰티 내용  뷰티 내용      뷰티 내용 뷰티 내용    뷰티 내용 뷰티 내용',
+    interaction: { likesCount: 3, dislikesCount: 4, createdAt: new Date() },
+  },
+  {
+    postId: '1',
+    commentId: '7',
+    boardType: BOARD_TYPE.COMMUNITY,
+    boardName: '뷰티',
+    content:
+      '뷰티 내용뷰티 내용      뷰티 내용 뷰티 내용  뷰티 내용      뷰티 내용 뷰티 내용    뷰티 내용 뷰티 내용',
+    interaction: { likesCount: 3, dislikesCount: 4, createdAt: new Date() },
+  },
+  {
+    postId: '1',
+    commentId: '8',
+    boardType: BOARD_TYPE.COMMUNITY,
+    boardName: '뷰티',
+    content:
+      '뷰티 내용뷰티 내용      뷰티 내용 뷰티 내용  뷰티 내용      뷰티 내용 뷰티 내용    뷰티 내용 뷰티 내용',
+    interaction: { likesCount: 3, dislikesCount: 4, createdAt: new Date() },
+  },
+  {
+    postId: '1',
+    commentId: '9',
+    boardType: BOARD_TYPE.COMMUNITY,
+    boardName: '뷰티',
+    content:
+      '뷰티 내용뷰티 내용      뷰티 내용 뷰티 내용  뷰티 내용      뷰티 내용 뷰티 내용    뷰티 내용 뷰티 내용',
+    interaction: { likesCount: 3, dislikesCount: 4, createdAt: new Date() },
+  },
+  {
+    postId: '1',
+    commentId: '10',
+    boardType: BOARD_TYPE.COMMUNITY,
+    boardName: '뷰티',
+    content:
+      '뷰티 내용뷰티 내용      뷰티 내용 뷰티 내용  뷰티 내용      뷰티 내용 뷰티 내용    뷰티 내용 뷰티 내용',
+    interaction: { likesCount: 13, dislikesCount: 4, createdAt: new Date() },
+  },
+  {
+    postId: '1',
+    commentId: '11',
+    boardType: BOARD_TYPE.COMMUNITY,
+    boardName: '뷰티',
+    content:
+      '뷰티 내용뷰티 내용      뷰티 내용 뷰티 내용  뷰티 내용      뷰티 내용 뷰티 내용    뷰티 내용 뷰티 내용',
+    interaction: { likesCount: 0, dislikesCount: 42, createdAt: new Date() },
   },
 ];

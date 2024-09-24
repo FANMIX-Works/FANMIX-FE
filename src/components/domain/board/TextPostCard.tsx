@@ -1,9 +1,9 @@
 'use client';
 
 import BoardTypeTag from './BoardTypeTag';
-import InteractionStats from '../influencer/InteractionStats';
+import InteractionStats from './InteractionStats';
 
-import { BOARD_TYPE, type BoardType } from '@/types/domain/board';
+import { BOARD_CARD_TYPE, BOARD_TYPE, type BoardType } from '@/types/domain/board';
 import type { InteractionStat } from '@/types/domain/influencerType';
 
 export interface TextPostCardProps {
@@ -37,7 +37,7 @@ const TextPostCard = ({
       </aside>
       <h1 className="mb-[7px] truncate body2-r">{content}</h1>
       <footer>
-        <InteractionStats {...interaction} />
+        <InteractionStats boardCardType={BOARD_CARD_TYPE.POST} {...interaction} />
       </footer>
     </article>
   );
