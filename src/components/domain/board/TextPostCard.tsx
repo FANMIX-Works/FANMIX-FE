@@ -1,6 +1,6 @@
 'use client';
 
-import BoardTypeTag from '@/components/common/BoardTypeTag';
+import BoardTypeTag from './BoardTypeTag';
 import InteractionStats from '../influencer/InteractionStats';
 
 import type { BoardType } from '@/types/domain/board';
