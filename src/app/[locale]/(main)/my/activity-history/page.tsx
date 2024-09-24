@@ -2,9 +2,13 @@ import { Metadata } from 'next';
 
 import { getTranslations } from 'next-intl/server';
 
-import MyReview from './_components/MyReview';
 import UserAvatar from '@/components/domain/user/UserAvatar';
 import SlideBarTabs from '@/components/common/SlideBarTabs';
+
+import MyReview from './_components/MyReview';
+import MyPost from './_components/MyPost';
+
+import { BOARD_TYPE } from '@/types/domain/board';
 
 export async function generateMetadata({
   params: { locale },
@@ -35,7 +39,7 @@ export default function MyActivityHistoryPage() {
     {
       value: '2',
       label: '내 글',
-      content: <div>내 글</div>,
+      content: <MyPost posts={postData} />,
     },
     {
       value: '3',
@@ -128,5 +132,119 @@ const reviewData = [
     rating: { contentScore: 10, communicationScore: 10, trustworthinessScore: 9 }, // 점수 평가
     content: '언니 단발 귀여워 언니 단발 귀여워 언니 단발 귀여워 언니 단발 귀여워', // 한줄리뷰 내용
     interaction: { likesCount: 33, dislikesCount: 1, commentsCount: 100, createdAt: new Date() },
+  },
+];
+
+const postData = [
+  {
+    postId: '1',
+    boardType: BOARD_TYPE.FAN,
+    boardName: '테일러 스위프트',
+    content: '근데 아마도 사실은',
+    interaction: {
+      likesCount: 0,
+      dislikesCount: 100,
+      commentsCount: 2,
+      createdAt: new Date(),
+    },
+  },
+  {
+    postId: '2',
+    boardType: BOARD_TYPE.COMMUNITY,
+    boardName: '뷰티',
+    content: '유튜브는 재밌던데 문제는',
+    interaction: {
+      likesCount: 30,
+      dislikesCount: 0,
+      commentsCount: 22,
+      createdAt: new Date(),
+    },
+  },
+  {
+    postId: '3',
+    boardType: BOARD_TYPE.FAN,
+    boardName: '테일러 스위프트',
+    content:
+      '테일러 스위프트 최근 공연 내생각에는 근데 아마도 사실은 테일러 스위프트 최근 공연 내생각에는 근데 아마도 사실은',
+    interaction: {
+      likesCount: 10,
+      dislikesCount: 0,
+      commentsCount: 2,
+      createdAt: new Date(),
+    },
+  },
+  {
+    postId: '4',
+    boardType: BOARD_TYPE.FAN,
+    boardName: '테일러 스위프트',
+    content:
+      '테일러 스위프트 최근 공연 내생각에는 근데 아마도 사실은 테일러 스위프트 최근 공연 내생각에는 근데 아마도 사실은',
+    interaction: {
+      likesCount: 3,
+      dislikesCount: 0,
+      commentsCount: 0,
+      createdAt: new Date(),
+    },
+  },
+  {
+    postId: '5',
+    boardType: BOARD_TYPE.FAN,
+    boardName: '테일러 스위프트',
+    content:
+      '테일러 스위프트 최근 공연 내생각에는 근데 아마도 사실은 테일러 스위프트 최근 공연 내생각에는 근데 아마도 사실은',
+    interaction: {
+      likesCount: 0,
+      dislikesCount: 0,
+      commentsCount: 2,
+      createdAt: new Date(),
+    },
+  },
+  {
+    postId: '6',
+    boardType: BOARD_TYPE.COMMUNITY,
+    boardName: '뷰티',
+    content: '유튜브는 재밌던데 문제는',
+    interaction: {
+      likesCount: 30,
+      dislikesCount: 0,
+      commentsCount: 22,
+      createdAt: new Date(),
+    },
+  },
+  {
+    postId: '7',
+    boardType: BOARD_TYPE.COMMUNITY,
+    boardName: '뷰티',
+    content: '유튜브는 재밌던데 문제는',
+    interaction: {
+      likesCount: 30,
+      dislikesCount: 0,
+      commentsCount: 22,
+      createdAt: new Date(),
+    },
+  },
+  {
+    postId: '8',
+    boardType: BOARD_TYPE.COMMUNITY,
+    boardName: '만화',
+    content: '유튜브는 재밌던데 문제는',
+    interaction: {
+      likesCount: 30,
+      dislikesCount: 0,
+      commentsCount: 22,
+      createdAt: new Date(),
+    },
+  },
+  {
+    postId: '9',
+    boardType: BOARD_TYPE.FAN,
+    boardName: '달달',
+    content: '유튜브는 재밌던데 문제는',
+    interaction: {
+      likesCount: 30,
+      dislikesCount: 0,
+      commentsCount: 22,
+      createdAt: new Date(),
+    },
   },
 ];

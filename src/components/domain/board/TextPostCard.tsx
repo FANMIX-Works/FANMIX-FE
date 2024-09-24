@@ -3,7 +3,7 @@
 import BoardTypeTag from './BoardTypeTag';
 import InteractionStats from '../influencer/InteractionStats';
 
-import type { BoardType } from '@/types/domain/board';
+import { BOARD_TYPE, type BoardType } from '@/types/domain/board';
 import type { InteractionStat } from '@/types/domain/influencerType';
 
 export interface TextPostCardProps {
@@ -22,7 +22,11 @@ const TextPostCard = ({
   interaction,
 }: TextPostCardProps) => {
   const handleClickPostCard = () => {
-    alert(`팬채녈이면 팬 여부 체크 후, ${boardType}의 ${postId}로 이동`);
+    if (boardType === BOARD_TYPE.FAN) {
+      alert(`팬 여부 체크 후, ${boardType}의 ${postId}로 이동`);
+    } else {
+      alert(`${boardType}의 ${postId}로 이동`);
+    }
   };
   return (
     <article
