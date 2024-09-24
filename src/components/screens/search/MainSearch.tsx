@@ -15,6 +15,7 @@ import { useFilterLanguage } from '@/hooks/useFilterLanguage';
 import { useState } from 'react';
 import { VscSearch } from 'react-icons/vsc';
 import { VscChevronRight } from 'react-icons/vsc';
+import { VscSymbolConstant } from 'react-icons/vsc';
 
 const MainSearch = () => {
   const [filterText, setFilterText] = useState<string>('');
@@ -58,21 +59,27 @@ const MainSearch = () => {
             onChange={(e) => onChangeSearchValue(e)}
             value={filterText}
           />
-          <hr />
+
           {/* 검색 결과 영역 */}
-          {filteredData?.length > 0 ? (
-            // 검색 결과가 있을 때의 영역
-            <ul className="flex flex-col gap-4 text-neutral-200 body2-r">
-              <p className="text-neutral-500 body2-m">검색 제안</p>
-              {filteredData.map((res: categoryDataTypes) => (
-                <li key={res?.id}>
-                  {res?.ko} / {res?.en}
-                </li>
-              ))}
-            </ul>
+          {filterText.length > 0 ? (
+            filteredData?.length > 0 ? (
+              // 1. 검색 결과가 있을 때의 영역
+              <ul className="mt-[44px] flex flex-col gap-4 text-neutral-200 body2-r">
+                <p className="text-neutral-500 body2-m">검색 제안</p>
+                {filteredData.map((res: categoryDataTypes) => (
+                  <li key={res?.id} className="flex cursor-pointer items-center">
+                    <VscSymbolConstant className="mr-[12px] text-orange-500" />
+                    {res?.ko} / {res?.en}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              // 2. 검색 결과가 없고, 검색어가 입력되었을 때
+              <p className="mt-[44px] text-neutral-500 body2-m">검색 결과가 없습니다</p>
+            )
           ) : (
-            // 검색 결과가 없을 때의 영역
-            <ul className="flex flex-col gap-4 text-neutral-200 body2-r">
+            // 3. 검색어가 없을 때(바로가기 메뉴)
+            <ul className="mt-[44px] flex flex-col gap-4 text-neutral-200 body2-r">
               <p className="text-neutral-500 body2-m">바로가기</p>
               {noResultsMenu.map((item) => (
                 <li key={item.id}>
