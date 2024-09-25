@@ -8,7 +8,8 @@
     "활동내역": "Activity History",
     "고객센터": "Customer Service",
     "로그인": "Login",
-    "로그인 중": "Logging in.."
+    "로그인 중": "Logging in..",
+    "메인메뉴": "Main Menu"
   },
   "bottom_nav": {
     "홈": "Home",
@@ -67,6 +68,15 @@
     "콘텐츠": "CQ",
     "소통": "ENG",
     "신뢰": "AUTH"
+  },
+  "main_slide_menu": {
+    "인플루언서 찾기": "Find Influencers",
+    "에디터's PICK": "Editor's PICK",
+    "한줄 리뷰": "Short Review",
+    "팬채널": "Fan Channel",
+    "커뮤니티": "Community",
+    "고객센터": "Customer Service",
+    "19+ 모드": "Adult Mode"
   },
   "api_result": {
     "다시 시도해 주세요": "Please try again.",

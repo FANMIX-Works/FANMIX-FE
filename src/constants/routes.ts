@@ -9,6 +9,12 @@ export const ROUTES = {
   CUSTOMER_CENTER: { PATH: '/my/customer-center', LABEL: '고객센터', HAS_PREV_BTN: true },
   LOGIN: { PATH: '/auth/login', LABEL: '로그인', HAS_PREV_BTN: false },
   LOGIN_REDIRECT: { PATH: '/auth/redirect', LABEL: '로그인 중', HAS_PREV_BTN: false },
+  //메인 햄버거바 메뉴 관련 routes, 주소 변경 필요
+  Search_Influencer: { PATH: '/influencer', LABEL: '인플루언서 찾기', HAS_PREV_BTN: false },
+  Editor_PICK: { PATH: '/', LABEL: "에디터's PICK", HAS_PREV_BTN: false },
+  Short_Review: { PATH: '/', LABEL: '한줄 리뷰', HAS_PREV_BTN: false },
+  Fan_Channel: { PATH: '/', LABEL: '팬채널', HAS_PREV_BTN: false },
+  Community: { PATH: '/', LABEL: '커뮤니티', HAS_PREV_BTN: false },
 } as const;
 
 // ROUTES 객체의 타입을 정의

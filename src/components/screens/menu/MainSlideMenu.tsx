@@ -7,10 +7,8 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
@@ -26,13 +24,11 @@ const MainSlideMenu = () => {
       <SheetTrigger>
         <VscMenu aria-label="메인 메뉴" className="h-6 w-6 hover:scale-transition-105" />
       </SheetTrigger>
-      <SheetContent className="flex w-full flex-col items-start justify-between">
-        <div className="flex flex-col gap-6">
-          <SheetHeader className="items-start">
+      <SheetContent className="flex w-full flex-col items-start justify-between text-white dark-gradient">
+        <div className="flex w-full flex-col gap-[30px]">
+          <SheetHeader className="mb-[38px] items-start">
             {/* 언어 변경 영역 */}
             <ChangeLanguage />
-            <SheetTitle className="mt-2 items-start">메뉴</SheetTitle>
-            <SheetDescription className="w-full">메뉴를 선택해주세요.</SheetDescription>
           </SheetHeader>
           {/* 메뉴 영역 */}
           <MenuContent />
@@ -40,7 +36,9 @@ const MainSlideMenu = () => {
         <SheetFooter className="flex w-full flex-row items-center justify-end">
           <SheetClose asChild>
             <Link href={ROUTES.LOGIN.PATH}>
-              <Button type="submit">Login</Button>
+              <Button type="submit" className="w-full">
+                Login
+              </Button>
             </Link>
           </SheetClose>
         </SheetFooter>
