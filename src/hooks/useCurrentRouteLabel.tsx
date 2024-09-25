@@ -9,7 +9,7 @@ const useCurrentRouteLabel = (): [RouteLabel, boolean] => {
 
   const currentRoute = Object.values(ROUTES).find(
     (route) =>
-      route.ROOT === currentRoot && route.PATH.split('/').length === pathname.split('/').length,
+      route.ROOT === currentRoot && route.PATH.split('/').length === pathname.split('/').length, // ROOT, 세그먼트 개수 비교
   );
 
   if (currentRoute) {
