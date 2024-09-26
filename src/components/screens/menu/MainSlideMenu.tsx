@@ -24,8 +24,8 @@ const MainSlideMenu = () => {
       <SheetTrigger>
         <VscMenu aria-label="메인 메뉴" className="h-6 w-6 hover:scale-transition-105" />
       </SheetTrigger>
-      <SheetContent className="flex w-full flex-col items-start justify-between text-white dark-gradient">
-        <div className="flex w-full flex-col gap-[30px]">
+      <SheetContent className="flex w-full flex-col justify-between text-white dark-gradient">
+        <div className="flex w-full flex-col gap-[30px] px-5">
           <SheetHeader className="mb-[38px] items-start">
             {/* 언어 변경 영역 */}
             <ChangeLanguage />
@@ -33,11 +33,11 @@ const MainSlideMenu = () => {
           {/* 메뉴 영역 */}
           <MenuContent />
         </div>
-        <SheetFooter className="flex w-full flex-row items-center justify-end">
-          <SheetClose asChild>
+        <SheetFooter className="w-full bg-neutral-800 py-4 text-white">
+          <SheetClose asChild className="flex-center">
             <Link href={ROUTES.LOGIN.PATH}>
-              <Button type="submit" className="w-full">
-                Login
+              <Button type="submit" variant="default" className="m-auto body2-m">
+                로그인 하기
               </Button>
             </Link>
           </SheetClose>
