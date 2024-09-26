@@ -11,12 +11,11 @@ const ChangeLanguage = () => {
   };
 
   return (
-    <div className="flex items-center gap-3 h2-sb">
+    <div className="flex items-center gap-2 h2-sb">
       <VscGlobe className="h-6 w-6" />
       <Link href={pathname} locale="ko" className={getLinkStyle('ko')}>
         KR
       </Link>
-      <span>/</span>
       <Link href={pathname} locale="en" className={getLinkStyle('en')}>
         EN
       </Link>

@@ -34,7 +34,7 @@ const MenuContent: React.FC = () => {
               <Link href={linkItem.path}>
                 <li className="ml-[22px] pb-[30px] h1-m">{linkItem.label}</li>
               </Link>
-              {/* seperate 컴포넌트 삽입 */}
+              {/* Seperate 컴포넌트 삽입 */}
               {index === 1 || index === 5 ? <Separator className="mb-[40px] mt-2.5" /> : null}
             </React.Fragment>
           ))}
@@ -44,7 +44,7 @@ const MenuContent: React.FC = () => {
       <section aria-label="19+ 모드 토글" className="my-[42px] flex items-center justify-between">
         <span className="ml-[22px] body1-m">{adultMode.label}</span>
         <div className="gap-2.5 flex-center">
-          <span>OFF</span>
+          <span> {isAdultModeOn ? 'ON' : 'OFF'}</span>
           <Switch id="adult_mode" checked={isAdultModeOn} onCheckedChange={handleSwitchChange} />
         </div>
       </section>
