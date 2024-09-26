@@ -11,7 +11,7 @@ const PostHistory = ({ posts }: PostHistoryProps) => {
   const t = useTranslations('my_activity_history_page');
 
   return (
-    <div className="h-full w-full overflow-y-auto pt-5 scrollbar-hide-smooth">
+    <div className="h-full w-full overflow-y-auto pb-8 pt-5 scrollbar-hide-smooth">
       <ul className="flex w-full flex-col items-center gap-4">
         {posts.map((post) => (
           <Fragment key={post.postId}>

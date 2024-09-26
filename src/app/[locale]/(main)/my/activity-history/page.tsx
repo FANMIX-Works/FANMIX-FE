@@ -37,7 +37,7 @@ export default function MyActivityHistoryPage() {
   const tabs = [
     {
       value: '1',
-      label: t('내 한줄리뷰'),
+      label: t('내 한줄 리뷰'),
       content: <ReviewHistory reviews={reviewData} />,
     },
     {
