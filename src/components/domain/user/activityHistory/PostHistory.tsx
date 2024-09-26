@@ -1,12 +1,13 @@
 import { Fragment } from 'react';
-import { Separator } from '@/components/ui/separator';
-import TextPostCard, { type TextPostCardProps } from '@/components/domain/board/TextPostCard';
 import { useTranslations } from 'next-intl';
 
-interface MyPostProps {
+import { Separator } from '@/components/ui/separator';
+import TextPostCard, { type TextPostCardProps } from '@/components/domain/board/TextPostCard';
+
+interface PostHistoryProps {
   posts: TextPostCardProps[];
 }
-const MyPost = ({ posts }: MyPostProps) => {
+const PostHistory = ({ posts }: PostHistoryProps) => {
   const t = useTranslations('my_activity_history_page');
 
   return (
@@ -28,4 +29,4 @@ const MyPost = ({ posts }: MyPostProps) => {
   );
 };
 
-export default MyPost;
+export default PostHistory;

@@ -1,10 +1,10 @@
 import CommentCard, { type CommentCardProps } from '@/components/domain/board/CommentCard';
 import { useTranslations } from 'next-intl';
 
-interface MyCommentProps {
+interface CommentHistoryProps {
   comments: CommentCardProps[];
 }
-const MyComment = ({ comments }: MyCommentProps) => {
+const CommentHistory = ({ comments }: CommentHistoryProps) => {
   const t = useTranslations('my_activity_history_page');
 
   return (
@@ -23,4 +23,4 @@ const MyComment = ({ comments }: MyCommentProps) => {
   );
 };
 
-export default MyComment;
+export default CommentHistory;

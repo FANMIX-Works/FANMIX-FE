@@ -3,11 +3,11 @@ import InfluencerReviewCard from '@/components/domain/influencer/InfluencerRevie
 import type { InfluencerReview } from '@/types/domain/influencerType';
 import { useTranslations } from 'next-intl';
 
-interface MyReviewProps {
+interface ReviewHistoryProps {
   reviews: InfluencerReview[];
 }
 
-const MyReview = ({ reviews }: MyReviewProps) => {
+const ReviewHistory = ({ reviews }: ReviewHistoryProps) => {
   const t = useTranslations('my_activity_history_page');
 
   return (
@@ -26,4 +26,4 @@ const MyReview = ({ reviews }: MyReviewProps) => {
   );
 };
 
-export default MyReview;
+export default ReviewHistory;
