@@ -43,10 +43,12 @@ const MenuContent: React.FC = () => {
         </ul>
       </section>
 
-      <section aria-label="19+ 모드 토글" className="my-[42px] flex items-center justify-between">
+      <section
+        aria-label="19+ 모드 토글"
+        className="my-[42px] flex items-center justify-between body1-m">
         <span className="ml-[22px] body1-m">{adultMode.label}</span>
         <div className="gap-2.5 flex-center">
-          <span> {isAdultModeOn ? 'ON' : 'OFF'}</span>
+          <span className="body1-sb"> {isAdultModeOn ? 'ON' : 'OFF'}</span>
           <Switch id="adult_mode" checked={isAdultModeOn} onCheckedChange={handleSwitchChange} />
         </div>
       </section>
