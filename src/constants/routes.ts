@@ -107,8 +107,8 @@ export const ROUTES = {
   },
   Editor_PICK: { ROOT: '/', PATH: '/', LABEL: "에디터's PICK", HAS_PREV_BTN: false },
   Short_Review: { ROOT: '/', PATH: '/', LABEL: '한줄 리뷰', HAS_PREV_BTN: false },
-  Fan_Channel: { ROOT: '/', PATH: '/', LABEL: '팬채널', HAS_PREV_BTN: false },
-  Community: { ROOT: '/', PATH: '/', LABEL: '커뮤니티', HAS_PREV_BTN: false },
+  Fan_Channel: { ROOT: '/fan-channel', PATH: '/fan-channel', LABEL: '팬채널', HAS_PREV_BTN: false },
+  Community: { ROOT: '/community', PATH: '/community', LABEL: '커뮤니티', HAS_PREV_BTN: false },
 } as const;
 
 // ROUTES 객체의 타입을 정의
