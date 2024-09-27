@@ -35,7 +35,9 @@ const MenuContent: React.FC = () => {
                 <li className="ml-[22px] pb-[30px] h1-m">{linkItem.label}</li>
               </Link>
               {/* Seperate 컴포넌트 삽입 */}
-              {index === 1 || index === 5 ? <Separator className="mb-[40px] mt-2.5" /> : null}
+              {index === 1 || index === 5 ? (
+                <Separator className="mb-[40px] mt-2.5 opacity-30" />
+              ) : null}
             </React.Fragment>
           ))}
         </ul>
