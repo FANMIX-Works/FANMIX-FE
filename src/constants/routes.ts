@@ -91,7 +91,7 @@ export const ROUTES = {
   },
 
   // 한줄리뷰
-  Short_Review: {
+  SHORT_REVIEW: {
     ROOT: '/',
     PATH: '/',
     LABEL: '전체 한줄 리뷰',

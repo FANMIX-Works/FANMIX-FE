@@ -12,7 +12,7 @@ const MenuContent: React.FC = () => {
   const linkList = [
     { label: t('인플루언서 찾기'), path: ROUTES.INFLUENCER_INDEX.PATH },
     { label: t("에디터's PICK"), path: '' },
-    { label: t('한줄 리뷰'), path: ROUTES.Short_Review.PATH },
+    { label: t('한줄 리뷰'), path: ROUTES.SHORT_REVIEW.PATH },
     { label: t('팬채널'), path: ROUTES.FAN_CHANNEL_INDEX.PATH },
     { label: t('커뮤니티'), path: ROUTES.COMMUNITY_INDEX.PATH },
     { label: t('고객센터'), path: ROUTES.CUSTOMER_CENTER.PATH },
