@@ -10,11 +10,11 @@ import React, { useState } from 'react';
 const MenuContent: React.FC = () => {
   const t = useTranslations('main_slide_menu');
   const linkList = [
-    { label: t('인플루언서 찾기'), path: ROUTES.Search_Influencer.PATH },
-    { label: t("에디터's PICK"), path: ROUTES.Editor_PICK.PATH },
+    { label: t('인플루언서 찾기'), path: ROUTES.INFLUENCER_INDEX.PATH },
+    { label: t("에디터's PICK"), path: '' },
     { label: t('한줄 리뷰'), path: ROUTES.Short_Review.PATH },
-    { label: t('팬채널'), path: ROUTES.Fan_Channel.PATH },
-    { label: t('커뮤니티'), path: ROUTES.Community.PATH },
+    { label: t('팬채널'), path: ROUTES.FAN_CHANNEL_INDEX.PATH },
+    { label: t('커뮤니티'), path: ROUTES.COMMUNITY_INDEX.PATH },
     { label: t('고객센터'), path: ROUTES.CUSTOMER_CENTER.PATH },
   ];
 
@@ -25,16 +25,25 @@ const MenuContent: React.FC = () => {
     setIsAdultModeOn(checked);
     alert('아직 준비 중인 서비스입니다.');
   };
+
+  const handleEditorsPick = () => {
+    alert('준비 중인 기능입니다.');
+  };
   return (
     <div>
       <section aria-label="메뉴 리스트">
         <ul className="list-none">
           {linkList.map((linkItem, index) => (
             <React.Fragment key={index}>
-              <Link href={linkItem.path}>
-                <li className="ml-[22px] pb-[30px] h1-m">{linkItem.label}</li>
-              </Link>
-              {/* Seperate 컴포넌트 삽입 */}
+              {linkItem.label === t("에디터's PICK") ? (
+                <li className="ml-[22px] cursor-pointer pb-[30px] h1-m" onClick={handleEditorsPick}>
+                  {linkItem.label}
+                </li>
+              ) : (
+                <Link href={linkItem.path}>
+                  <li className="ml-[22px] pb-[30px] h1-m">{linkItem.label}</li>
+                </Link>
+              )}
               {index === 1 || index === 5 ? (
                 <Separator className="mb-[40px] mt-2.5 opacity-30" />
               ) : null}
