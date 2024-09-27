@@ -33,10 +33,13 @@ const MainSlideMenu = () => {
           {/* 메뉴 영역 */}
           <MenuContent />
         </div>
-        <SheetFooter className="w-full bg-neutral-800 py-4 text-white">
-          <SheetClose asChild className="flex-center">
+        <SheetFooter className="w-full bg-neutral-800 text-white">
+          <SheetClose asChild className="w-full flex-center">
             <Link href={ROUTES.LOGIN.PATH}>
-              <Button type="submit" variant="default" className="m-auto body2-m">
+              <Button
+                type="submit"
+                variant="default"
+                className="h-[82px] w-full bg-neutral-800 py-4 text-white body2-m">
                 로그인 하기
               </Button>
             </Link>
