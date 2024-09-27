@@ -90,6 +90,14 @@ export const ROUTES = {
     HAS_PREV_BTN: true,
   },
 
+  // 한줄리뷰
+  Short_Review: {
+    ROOT: '/',
+    PATH: '/',
+    LABEL: '전체 한줄 리뷰',
+    HAS_PREV_BTN: true,
+  },
+
   // 로그인
   LOGIN: { ROOT: '/auth', PATH: '/auth/login', LABEL: '로그인', HAS_PREV_BTN: false },
   LOGIN_REDIRECT: {
@@ -98,17 +106,6 @@ export const ROUTES = {
     LABEL: '로그인 중',
     HAS_PREV_BTN: false,
   },
-  //메인 햄버거바 메뉴 (ROOT,PATH 변경 필요)
-  Search_Influencer: {
-    ROOT: '/influencer',
-    PATH: '/influencer',
-    LABEL: '인플루언서 찾기',
-    HAS_PREV_BTN: false,
-  },
-  Editor_PICK: { ROOT: '/', PATH: '/', LABEL: "에디터's PICK", HAS_PREV_BTN: false },
-  Short_Review: { ROOT: '/', PATH: '/', LABEL: '한줄 리뷰', HAS_PREV_BTN: false },
-  Fan_Channel: { ROOT: '/fan-channel', PATH: '/fan-channel', LABEL: '팬채널', HAS_PREV_BTN: false },
-  Community: { ROOT: '/community', PATH: '/community', LABEL: '커뮤니티', HAS_PREV_BTN: false },
 } as const;
 
 // ROUTES 객체의 타입을 정의
