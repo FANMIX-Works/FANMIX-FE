@@ -1,5 +1,7 @@
 'use client';
 
+import { formatDateToYYMMDD } from '@/lib/date';
+
 import BoardTypeTag from './BoardTypeTag';
 import InteractionStats from './InteractionStats';
 
@@ -11,6 +13,7 @@ export interface TextPostCardProps {
   boardType: BoardType;
   boardName: string;
   content: string;
+  createdAt: Date;
   interaction: InteractionStat;
   isPopular?: boolean;
 }
@@ -20,6 +23,7 @@ const TextPostCard = ({
   boardType,
   boardName,
   content,
+  createdAt,
   interaction,
   isPopular = false,
 }: TextPostCardProps) => {
@@ -38,11 +42,12 @@ const TextPostCard = ({
         <BoardTypeTag boardType={boardType} boardName={boardName} />
       </aside>
       <h1 className="mb-[7px] truncate body2-r">{content}</h1>
-      <footer>
+      <footer className="flex w-full items-center justify-between">
         <InteractionStats
           boardCardType={isPopular ? BOARD_CARD_TYPE.POPULAR_POST : BOARD_CARD_TYPE.POST}
           {...interaction}
         />
+        <span className="text-neutral-400 sub2-m">{formatDateToYYMMDD(createdAt)}</span>
       </footer>
     </article>
   );
