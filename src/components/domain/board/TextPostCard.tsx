@@ -5,7 +5,7 @@ import { formatDateToYYMMDD } from '@/lib/date';
 import BoardTypeTag from './BoardTypeTag';
 import InteractionStats from './InteractionStats';
 
-import { BOARD_CARD_TYPE, BOARD_TYPE, type BoardType } from '@/types/domain/board';
+import { BOARD_CARD_TYPE, BOARD_TYPE, type BoardType } from '@/types/domain/boardType';
 import type { InteractionStat } from '@/types/domain/influencerType';
 
 export interface TextPostCardProps {

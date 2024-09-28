@@ -4,16 +4,16 @@ import { VscPassFilled } from 'react-icons/vsc';
 
 export interface InfluencerThumbnailProps {
   influencerId: string;
-  name: string;
-  imageSrc: string;
-  isVerified: boolean;
+  influencerName: string;
+  influencerImageUrl: string;
+  isAuthenticated: boolean;
 }
 
 const InfluencerThumbnail = ({
   influencerId,
-  name,
-  imageSrc,
-  isVerified,
+  influencerName,
+  influencerImageUrl,
+  isAuthenticated,
 }: InfluencerThumbnailProps) => {
   const figureId = useId();
   return (
@@ -22,7 +22,7 @@ const InfluencerThumbnail = ({
       aria-labelledby={`${figureId}-influencer-${influencerId}`}>
       <Image
         priority
-        src={imageSrc}
+        src={influencerImageUrl}
         alt={`인플루언서 ${name}의 프로필 이미지`}
         fill
         sizes="100%"
@@ -32,10 +32,10 @@ const InfluencerThumbnail = ({
       <figcaption
         id={`${figureId}-influencer-${influencerId}`}
         className="absolute bottom-0 flex h-[60px] w-full items-end justify-center pb-2 text-white neutral-800-gradient body3-sb">
-        {name}
-        {isVerified && <span className="sr-only">(인증된 인플루언서)</span>}
+        {influencerName}
+        {isAuthenticated && <span className="sr-only">(인증된 인플루언서)</span>}
       </figcaption>
-      {isVerified && (
+      {isAuthenticated && (
         <>
           <div className="absolute right-[3px] top-[5px] inline-block">
             {/* 체크 표시 검정색으로 채우기용 태그 */}

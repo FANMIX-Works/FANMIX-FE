@@ -1,4 +1,4 @@
-import { BOARD_TYPE } from '@/types/domain/board';
+import { BOARD_TYPE } from '@/types/domain/boardType';
 
 // 테스트 데이터
 

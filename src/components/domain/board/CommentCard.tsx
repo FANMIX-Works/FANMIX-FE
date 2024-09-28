@@ -6,7 +6,7 @@ import { formatDateToYYMMDD } from '@/lib/date';
 import { Separator } from '@/components/ui/separator';
 import InteractionStats from './InteractionStats';
 import type { InteractionStat } from '@/types/domain/influencerType';
-import { BOARD_CARD_TYPE, BOARD_TYPE, type BoardType } from '@/types/domain/board';
+import { BOARD_CARD_TYPE, BOARD_TYPE, type BoardType } from '@/types/domain/boardType';
 export interface CommentCardProps {
   postId: string;
   commentId: string;

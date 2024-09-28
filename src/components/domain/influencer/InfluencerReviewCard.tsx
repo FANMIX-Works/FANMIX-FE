@@ -7,7 +7,7 @@ import { VscPassFilled } from 'react-icons/vsc';
 import InfluencerRatingBar from './InfluencerRatingBar';
 import InteractionStats from '../board/InteractionStats';
 
-import { BOARD_CARD_TYPE } from '@/types/domain/board';
+import { BOARD_CARD_TYPE } from '@/types/domain/boardType';
 import type { InfluencerReview } from '@/types/domain/influencerType';
 
 interface InfluencerReviewCardProps {

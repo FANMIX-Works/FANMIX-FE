@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import { VscThumbsup, VscComment, VscThumbsdown } from 'react-icons/vsc';
 import type { InteractionStat } from '@/types/domain/influencerType';
-import { BOARD_CARD_TYPE, type BoardCardType } from '@/types/domain/board';
+import { BOARD_CARD_TYPE, type BoardCardType } from '@/types/domain/boardType';
 interface InteractionStatsProps extends InteractionStat {
   boardCardType: BoardCardType;
 }
