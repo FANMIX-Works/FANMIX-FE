@@ -28,7 +28,11 @@ const InteractionStats = ({
       count: dislikesCount,
       color: 'text-neutral-300',
       Icon: VscThumbsdown,
-      visible: false,
+      visible: !(
+        boardCardType === BOARD_CARD_TYPE.COMMENT ||
+        boardCardType === BOARD_CARD_TYPE.POPULAR_POST ||
+        boardCardType === BOARD_CARD_TYPE.POPULAR_REVIEW
+      ),
     },
     {
       key: 'comment',
@@ -40,7 +44,7 @@ const InteractionStats = ({
   ];
   return (
     <div className="flex w-full items-center justify-between sub2-m">
-      <ul className="flex gap-2">
+      <ul className="flex gap-2.5">
         {stats.map(
           ({ key, count, color, Icon, visible }) =>
             visible && (

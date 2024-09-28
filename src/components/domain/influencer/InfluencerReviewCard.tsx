@@ -10,9 +10,10 @@ import type { InfluencerReview } from '@/types/domain/influencerType';
 
 interface InfluencerReviewCardProps {
   data: InfluencerReview;
+  isPopular?: boolean;
 }
 
-const InfluencerReviewCard = ({ data }: InfluencerReviewCardProps) => {
+const InfluencerReviewCard = ({ data, isPopular = false }: InfluencerReviewCardProps) => {
   return (
     <article
       aria-label={`${data.influencer.name}에 대한 리뷰`}
@@ -46,7 +47,10 @@ const InfluencerReviewCard = ({ data }: InfluencerReviewCardProps) => {
             className="flex h-[60px] w-full flex-col justify-center gap-1.5 bg-neutral-800 p-2.5">
             <p className="truncate body3-m">{data.content}</p>
             <footer>
-              <InteractionStats boardCardType={BOARD_CARD_TYPE.REVIEW} {...data.interaction} />
+              <InteractionStats
+                boardCardType={isPopular ? BOARD_CARD_TYPE.POPULAR_REVIEW : BOARD_CARD_TYPE.REVIEW}
+                {...data.interaction}
+              />{' '}
             </footer>
           </section>
         </div>

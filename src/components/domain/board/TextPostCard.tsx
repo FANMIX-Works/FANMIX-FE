@@ -12,6 +12,7 @@ export interface TextPostCardProps {
   boardName: string;
   content: string;
   interaction: InteractionStat;
+  isPopular?: boolean;
 }
 
 const TextPostCard = ({
@@ -20,6 +21,7 @@ const TextPostCard = ({
   boardName,
   content,
   interaction,
+  isPopular = false,
 }: TextPostCardProps) => {
   const handleClickPostCard = () => {
     if (boardType === BOARD_TYPE.FAN) {
@@ -37,7 +39,10 @@ const TextPostCard = ({
       </aside>
       <h1 className="mb-[7px] truncate body2-r">{content}</h1>
       <footer>
-        <InteractionStats boardCardType={BOARD_CARD_TYPE.POST} {...interaction} />
+        <InteractionStats
+          boardCardType={isPopular ? BOARD_CARD_TYPE.POPULAR_POST : BOARD_CARD_TYPE.POST}
+          {...interaction}
+        />
       </footer>
     </article>
   );
