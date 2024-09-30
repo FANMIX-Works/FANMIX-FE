@@ -48,7 +48,7 @@ const ReviewForm = ({ isModify = false, defaultReviewData }: ReviewFormProps) =>
               'box-border h-[34px] flex-1 gap-[5px] border flex-center body3-r',
               metric.score > 0 ? 'border-orange-500' : 'border-neutral-400 text-neutral-400',
             )}
-            onClick={() => handleClickMetric(metric.label, metric.key)}>
+            onClick={() => handleClickMetric(metric.label, metric.key, metric.score)}>
             {metric.label}
             {metric.score > 0 && <span className="text-orange-500 body3-m">{metric.score}</span>}
           </button>

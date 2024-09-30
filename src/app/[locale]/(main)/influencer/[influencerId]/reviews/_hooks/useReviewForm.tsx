@@ -54,10 +54,11 @@ const useReviewForm = (isModify: boolean, defaultReviewData?: ReviewFormData) =>
     closeModal();
   };
 
-  const handleClickMetric = (title: string, metricKey: MetricKey) => {
+  const handleClickMetric = (title: string, metricKey: MetricKey, metricScore: number) => {
     openModal(
       <ScoreSelectBox
         title={title}
+        defaultScore={metricScore}
         handleSelectScore={(selectScore) => handleSelectMetricScore(metricKey, selectScore)}
       />,
     );
