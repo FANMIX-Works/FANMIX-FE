@@ -1,13 +1,23 @@
-import InteractionStats from '@/components/domain/board/InteractionStats';
-import { Separator } from '@/components/ui/separator';
-import { formatDateToYYMMDD } from '@/lib/date';
 import { cn } from '@/lib/utils';
+
+import MetricsText from './MetricsText';
+import InteractionStats from '@/components/domain/board/InteractionStats';
+import { formatDateToYYMMDD } from '@/lib/date';
 import { BOARD_CARD_TYPE } from '@/types/domain/boardType';
 
 interface TextReviewCardProps {
   isMyReview?: boolean;
 }
 const TextReviewCard = ({ isMyReview }: TextReviewCardProps) => {
+  const reviewData = {
+    reviewerId: '3',
+    reviewrNickName: '작성 유저 닉네임',
+    contentsRating: 3,
+    communicationRating: 4,
+    trustRating: 10,
+    reviewDate: new Date(),
+    reviewContent: ' 내 글 텍스트 텍스트 텍스트',
+  };
   return (
     <article
       className={cn(
@@ -22,30 +32,13 @@ const TextReviewCard = ({ isMyReview }: TextReviewCardProps) => {
           {formatDateToYYMMDD(new Date())}
         </span>
       </aside>
-      <h1 className="mb-2.5 body2-r">
-        내 글 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 내 글 텍스트 텍스트 텍스트 텍스트
-        텍스트 텍스트
-      </h1>
+      <h1 className="mb-2.5 body2-r">내 글 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트</h1>
       <footer className="flex w-full items-center justify-between">
         <InteractionStats
           boardCardType={BOARD_CARD_TYPE.REVIEW}
           {...{ likesCount: 3, dislikesCount: 4, commentsCount: 10 }}
         />
-        <span className="text-neutral-400 sub2-m">
-          <ul className="gap-2 flex-center">
-            <li className="flex items-center gap-2">
-              <span>콘텐츠 10</span>
-              <Separator orientation="vertical" className="h-2.5 bg-neutral-400" />
-            </li>
-            <li className="flex items-center gap-2">
-              <span>소통 10</span>
-              <Separator orientation="vertical" className="h-2.5 bg-neutral-400" />
-            </li>
-            <li className="flex items-center gap-2">
-              <span>신뢰 10</span>
-            </li>
-          </ul>
-        </span>
+        <MetricsText {...reviewData} />
       </footer>
     </article>
   );

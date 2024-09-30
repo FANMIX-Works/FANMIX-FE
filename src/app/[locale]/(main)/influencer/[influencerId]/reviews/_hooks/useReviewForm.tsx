@@ -1,12 +1,17 @@
 'use client';
 
+import { Dispatch } from 'react';
+import { useTranslations } from 'next-intl';
+
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useModalStore } from '@/stores/modalStore';
+
 import MessageBox from '@/components/common/MessageBox';
 import ScoreSelectBox from '../_components/ScoreSelectBox';
-import { useTranslations } from 'next-intl';
+
+import { REVIEW_MODE, type ReviewMode } from '@/types/domain/influencerType';
 
 const reviewSchema = z.object({
   reviewContent: z.string().min(1),
@@ -18,7 +23,11 @@ const reviewSchema = z.object({
 type ReviewFormData = z.infer<typeof reviewSchema>;
 type MetricKey = keyof Omit<ReviewFormData, 'reviewContent'>;
 
-const useReviewForm = (isModify: boolean, defaultReviewData?: ReviewFormData) => {
+const useReviewForm = (
+  setReviewMode: Dispatch<React.SetStateAction<ReviewMode>>,
+  isModify: boolean,
+  defaultReviewData?: ReviewFormData,
+) => {
   const t = useTranslations('review_form');
   const { openModal, closeModal } = useModalStore();
 
@@ -46,7 +55,9 @@ const useReviewForm = (isModify: boolean, defaultReviewData?: ReviewFormData) =>
   const onSubmit = (data: ReviewFormData) => {
     console.log(data);
     // TODO: 제출 로직 추가
+    // submit할 때 리액트쿼리 캐시데이터 수정하기
     openSuccessMessage();
+    setReviewMode(REVIEW_MODE.VIEW);
   };
 
   const handleSelectMetricScore = (metricKey: MetricKey, selectScore: number) => {

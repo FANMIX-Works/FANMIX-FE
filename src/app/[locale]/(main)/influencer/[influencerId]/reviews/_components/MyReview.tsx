@@ -1,16 +1,22 @@
-import TooltipBox from '@/components/common/TooltipBox';
+'use client';
+
+import { useState } from 'react';
+
+import ReviewView from './ReviewView';
 import ReviewForm from './ReviewForm';
 
+import { REVIEW_MODE, type ReviewMode } from '@/types/domain/influencerType';
+
 const MyReview = () => {
+  const [reviewMode, setReviewMode] = useState<ReviewMode>(REVIEW_MODE.VIEW);
+
   return (
     <div>
-      <div className="mb-2.5 flex items-center gap-1.5">
-        <h2 className="body3-m">한줄리뷰 남기기</h2>
-        <TooltipBox
-          content={`인플루언서의 개인 신상과 관련된 내용 또는\n허위, 추측성, 원색적인 비난이 포함된 내용은\n사전 고지 없이 삭제 될 수 있어요.`}
-        />
-      </div>
-      <ReviewForm />
+      {reviewMode === REVIEW_MODE.VIEW ? (
+        <ReviewView setReviewMode={setReviewMode} />
+      ) : (
+        <ReviewForm setReviewMode={setReviewMode} />
+      )}
     </div>
   );
 };
