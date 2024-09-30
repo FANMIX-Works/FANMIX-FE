@@ -36,8 +36,8 @@ export default function InfluencerReviewListPage({
         <MyReview />
       </section>
       <Separator className="h-2 bg-neutral-900" />
-      <section aria-label="한줄리뷰 전체 리스트" className="mt-[15px] px-5">
-        <div className="mb-[13px] flex items-center gap-[15px]">
+      <section aria-label="한줄리뷰 전체 리스트" className="mt-[15px]">
+        <div className="mb-[13px] flex items-center gap-[15px] px-5">
           <button className="text-lime-400 body3-m">최신순</button>
           <button className="text-neutral-400 body3-r">추천순</button>
         </div>

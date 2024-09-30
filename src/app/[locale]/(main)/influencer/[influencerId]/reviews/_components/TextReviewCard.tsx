@@ -21,8 +21,8 @@ const TextReviewCard = ({ isMyReview }: TextReviewCardProps) => {
   return (
     <article
       className={cn(
-        'flex w-full cursor-pointer flex-col justify-center py-[15px]',
-        isMyReview && 'bg-orange-700/[8%]',
+        'flex w-full cursor-pointer flex-col justify-center px-5 py-[15px]',
+        isMyReview && 'bg-orange-700/15',
       )}>
       <aside className="mb-[5px] flex items-center justify-between">
         <span className={cn('sub1-r', isMyReview ? 'text-orange-500' : 'text-neutral-300')}>
