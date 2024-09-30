@@ -23,7 +23,7 @@ const useBottomNavigationState = (mainRef: React.RefObject<HTMLElement>) => {
         setIsVisible(true);
       }
     }
-  }, [scrollDirection, scrollPosition]);
+  }, [scrollDirection, scrollPosition, hideBottomNav]);
 
   const bottomNavigationItems = useMemo(
     () => [
