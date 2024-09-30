@@ -126,7 +126,8 @@
   "review_view": {
     "내 한줄리뷰": "My One-line Review",
     "삭제하기": "Delete",
-    "수정하기": "Edit"
+    "수정하기": "Edit",
+    "리뷰 작성 후 15일이 경과하여 수정, 삭제가 불가합니다": "Modifications and deletions are not possible as 15 days have passed since the review was written."
   },
   "api_result": {
     "다시 시도해 주세요": "Please try again.",
