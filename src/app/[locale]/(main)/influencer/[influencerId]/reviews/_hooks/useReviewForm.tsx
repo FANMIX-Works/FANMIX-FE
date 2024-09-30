@@ -94,7 +94,7 @@ const useReviewForm = (
     openModal(
       <MessageBox
         title={isModify ? t('한줄리뷰가 수정되었어요') : t('한줄리뷰가 등록되었어요')}
-        buttons={[{ text: t('확인'), variant: 'primary' as const }]}
+        buttons={[{ text: t('확인'), color: 'lime' }]}
       />,
     );
   };
