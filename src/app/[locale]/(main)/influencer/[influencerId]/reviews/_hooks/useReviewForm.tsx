@@ -12,6 +12,7 @@ import MessageBox from '@/components/common/MessageBox';
 import ScoreSelectBox from '../_components/ScoreSelectBox';
 
 import { REVIEW_MODE, type ReviewMode } from '@/types/domain/influencerType';
+import useInformationToast from '@/hooks/useInformationToast';
 
 const reviewSchema = z.object({
   reviewContent: z.string().min(1),
@@ -30,6 +31,7 @@ const useReviewForm = (
 ) => {
   const t = useTranslations('review_form');
   const { openModal, closeModal } = useModalStore();
+  const { showErrorToast } = useInformationToast();
 
   const {
     register,
@@ -58,6 +60,13 @@ const useReviewForm = (
     // submit할 때 리액트쿼리 캐시데이터 수정하기
     openSuccessMessage();
     setReviewMode(REVIEW_MODE.VIEW);
+  };
+
+  const onError = () => {
+    showErrorToast(
+      t('리뷰를 완성해 주세요'),
+      t('내용과 모든 항목의 점수를 입력해야 한줄 리뷰를 등록할 수 있습니다'),
+    );
   };
 
   const handleSelectMetricScore = (metricKey: MetricKey, selectScore: number) => {
@@ -94,6 +103,7 @@ const useReviewForm = (
     register,
     handleSubmit,
     onSubmit,
+    onError,
     isValid,
     handleClickMetric,
     metricList,
