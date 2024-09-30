@@ -111,6 +111,15 @@
     "ONE PICK": "ONE PICK",
     "팬채널로 이동": "Go to Fan Channel"
   },
+  "review_form": {
+    "한번 남긴 한줄 리뷰는 15일 이내에 삭제가 가능합니다 가장 최근에 남긴 리뷰만 점수에 반영됩니다": "One-line reviews can be deleted within 15 days.\nOnly the most recent review will be reflected in the score.",
+    "한줄리뷰가 수정되었어요": "Your one-line review\nhas been updated.",
+    "한줄리뷰가 등록되었어요": "Your one-line review\nhas been submitted.",
+    "확인": "Confirm",
+    "콘텐츠": "Content",
+    "소통": "Communication",
+    "신뢰": "Trust"
+  },
   "api_result": {
     "다시 시도해 주세요": "Please try again.",
     "로그인에 실패했습니다": "Google login has failed."
