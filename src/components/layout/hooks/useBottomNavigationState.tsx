@@ -8,7 +8,7 @@ import useScrollDirection from '@/hooks/useScrollDirection';
 import useCurrentRouteLabel from '@/hooks/useCurrentRouteLabel';
 
 const useBottomNavigationState = (mainRef: React.RefObject<HTMLElement>) => {
-  const { hideBottomNav } = useCurrentRouteLabel(); // page 설정에 의한 visible 여부
+  const { hideBottomNav, hideTopFAB } = useCurrentRouteLabel(); // page 설정에 의한 visible 여부
   const { scrollDirection, scrollPosition } = useScrollDirection(mainRef);
   const [isVisible, setIsVisible] = useState(true); // scroll direction에 의한 visible 여부
 
@@ -32,7 +32,11 @@ const useBottomNavigationState = (mainRef: React.RefObject<HTMLElement>) => {
     [],
   );
 
-  return { bottomNavigationItems, isVisible: !hideBottomNav && isVisible };
+  return {
+    bottomNavigationItems,
+    showBottomNav: !hideBottomNav && isVisible,
+    showTopFAB: !hideTopFAB,
+  };
 };
 
 export default useBottomNavigationState;
