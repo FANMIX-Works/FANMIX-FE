@@ -13,13 +13,19 @@ const IconInput = forwardRef<HTMLInputElement, IconInputProps>(
   ({ className, svgIcon, ...props }, ref) => {
     return (
       <div className="relative flex-center">
-        <div className="absolute inset-y-0 left-0 ml-3 flex-center">
+        <div className="absolute inset-y-0 left-3 top-8 flex-center">
           {React.cloneElement(svgIcon, { className: 'h-[18px] w-[18px] fill-neutral-300' })}
         </div>
         <Input
           {...props}
           ref={ref}
-          className={cn('pl-10', 'max-w-3xl', 'text-neutral-500 placeholder:body2-r', className)}
+          className={cn(
+            'pl-10',
+            'max-w-3xl',
+            'mt-[32px]',
+            'text-neutral-500 placeholder:body2-r',
+            className,
+          )}
         />
       </div>
     );

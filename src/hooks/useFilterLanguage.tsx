@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDebounce } from './useDebounce';
-import { categoryDataTypes } from '@/constants/categoryData';
+import { categoryDataTypes } from '@/constants/categoryNameData';
 
 const langDecide = (lang: string) => {
   const koreanPattern = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;

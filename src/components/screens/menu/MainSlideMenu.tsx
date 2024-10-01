@@ -1,8 +1,6 @@
 'use client';
 
-import { VscMenu } from 'react-icons/vsc';
 import { Link } from '@/i18n/routing';
-
 import {
   Sheet,
   SheetClose,
@@ -13,34 +11,42 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { Button } from '@/components/ui/button';
+import { VscMenu } from 'react-icons/vsc';
 
 import MenuContent from './MenuContent';
 import ChangeLanguage from './ChangeLanguage';
 
 import { ROUTES } from '@/constants/routes';
+import { useTranslations } from 'next-intl';
 
 const MainSlideMenu = () => {
+  const t = useTranslations('main_slide_menu');
   return (
     <Sheet>
       <SheetTrigger>
         <VscMenu aria-label="메인 메뉴" className="h-6 w-6 hover:scale-transition-105" />
       </SheetTrigger>
-      <SheetContent className="flex w-full flex-col items-start justify-between">
-        <div className="flex flex-col gap-6">
-          <SheetHeader className="items-start">
+      <SheetContent className="flex w-full flex-col justify-between text-white dark-gradient">
+        <div className="flex w-full flex-col gap-[58px] px-5">
+          <SheetHeader>
+            {/* 접근성 경고 방지용 타이틀 */}
+            <VisuallyHidden>
+              <SheetTitle>Main Menu</SheetTitle>
+              <SheetDescription>Main Menu List</SheetDescription>
+            </VisuallyHidden>
             {/* 언어 변경 영역 */}
             <ChangeLanguage />
-            <SheetTitle className="mt-2 items-start">메뉴</SheetTitle>
-            <SheetDescription className="w-full">메뉴를 선택해주세요.</SheetDescription>
           </SheetHeader>
+
           {/* 메뉴 영역 */}
           <MenuContent />
         </div>
-        <SheetFooter className="flex w-full flex-row items-center justify-end">
-          <SheetClose asChild>
+        <SheetFooter>
+          <SheetClose asChild className="w-full">
             <Link href={ROUTES.LOGIN.PATH}>
-              <Button type="submit">Login</Button>
+              <Button className="h-[82px] w-full body2-m">{t('로그인 하기')}</Button>
             </Link>
           </SheetClose>
         </SheetFooter>

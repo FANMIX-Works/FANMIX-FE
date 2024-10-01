@@ -1,3 +1,18 @@
-export default function CommunityListPage() {
-  return <div>커뮤니티 리스트 페이지</div>;
+import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'top_title' });
+
+  return {
+    title: t('커뮤니티'),
+  };
+}
+
+export default function CommunityIndexPage() {
+  return <div>커뮤니티 종류와 전체 종합 글이 나오는 페이지</div>;
 }

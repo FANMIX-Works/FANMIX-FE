@@ -8,7 +8,12 @@
     "활동내역": "Activity History",
     "고객센터": "Customer Service",
     "로그인": "Login",
-    "로그인 중": "Logging in.."
+    "로그인 중": "Logging in..",
+    "유저 정보": "User Information",
+    "인플루언서": "Influencer",
+    "인플루언서 찾기": "Find influencers",
+    "한줄 리뷰": "One-line review",
+    "커뮤니티": "Community"
   },
   "bottom_nav": {
     "홈": "Home",
@@ -41,8 +46,6 @@
     "전체보기": "View All"
   },
   "my_page": {
-    "MY ONE PICK": "MY ONE PICK",
-    "팬채널로 이동": "Go to Fan Channel",
     "활동내역": "Activity History",
     "팔로우": "Follow",
     "고객센터": "Customer Service",
@@ -57,16 +60,62 @@
     "인플루언서 모드": "Creator Mode",
     "회원탈퇴": "Delete Account"
   },
+  "my_activity_history_page": {
+    "내 한줄 리뷰": "My Reviews",
+    "내 글": "My Posts",
+    "내 댓글": "My Comments",
+    "모든 내용을 확인했습니다": "You've seen all the content."
+  },
+  "user_page": {
+    "한줄 리뷰": "Reviews",
+    "글": "Posts",
+    "댓글": "Comments"
+  },
   "customer_center_page": {
     "가이드 및 도움말": "Guides and Help",
     "자주 묻는 질문": "Frequently Asked Questions",
     "이용 약관 및 개인정보처리방침": "Terms of Service and Privacy Policy",
     "문의하기": "Contact us"
   },
+  "influencer_page": {
+    "인증 인플루언서": "Verified",
+    "팬채널": "Fan Ch.",
+    "콘텐츠 지향성": "Content Focus",
+    "리뷰 평균": "Average Review",
+    "BEST 리뷰": "BEST Review",
+    "리뷰 {reviewsCount}개 중": "Out of {reviewsCount} reviews",
+    "한줄리뷰 전체보기": "View All One-Line Reviews"
+  },
   "influencer_rating_bar": {
     "콘텐츠": "CQ",
     "소통": "ENG",
     "신뢰": "AUTH"
+  },
+  "main_slide_menu": {
+    "인플루언서 찾기": "Find Influencers",
+    "에디터's PICK": "Editor's PICK",
+    "한줄 리뷰": "One-line Review",
+    "팬채널": "Fan Channel",
+    "커뮤니티": "Community",
+    "고객센터": "Customer Service",
+    "19+ 모드": "18+ Content",
+    "로그인 하기": "Log in"
+  },
+  "comment_card": {
+    "팬채널": "Fan Channel",
+    "커뮤니티": "Community"
+  },
+  "one_pick_influencer": {
+    "MY ONE PICK": "MY ONE PICK",
+    "ONE PICK": "ONE PICK",
+    "팬채널로 이동": "Go to Fan Channel"
+  },
+  "search_menu": {
+    "인플루언서 찾기": "Find Influencers",
+    "Editor's Pick": "Editor's Pick",
+    "한줄 리뷰": "One-line Review",
+    "팬 채널": "Fan Channel",
+    "커뮤니티": "Community"
   },
   "api_result": {
     "다시 시도해 주세요": "Please try again.",

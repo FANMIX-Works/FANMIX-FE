@@ -1,17 +1,21 @@
 import Image from 'next/image';
 
+import { formatDateToYYMMDD } from '@/lib/date';
+
 import { VscPassFilled } from 'react-icons/vsc';
 
-import InteractionStats from './InteractionStats';
 import InfluencerRatingBar from './InfluencerRatingBar';
+import InteractionStats from '../board/InteractionStats';
 
+import { BOARD_CARD_TYPE } from '@/types/domain/boardType';
 import type { InfluencerReview } from '@/types/domain/influencerType';
 
 interface InfluencerReviewCardProps {
   data: InfluencerReview;
+  isPopular?: boolean;
 }
 
-const InfluencerReviewCard = ({ data }: InfluencerReviewCardProps) => {
+const InfluencerReviewCard = ({ data, isPopular = false }: InfluencerReviewCardProps) => {
   return (
     <article
       aria-label={`${data.influencer.name}에 대한 리뷰`}
@@ -22,7 +26,7 @@ const InfluencerReviewCard = ({ data }: InfluencerReviewCardProps) => {
           src={data.influencer.imageSrc}
           alt={`${data.influencer.name}의 프로필 이미지`}
           fill
-          sizes="100px"
+          sizes="100%"
           className="object-cover"
         />
       </figure>
@@ -44,8 +48,12 @@ const InfluencerReviewCard = ({ data }: InfluencerReviewCardProps) => {
             aria-label="한줄 리뷰"
             className="flex h-[60px] w-full flex-col justify-center gap-1.5 bg-neutral-800 p-2.5">
             <p className="truncate body3-m">{data.content}</p>
-            <footer>
-              <InteractionStats {...data.interaction} />
+            <footer className="flex w-full items-center justify-between">
+              <InteractionStats
+                boardCardType={isPopular ? BOARD_CARD_TYPE.POPULAR_REVIEW : BOARD_CARD_TYPE.REVIEW}
+                {...data.interaction}
+              />
+              <span className="text-neutral-400 sub2-m">{formatDateToYYMMDD(data.createdAt)}</span>
             </footer>
           </section>
         </div>

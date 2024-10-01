@@ -128,6 +128,9 @@ const config: Config = {
         '.orange-600-white-gradient': {
           background: 'linear-gradient(to bottom, #FF4D3300 0%, #FF4D3366 100%)',
         },
+        '.orange-700-gradient': {
+          background: 'linear-gradient(to bottom, #FF5B46 0%, #952B1D 100%)',
+        },
         '.neutral-800-gradient': {
           background: 'linear-gradient(to bottom, #26262600 0%, #262626 100%)',
         },
@@ -142,15 +145,28 @@ const config: Config = {
         },
         // 스크롤 감지가 되어야하는 페이지 영역 최상단에 추가
         '.page-scrollable-container': {
-          '@apply overflow-y-auto pb-20 scrollbar-hide-smooth': {},
+          'overflow-y': 'auto',
+          'padding-bottom': '5rem', // pb-20
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+          'scroll-behavior': 'smooth',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
         },
         // 스케일 부드럽게 키우기
         '.scale-transition-105': {
-          '@apply transform transition duration-300 ease-in-out scale-105 cursor-pointer': {},
+          transform: 'scale(1.05)',
+          transition: 'transform 300ms ease-in-out',
+          cursor: 'pointer',
         },
         // blur
         '.blur-10': {
-          '@apply backdrop-blur-[4px] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]': {},
+          'backdrop-filter': 'blur(4px)',
+        },
+        '.blur-10-shadow': {
+          'backdrop-filter': 'blur(4px)',
+          'box-shadow': '0 4px 4px 0px rgba(0,0,0,0.25)',
         },
         // #20240919.syjang, text fonSize 확장에서 유틸리티 클래스로 변경 (색상 지정과 동시에 쓸 때 충돌)
         // Typo
@@ -158,6 +174,11 @@ const config: Config = {
           fontSize: '24px',
           lineHeight: '1.4',
           fontWeight: '600',
+        },
+        '.h1-m': {
+          fontSize: '24px',
+          lineHeight: '1.4',
+          fontWeight: '500',
         },
         '.h2-r': {
           fontSize: '20px',

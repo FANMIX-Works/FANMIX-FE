@@ -1,9 +1,11 @@
 'use client';
 
-import BoardTypeTag from '@/components/common/BoardTypeTag';
-import InteractionStats from '../influencer/InteractionStats';
+import { formatDateToYYMMDD } from '@/lib/date';
 
-import type { BoardType } from '@/types/domain/board';
+import BoardTypeTag from './BoardTypeTag';
+import InteractionStats from './InteractionStats';
+
+import { BOARD_CARD_TYPE, BOARD_TYPE, type BoardType } from '@/types/domain/boardType';
 import type { InteractionStat } from '@/types/domain/influencerType';
 
 export interface TextPostCardProps {
@@ -11,7 +13,9 @@ export interface TextPostCardProps {
   boardType: BoardType;
   boardName: string;
   content: string;
+  createdAt: Date;
   interaction: InteractionStat;
+  isPopular?: boolean;
 }
 
 const TextPostCard = ({
@@ -19,10 +23,16 @@ const TextPostCard = ({
   boardType,
   boardName,
   content,
+  createdAt,
   interaction,
+  isPopular = false,
 }: TextPostCardProps) => {
   const handleClickPostCard = () => {
-    alert(`팬채녈이면 팬 여부 체크 후, ${boardType}의 ${postId}로 이동`);
+    if (boardType === BOARD_TYPE.FAN) {
+      alert(`팬 여부 체크 후, ${boardType}의 ${postId}로 이동`);
+    } else {
+      alert(`${boardType}의 ${postId}로 이동`);
+    }
   };
   return (
     <article
@@ -32,8 +42,12 @@ const TextPostCard = ({
         <BoardTypeTag boardType={boardType} boardName={boardName} />
       </aside>
       <h1 className="mb-[7px] truncate body2-r">{content}</h1>
-      <footer>
-        <InteractionStats {...interaction} />
+      <footer className="flex w-full items-center justify-between">
+        <InteractionStats
+          boardCardType={isPopular ? BOARD_CARD_TYPE.POPULAR_POST : BOARD_CARD_TYPE.POST}
+          {...interaction}
+        />
+        <span className="text-neutral-400 sub2-m">{formatDateToYYMMDD(createdAt)}</span>
       </footer>
     </article>
   );
