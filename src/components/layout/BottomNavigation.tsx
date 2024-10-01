@@ -43,12 +43,17 @@ const BottomNavigation = ({ mainRef }: BottomNavigationProps) => {
           </Link>
         );
       })}
-      <button
-        aria-label="최상단 이동 버튼"
-        className="absolute right-5 top-[-84px] h-[60px] w-[60px] rounded-full bg-orange-700/70 flex-center"
-        onClick={handleScrollToTop}>
-        <LiaAngleUpSolid className="h-[22px] w-[22px]" />
-      </button>
+      {
+        /* bottomNavigation 존재할 때만 표시되도록 처리 */
+        isVisible && (
+          <button
+            aria-label="최상단 이동 버튼"
+            className="absolute right-5 top-[-84px] h-[60px] w-[60px] rounded-full bg-orange-700/70 flex-center"
+            onClick={handleScrollToTop}>
+            <LiaAngleUpSolid className="h-[22px] w-[22px]" />
+          </button>
+        )
+      }
     </nav>
   );
 };
