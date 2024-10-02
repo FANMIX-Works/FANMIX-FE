@@ -133,6 +133,11 @@
     "최신 글": "Latest Post",
     "팬채널": "Fan Ch."
   },
+  "main_search": {
+    "인플루언서 / 커뮤니티 검색": "Search Influencers / Communities",
+    "검색 제안": "Search Suggestions",
+    "바로가기": "Quick Links"
+  },
   "influencer_rating_bar": {
     "콘텐츠": "CNT",
     "소통": "COM",
