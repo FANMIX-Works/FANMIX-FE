@@ -43,8 +43,8 @@ const TextPostCard = ({
         <BoardTypeLabel
           boardType={boardType}
           boardName={boardName}
-          iconSize={18}
-          className="gap-[3px] sub1-m"
+          iconSize={boardType === BOARD_TYPE.FAN ? 18 : 16}
+          className="gap-x-[3px] sub1-m"
         />
       </aside>
       <h1 className="mb-[7px] truncate body2-r">{content}</h1>

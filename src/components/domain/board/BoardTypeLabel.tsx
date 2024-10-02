@@ -20,9 +20,15 @@ const BoardTypeLabel = ({ boardName, boardType, iconSize, className }: BoardType
         className,
       )}>
       {boardType === BOARD_TYPE.FAN ? (
-        <LiaGem style={{ height: `${iconSize}px`, width: `${iconSize}px` }} />
+        <LiaGem
+          className="text-lime-400"
+          style={{ height: `${iconSize}px`, width: `${iconSize}px` }}
+        />
       ) : (
-        <VscSymbolConstant className="h-4 w-4" />
+        <VscSymbolConstant
+          className="text-orange-500"
+          style={{ height: `${iconSize}px`, width: `${iconSize}px` }}
+        />
       )}
       <span>{boardName}</span>
     </div>
