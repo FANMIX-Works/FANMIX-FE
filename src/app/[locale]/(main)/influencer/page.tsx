@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
+import InfluencerSearchForm from './_components/InfluencerSearchForm';
 import SearchInfluencerCard from './_components/SearchInfluencerCard';
 
 export async function generateMetadata({
@@ -23,8 +24,9 @@ export default function InfluencerIndexPage() {
   return (
     <div className="px-5 pb-20 pt-[65px]">
       <section aria-label="검색 조건" className="mb-5">
-        {/* select box 사용하기 */}
-        <div className="h-[42px]">dd</div>
+        <div className="h-[42px]">
+          <InfluencerSearchForm />
+        </div>
       </section>
       <section aria-label="인플루언서 검색 결과">
         <div className="mb-[15px] flex items-center gap-x-[15px] text-neutral-400 body3-r">
