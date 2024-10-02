@@ -1,34 +1,35 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import useFanChannelAccess from '@/hooks/useFanChannelAccess';
 
 interface GoFanChannelButtonProps {
   children: React.ReactNode;
+  influencerId: string;
   communityId: string;
   isFollowing?: boolean;
+  variant?: 'destructive' | 'outline';
   className?: string;
+  disabled?: boolean;
 }
 
 const GoFanChannelButton = ({
   children,
+  influencerId,
   communityId,
   isFollowing,
+  variant,
   className,
+  disabled,
 }: GoFanChannelButtonProps) => {
   const { checkAccessAndNavigate } = useFanChannelAccess();
 
   return (
     <Button
-      variant="destructive"
-      className={cn(
-        'h-9 px-4 py-2 body3-m',
-        !isFollowing &&
-          'border border-orange-500 bg-transparent text-orange-500 hover:bg-orange-500/10',
-        className,
-      )}
-      onClick={() => checkAccessAndNavigate(communityId, isFollowing)}>
+      variant={variant}
+      disabled={disabled}
+      className={className}
+      onClick={() => checkAccessAndNavigate(influencerId, communityId, isFollowing)}>
       {children}
     </Button>
   );

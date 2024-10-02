@@ -20,6 +20,7 @@ export async function generateMetadata({
 export default function FanChannelIndexPage() {
   const t = useTranslations('fan_channel_index_page');
   const testData = {
+    influencerId: '3',
     communityId: 'com_67890',
     influencerName: '김인플루',
     influencerImageUrl: '/assets/images/test/alganzi.png',

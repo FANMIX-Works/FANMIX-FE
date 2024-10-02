@@ -41,20 +41,24 @@ const useFanChannelAccess = () => {
     );
   };
 
-  const checkFollowStatus = async (communityId: string): Promise<boolean> => {
+  const checkFollowStatus = async (influencerId: string): Promise<boolean> => {
     // 여기에 실제 팔로우 상태를 확인하는 API 호출 로직을 구현하세요
-    alert(communityId + '확인작업하기');
-    return true; // 임시로 true 반환
+    alert(influencerId + '번 인플루언서 팔로우 확인작업하기');
+    return false; // 임시로 false 반환
   };
 
-  const checkAccessAndNavigate = async (communityId: string, isFollowing?: boolean) => {
+  const checkAccessAndNavigate = async (
+    influencerId: string,
+    communityId: string,
+    isFollowing?: boolean,
+  ) => {
     // 커뮤니티 아이디, 팔로우 여부가 있다면 팔로우 여부도 넘겨받는다.
     setIsLoading(true);
 
     try {
       if (isFollowing === undefined) {
         // 팔로우 상태를 모르는 경우, API를 호출하여 확인
-        isFollowing = await checkFollowStatus(communityId);
+        isFollowing = await checkFollowStatus(influencerId);
       }
 
       if (isFollowing) {

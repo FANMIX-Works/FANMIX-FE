@@ -1,4 +1,8 @@
+import { cn } from '@/lib/utils';
+
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+
 import { Separator } from '@/components/ui/separator';
 
 import { formatNumber } from '@/lib/text';
@@ -6,9 +10,9 @@ import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
 
 import GoFanChannelButton from '@/components/domain/influencer/GoFanChannelButton';
 import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadge';
-import { useTranslations } from 'next-intl';
 
 interface FanChannelInfluencerCardProps {
+  influencerId: string;
   communityId: string;
   influencerName: string;
   influencerImageUrl: string;
@@ -20,6 +24,7 @@ interface FanChannelInfluencerCardProps {
 
 // 팬 채널에 조회되는 인플루언서들은 모두 인증 인플루언서
 const FanChannelInfluencerCard = ({
+  influencerId,
   communityId,
   influencerName,
   influencerImageUrl,
@@ -62,7 +67,15 @@ const FanChannelInfluencerCard = ({
             <Separator className="h-3 w-[1px] bg-neutral-500" aria-hidden="true" />
             <time>{formatDateToYYMMDD(parseISOToDate(latestPostDate))}</time>
           </div>
-          <GoFanChannelButton {...{ communityId, isFollowing }}>{t('팬채널')}</GoFanChannelButton>
+          <GoFanChannelButton
+            variant={isFollowing ? 'destructive' : 'outline'}
+            className={cn(
+              'h-9 px-4 py-2 body3-m',
+              !isFollowing && 'border-orange-500 text-orange-500',
+            )}
+            {...{ influencerId, communityId, isFollowing }}>
+            {t('팬채널')}
+          </GoFanChannelButton>
         </div>
       </div>
     </article>
