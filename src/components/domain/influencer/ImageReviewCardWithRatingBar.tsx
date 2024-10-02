@@ -12,6 +12,20 @@ import { BOARD_CARD_TYPE } from '@/types/domain/boardType';
 import type { InfluencerReview } from '@/types/domain/influencerType';
 
 interface ImageReviewCardWithRatingBarProps {
+  // influencerId: string;
+  // reviewId: string;
+  // influencerName: string;
+  // influencerImageUrl: string;
+  // isAuthenticated: boolean;
+  // contentScore: number;
+  // communicationScore: number;
+  // trustworthinessScore: number;
+  // reviewContent: string;
+  // createdAt: string;
+  // likesCount: number;
+  // dislikesCount: number;
+  // commentsCount: number;
+
   data: InfluencerReview;
   isPopular?: boolean;
 }

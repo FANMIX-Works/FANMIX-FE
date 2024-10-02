@@ -9,6 +9,7 @@ import { BOARD_CARD_TYPE, BOARD_TYPE, type BoardType } from '@/types/domain/boar
 import type { InteractionStat } from '@/types/domain/influencerType';
 
 export interface TextPostCardProps {
+  // influencerId:string;
   postId: string;
   boardType: BoardType;
   boardName: string;
@@ -29,7 +30,7 @@ const TextPostCard = ({
 }: TextPostCardProps) => {
   const handleClickPostCard = () => {
     if (boardType === BOARD_TYPE.FAN) {
-      alert(`팬 여부 체크 후, ${boardType}의 ${postId}로 이동`);
+      alert(`influencerId로 팬 여부 체크 후, ${boardType}의 ${postId}로 이동`);
     } else {
       alert(`${boardType}의 ${postId}로 이동`);
     }
