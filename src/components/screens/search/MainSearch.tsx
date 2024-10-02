@@ -11,11 +11,17 @@ import {
 } from '@/components/ui/sheet';
 
 import { VscSearch } from 'react-icons/vsc';
-import CategorySearchResult from './CategorySearchResult';
-// import QuickLinksNavigation from './QuickLinksNavigation';
+import CommunitySearchResult from './CommunitySearchResult';
+import QuickLinksNavigation from './QuickLinksNavigation';
 import InfluencerSearchResult from './InfluencerSearchResult';
 
+import useMainSearch from './hooks/useMainSearch';
+import useSearchCommunity from './hooks/useSearchCommunity';
+
 const MainSearch = () => {
+  const { searchTerm, handleSearch } = useMainSearch();
+  const { categoryResult } = useSearchCommunity(searchTerm);
+
   return (
     <Sheet>
       <SheetTrigger>
@@ -42,6 +48,8 @@ const MainSearch = () => {
                 type="text"
                 inputMode="text"
                 enterKeyHint="send"
+                value={searchTerm}
+                onChange={handleSearch}
               />
               <button type="submit" className="absolute left-3 top-[13px]">
                 <VscSearch className="h-[18px] w-[18px] text-white" />
@@ -50,12 +58,17 @@ const MainSearch = () => {
           </section>
           <section aria-label="검색결과">
             <div>
-              <h2 className="mb-5 text-neutral-500 body2-m">검색 제안</h2>
-              {/* <QuickLinksNavigation /> */}
-              <div className="flex flex-col gap-y-6">
-                <InfluencerSearchResult />
-                <CategorySearchResult />
-              </div>
+              <h2 className="mb-5 text-neutral-500 body2-m">
+                {searchTerm ? '검색 제안' : '바로가기'}
+              </h2>
+              {searchTerm ? (
+                <div className="flex flex-col gap-y-6">
+                  <InfluencerSearchResult />
+                  <CommunitySearchResult categories={categoryResult} />
+                </div>
+              ) : (
+                <QuickLinksNavigation />
+              )}
             </div>
           </section>
         </div>
