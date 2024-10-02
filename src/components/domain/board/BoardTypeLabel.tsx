@@ -4,27 +4,29 @@ import { VscSymbolConstant } from 'react-icons/vsc';
 
 import { BOARD_TYPE, type BoardType } from '@/types/domain/boardType';
 
-interface BoardTypeTagProps {
+interface BoardTypeLabelProps {
   boardType: BoardType;
   boardName: string;
+  iconSize: number;
+  className: string;
 }
 
-const BoardTypeTag = ({ boardName, boardType }: BoardTypeTagProps) => {
+const BoardTypeLabel = ({ boardName, boardType, iconSize, className }: BoardTypeLabelProps) => {
   return (
     <div
       className={cn(
-        'flex items-center gap-[3px]',
+        'flex items-center',
         boardType === BOARD_TYPE.FAN ? 'text-lime-400' : 'text-orange-500',
+        className,
       )}>
       {boardType === BOARD_TYPE.FAN ? (
-        <LiaGem className="h-[18px] w-[18px]" />
+        <LiaGem style={{ height: `${iconSize}px`, width: `${iconSize}px` }} />
       ) : (
         <VscSymbolConstant className="h-4 w-4" />
       )}
-
-      <span className="sub1-m">{boardName}</span>
+      <span>{boardName}</span>
     </div>
   );
 };
 
-export default BoardTypeTag;
+export default BoardTypeLabel;

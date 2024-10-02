@@ -2,7 +2,7 @@
 
 import { formatDateToYYMMDD } from '@/lib/date';
 
-import BoardTypeTag from './BoardTypeTag';
+import BoardTypeLabel from './BoardTypeLabel';
 import InteractionStats from './InteractionStats';
 
 import { BOARD_CARD_TYPE, BOARD_TYPE, type BoardType } from '@/types/domain/boardType';
@@ -40,7 +40,12 @@ const TextPostCard = ({
       className="flex h-[65px] w-full cursor-pointer flex-col justify-center"
       onClick={handleClickPostCard}>
       <aside className="mb-0.5">
-        <BoardTypeTag boardType={boardType} boardName={boardName} />
+        <BoardTypeLabel
+          boardType={boardType}
+          boardName={boardName}
+          iconSize={18}
+          className="gap-[3px] sub1-m"
+        />
       </aside>
       <h1 className="mb-[7px] truncate body2-r">{content}</h1>
       <footer className="flex w-full items-center justify-between">
