@@ -5,7 +5,7 @@ import { LiaCameraSolid } from 'react-icons/lia';
 
 import { useRef } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import useUserAvatarImage from './hooks/useUserAvatarImage';
+import { useUserAvatarImage } from './hooks/useUserAvatarImage';
 
 interface UserAvatarProps {
   size: number;

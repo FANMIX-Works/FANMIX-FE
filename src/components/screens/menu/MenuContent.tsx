@@ -2,7 +2,7 @@ import { SheetClose } from '@/components/ui/sheet';
 
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
-import useInformationToast from '@/hooks/useInformationToast';
+import { useInformationToast } from '@/hooks/useInformationToast';
 
 import { Switch } from '@/components/ui/switch';
 import { Separator } from '@/components/ui/separator';

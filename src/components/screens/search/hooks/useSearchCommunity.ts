@@ -8,7 +8,7 @@ import { removeAllWhitespace } from '@/lib/text';
 
 import type { CommunityCategory } from '@/types/domain/boardType';
 
-const useCommunitySearch = (searchTerm: string) => {
+export const useSearchCommunity = (searchTerm: string) => {
   const t = useTranslations('community_category');
   const [categoryResult, setCategoryResult] = useState<CommunityCategory[]>([]);
 
@@ -52,5 +52,3 @@ const useCommunitySearch = (searchTerm: string) => {
 
   return { categoryResult };
 };
-
-export default useCommunitySearch;

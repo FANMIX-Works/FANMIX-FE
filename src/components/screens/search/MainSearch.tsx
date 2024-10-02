@@ -15,8 +15,8 @@ import { VscSearch } from 'react-icons/vsc';
 import CommunitySearchResult from './CommunitySearchResult';
 import QuickLinksNavigation from './QuickLinksNavigation';
 import InfluencerSearchResult from './InfluencerSearchResult';
-import useMainSearch from './hooks/useMainSearch';
-import useSearchCommunity from './hooks/useSearchCommunity';
+import { useMainSearch } from './hooks/useMainSearch';
+import { useSearchCommunity } from './hooks/useSearchCommunity';
 
 const MainSearch = () => {
   const t = useTranslations('main_search');

@@ -4,7 +4,7 @@ import { SheetClose } from '@/components/ui/sheet';
 import { VscChevronRight } from 'react-icons/vsc';
 import { useTranslations } from 'next-intl';
 
-import useInformationToast from '@/hooks/useInformationToast';
+import { useInformationToast } from '@/hooks/useInformationToast';
 
 import { ROUTES } from '@/constants/routes';
 

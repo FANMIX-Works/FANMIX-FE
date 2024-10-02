@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-const useMainSearch = () => {
+export const useMainSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -9,5 +9,3 @@ const useMainSearch = () => {
 
   return { searchTerm, handleSearch };
 };
-
-export default useMainSearch;
