@@ -88,8 +88,10 @@
     "이 섹션에서는 인플루언서가 자신의 콘텐츠 스타일을 직접 지정한 내용을 확인할 수 있어요": "In this section, you can see\nthe content style that the influencer\nhas directly specified for themselves."
   },
   "influencer_index_page": {
-    "활동명": "Stage Name",
+    "활동명": "Name",
     "태그": "Tags",
+    "검색어를 입력해 주세요": "Please enter a search term.",
+    "검색어를 입력 후 다시 시도해 주세요": "Please enter a search term and try again.",
     "평점순": "Sort by Rating",
     "조회순": "Most Viewed",
     "최신리뷰순": "Most Recent Reviews",
@@ -100,9 +102,8 @@
     "비추천": "Dislike",
     "취소": "Cancel",
     "삭제": "Delete",
-    "댓글을 입력해주세요": "Please enter your comment.",
-    "댓글을 작성해 주세요": "Please write a comment.",
-    "댓글 내용을 입력한 후 등록해 주세요": "Please enter your comment before submitting.",
+    "댓글을 입력해 주세요": "Please enter your comment.",
+    "댓글 내용을 입력한 후 다시 시도해 주세요": "Please enter a comment and try again.",
     "이미 추천한 리뷰입니다": "You have already liked this review.",
     "이미 비추천한 리뷰입니다": "You have already disliked this review.",
     "한 번 평가한 리뷰는 다시 평가할 수 없습니다": "You cannot rate a review more than once.",
