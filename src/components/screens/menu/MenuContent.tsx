@@ -3,6 +3,7 @@ import { SheetClose } from '@/components/ui/sheet';
 
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+import useInformationToast from '@/hooks/useInformationToast';
 
 import { Fragment } from 'react';
 
@@ -36,7 +37,7 @@ const MenuContent = () => {
       label: t('커뮤니티'),
       path: ROUTES.COMMUNITY_INDEX.PATH,
       hasSeparator: false,
-      isReleased: true,
+      isReleased: false,
     },
     {
       label: t('고객센터'),
@@ -45,9 +46,9 @@ const MenuContent = () => {
       isReleased: true,
     },
   ];
-
+  const { showConfirmToast } = useInformationToast();
   const handleClickUnreleased = () => {
-    alert('아직 준비중인 기능이에요.');
+    showConfirmToast(t('업데이트를 기다려주세요'), t('곧 멋진 기능으로 찾아뵙겠습니다'));
   };
   return (
     <div>
