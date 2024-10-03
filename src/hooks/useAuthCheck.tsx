@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { useRouter } from '@/i18n/routing';
 import { useCallback } from 'react';
 
@@ -9,17 +11,19 @@ import { useModalStore } from '@/stores/modalStore';
 import MessageBox from '@/components/common/MessageBox';
 
 export const useAuthCheck = () => {
+  const t = useTranslations('auth_check');
+
   const router = useRouter();
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
   const openModal = useModalStore((state) => state.openModal);
   const showLoginModal = useCallback(() => {
     openModal(
       <MessageBox
-        title={'로그인 후 이용할 수 있어요.'}
+        title={t('로그인 후 이용할 수 있어요')}
         buttons={[
-          { text: '뒤로', color: 'gray' },
+          { text: t('뒤로'), color: 'gray' },
           {
-            text: '로그인 하기',
+            text: t('로그인 하기'),
             color: 'lime',
             onClick: () => {
               router.push('/auth/login');
@@ -28,7 +32,7 @@ export const useAuthCheck = () => {
         ]}
       />,
     );
-  }, [openModal, router]);
+  }, [openModal, router, t]);
 
   const checkAuthAndProceed = useCallback(
     (callback: () => void) => {
