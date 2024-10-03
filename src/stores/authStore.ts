@@ -52,8 +52,9 @@ if (typeof window !== 'undefined') {
   const initializeAuth = () => {
     const authStore = useAuthStore.getState();
 
-    if (authStore?.accessToken && authStore?.refreshToken) {
-      authStore.setLogin(authStore.accessToken, authStore.refreshToken);
+    // #20241003.syjang, 서버에서 refreshToken이 null로 넘어와서 해결 전까지는 refreshToken 빈값 체크 제외
+    if (authStore?.accessToken) {
+      authStore.setLogin(authStore.accessToken, authStore.refreshToken || '');
     } else {
       authStore.setLogout();
     }
