@@ -21,6 +21,6 @@ export const useUpdateProfileImage = (fileInputRef: RefObject<HTMLInputElement>)
   return {
     handleClickAvatar,
     handleAvatarChange,
-    isUpdating: isPending, // 업로드 중인지 상태를 반영
+    isUpdating: isPending, // 업로드 중 상태
   };
 };
