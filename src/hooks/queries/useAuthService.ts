@@ -25,8 +25,7 @@ export const useLogout = () => {
         window.history.pushState(null, '', window.location.href);
       };
     },
-    onError: (error) => {
-      console.error('로그아웃 실패:', error);
+    onError: () => {
       showErrorToast('로그아웃에 실패했습니다.');
     },
   });

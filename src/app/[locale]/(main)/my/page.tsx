@@ -25,13 +25,6 @@ export async function generateMetadata({
 
 export default function MyPage() {
   const t = useTranslations('my_page');
-  const userData = {
-    userNickName: '닉네임이다',
-    imageSrc: '', // 비워질 경우, fallback으로 이름 첫글자 표시
-    introduction:
-      '한줄소개 텍스트 한줄소개 텍스트 한줄소개 텍스트 한줄소개 텍스트 한줄소개 텍스트 한줄소개 텍스트 한줄소개 텍스트 한줄소개',
-    email: '0000000@gmail.com',
-  };
   const onePickData = {
     influencerId: '3',
     communityId: '3',
@@ -43,7 +36,7 @@ export default function MyPage() {
   return (
     <div className="w-full pb-20 pt-[35px]">
       <section aria-label="내 프로필" className="mx-5 mb-8 flex flex-col gap-4 pt-7">
-        <MyProfile {...userData} />
+        <MyProfile />
       </section>
       <section aria-label="내 원픽 인플루언서" className="mb-12">
         <OnePickInfluencer {...onePickData} />

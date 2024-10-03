@@ -1,31 +1,24 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { Switch } from '@/components/ui/switch';
+import { useUserStore } from '@/stores/userStore';
 
 import { useTranslations } from 'next-intl';
-import useInfluencerMode from '../_hooks/useInfluencerMode';
+import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 
-interface MySettingsPanelProps {
-  userData: {
-    userNickName: string;
-    introduction: string;
-    gender: string;
-    birthYear: number;
-    nationality: string;
-  };
-}
-
-const MySettingsPanel = ({ userData }: MySettingsPanelProps) => {
+const MySettingsPanel = () => {
   const t = useTranslations('my_page_edit_page');
-  const { isInfluencerModeActive, handleChangeInfluencerMode } = useInfluencerMode(false);
+  const user = useUserStore((state) => state.user);
 
+  if (!user) {
+    return <ComponentSpinner />;
+  }
   const profileInfo = [
-    { label: t('닉네임'), value: userData.userNickName },
-    { label: t('내 소개'), value: userData.introduction },
-    { label: t('성별'), value: userData.gender },
-    { label: t('출생연도'), value: userData.birthYear },
-    { label: t('국적'), value: userData.nationality },
+    { label: t('닉네임'), value: user.nickName },
+    { label: t('내 소개'), value: user?.introduce },
+    { label: t('성별'), value: user.gender },
+    { label: t('출생연도'), value: user.birthYear },
+    { label: t('국적'), value: user.nationality },
   ];
 
   return (
@@ -44,19 +37,8 @@ const MySettingsPanel = ({ userData }: MySettingsPanelProps) => {
           {t('인플루언서 모드')}
         </label>
         <div className="gap-2.5 flex-center">
-          <span
-            className={cn(
-              'body3-sb',
-              isInfluencerModeActive ? 'text-orange-600' : 'text-neutral-200',
-            )}>
-            {isInfluencerModeActive ? 'ON' : 'OFF'}
-          </span>
-          <Switch
-            id="influencer-mode"
-            disabled
-            checked={isInfluencerModeActive}
-            onCheckedChange={handleChangeInfluencerMode}
-          />
+          <span className="text-neutral-200 body3-sb">OFF</span>
+          <Switch id="influencer-mode" disabled />
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ import type {
   UpdateMyIntroduceRequest,
   UpdateMyNationalityRequest,
   UpdateMyNicknameRequest,
+  UpdateMyProfileImageRequest,
   UserCommentHistoryResponse,
   UserDetailResponse,
   UserPostHistoryResponse,
@@ -36,6 +37,25 @@ export const userService = {
     }
   },
   // 프로필 이미지 변경
+  updateMyProfileImage: async ({
+    file,
+  }: UpdateMyProfileImageRequest): Promise<UserDetailResponse> => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await ax.post<UserDetailResponse>('/api/members/profile-image', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log('updateMyProfileImage Response:', response.data);
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error);
+      throw error;
+    }
+  },
 
   // 자기소개 수정
   updateMyIntroduce: async ({

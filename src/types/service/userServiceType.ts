@@ -44,6 +44,10 @@ export interface UserDetailResponse extends ResponseBase {
   };
 }
 
+export interface UpdateMyProfileImageRequest {
+  file: File;
+}
+
 export interface UpdateMyIntroduceRequest {
   introduce: string;
 }
