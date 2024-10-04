@@ -251,6 +251,12 @@
     "뒤로": "Back",
     "로그인 하기": "Log In"
   },
+  "delete_account": {
+    "탈퇴하시겠어요?": "Are you sure you want to delete your account?",
+    "탈퇴한 회원 정보는 되돌릴 수 없어요": "Once deleted, your account information cannot be recovered.",
+    "탈퇴하기": "Delete Account",
+    "뒤로": "Back"
+  },
   "nationalities": {
     "KR": "South Korea",
     "JP": "Japan",
