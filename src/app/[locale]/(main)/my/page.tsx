@@ -10,6 +10,7 @@ import { Separator } from '@/components/ui/separator';
 
 import MyProfile from './_components/MyProfile';
 import OnePickInfluencer from '@/components/domain/influencer/OnePickInfluencer';
+import LogoutButton from './edit/_components/LogoutButton';
 
 export async function generateMetadata({
   params: { locale },
@@ -24,7 +25,6 @@ export async function generateMetadata({
 }
 
 export default function MyPage() {
-  const t = useTranslations('my_page');
   const onePickData = {
     influencerId: '3',
     communityId: '3',
@@ -48,7 +48,7 @@ export default function MyPage() {
       <Separator className="h-[8px] bg-neutral-900" />
       {/* 로그아웃 로직 훅 분리하기 */}
       <footer className="mx-5 mt-6">
-        <button className="text-neutral-400 body2-r">{t('로그아웃')}</button>
+        <LogoutButton />
       </footer>
     </div>
   );
