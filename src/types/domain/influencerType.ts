@@ -7,7 +7,7 @@ export interface InfluencerRatingMetrics {
 }
 
 export interface Influencer {
-  influencerId: string;
+  influencerId: number;
   name: string;
   imageSrc: string;
   isVerified: boolean;
@@ -16,7 +16,7 @@ export interface Influencer {
 
 // 리뷰에 필요한 인플루언서 정보만 포함하는 새로운 인터페이스
 interface InfluencerReviewInfo {
-  influencerId: string;
+  influencerId: number;
   name: string;
   imageSrc: string;
   isVerified: boolean;
@@ -50,3 +50,16 @@ export interface PlatformLink {
   platformType: PlatformType;
   url: string;
 }
+
+// 인플루언서 태그/활동명 검색 타입
+export const INFLUENCER_SEARCH_TYPES = {
+  INFLUENCER_NAME: 'INFLUENCER_NAME',
+  TAG: 'TAG',
+} as const;
+export const INFLUENCER_SEARCH_SORT_TYPES = {
+  VIEW_COUNT: 'VIEW_COUNT',
+  RATING: 'RATING',
+  LATEST_REVIEW: 'LATEST_REVIEW',
+} as const;
+export type InfluencerSearchType = keyof typeof INFLUENCER_SEARCH_TYPES;
+export type InfluencerSearchSortType = keyof typeof INFLUENCER_SEARCH_SORT_TYPES;

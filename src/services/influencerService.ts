@@ -102,7 +102,7 @@ export const influencerService = {
   },
 
   // 인플루언서 상세정보
-  influencerDetail: async (influencerId: string): Promise<InfluencerDetailResponse> => {
+  influencerDetail: async (influencerId: number): Promise<InfluencerDetailResponse> => {
     try {
       const response = await ax.get<InfluencerDetailResponse>(`/api/influencers/${influencerId}`);
       console.log('influencerDetail Response:', response.data);

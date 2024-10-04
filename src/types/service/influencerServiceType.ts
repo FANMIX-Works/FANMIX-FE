@@ -1,6 +1,10 @@
 import type { ResponseBase } from './apiResponseBase';
 import type { Gender } from '../domain/userType';
-import type { PlatformLink } from '../domain/influencerType';
+import type {
+  InfluencerSearchSortType,
+  InfluencerSearchType,
+  PlatformLink,
+} from '../domain/influencerType';
 
 export interface WeeklyHotInfluencersResponse extends ResponseBase {
   data: {
@@ -63,9 +67,9 @@ export interface SearchInfluencersByNameResponse extends ResponseBase {
 }
 
 export interface SearchInfluencersRequest {
-  searchType: 'INFLUENCER_NAME' | 'TAG';
+  searchType: InfluencerSearchType;
   keyword: string;
-  sort: 'VIEW_COUNT' | 'RATING' | 'LATEST_REVEIEW';
+  sort: InfluencerSearchSortType;
 }
 export interface SearchInfluencersResponse extends ResponseBase {
   data: {
