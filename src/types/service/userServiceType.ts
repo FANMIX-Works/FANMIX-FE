@@ -34,8 +34,8 @@ export interface UserDetailResponse extends ResponseBase {
     profileImgUrl: string;
     introduce: string;
     email: string;
-    gender: string;
-    birthYear: string;
+    gender: Gender;
+    birthYear: number;
     nationality: string;
     totalPoint: number;
     refreshToken: string;
@@ -53,7 +53,7 @@ export interface UpdateMyIntroduceRequest {
 }
 
 export interface UpdateMyBirthYearRequest {
-  birthYear: string;
+  birthYear: number;
 }
 
 export interface UpdateMyNicknameRequest {

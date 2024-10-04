@@ -38,7 +38,7 @@ const EditMyProfileImage = () => {
             accept="image/png,image/jpeg,image/jpg"
           />
         </div>
-        <div className="flex gap-1 flex-col-center">
+        <div className="flex gap-1 text-center flex-col-center">
           <h2 className="h2-sb">{user.nickName}</h2>
           <p className="text-neutral-400 body2-r">{user.email}</p>
         </div>

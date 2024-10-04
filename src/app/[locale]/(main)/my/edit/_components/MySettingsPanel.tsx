@@ -1,34 +1,37 @@
 'use client';
 
 import { Switch } from '@/components/ui/switch';
-import { useUserStore } from '@/stores/userStore';
 
 import { useTranslations } from 'next-intl';
+import { useMySettingsPanel } from '../_hooks/useUpdateSettingPanel';
+
+import TextField from './TextField';
+import SelectField from './SelectField';
+
+import PageSpinner from '@/components/common/spinner/PageSpinner';
 import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 
 const MySettingsPanel = () => {
   const t = useTranslations('my_page_edit_page');
-  const user = useUserStore((state) => state.user);
+  const { user, textFields, selectFields, isLoading } = useMySettingsPanel();
 
   if (!user) {
     return <ComponentSpinner />;
   }
-  const profileInfo = [
-    { label: t('닉네임'), value: user.nickName },
-    { label: t('내 소개'), value: user?.introduce },
-    { label: t('성별'), value: user.gender },
-    { label: t('출생연도'), value: user.birthYear },
-    { label: t('국적'), value: user.nationality },
-  ];
 
   return (
     <div>
       <ul aria-label="사용자 기본 정보" className="grid grid-cols-[auto,1fr] gap-x-4 gap-y-6">
-        {profileInfo.map((row) => (
-          <li key={row.label} className="contents">
-            {/* 클릭 시 모달 or select 박스 뜨게 수정 필요 */}
-            <div className="flex pt-2 text-neutral-200 body3-m">{row.label}</div>
-            <div className="bg-neutral-800 px-4 py-2.5 body3-r">{row.value}</div>
+        {textFields.map((textField) => (
+          <li key={textField.label} className="contents">
+            <label className="flex pt-2 text-neutral-200 body3-m">{textField.label}</label>
+            <TextField {...textField} />
+          </li>
+        ))}
+        {selectFields.map((selectField) => (
+          <li key={selectField.label} className="contents">
+            <div className="flex pt-2 text-neutral-200 body3-m">{selectField.label}</div>
+            <SelectField {...selectField} />
           </li>
         ))}
       </ul>
@@ -41,6 +44,7 @@ const MySettingsPanel = () => {
           <Switch id="influencer-mode" disabled />
         </div>
       </div>
+      {isLoading && <PageSpinner />}
     </div>
   );
 };
