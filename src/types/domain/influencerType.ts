@@ -1,3 +1,5 @@
+import type { PlatformType } from '@/constants/platform';
+
 export interface InfluencerRatingMetrics {
   contentScore: number;
   communicationScore: number;
@@ -42,3 +44,9 @@ export const REVIEW_MODE = {
   EDIT: 'EDIT',
 } as const;
 export type ReviewMode = keyof typeof REVIEW_MODE;
+
+// 인플루언서 플랫폼 타입
+export interface PlatformLink {
+  platformType: PlatformType;
+  url: string;
+}
