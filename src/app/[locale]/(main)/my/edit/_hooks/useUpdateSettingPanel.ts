@@ -65,13 +65,13 @@ export const useMySettingsPanel = () => {
     {
       label: t('닉네임'),
       value: user?.nickName || '',
-      placeholder: '닉네임을 입력해주세요.',
+      placeholder: t('{label}을(를) 입력해주세요', { label: t('닉네임') }),
       updateFn: (newNickName: string) => nicknameMutation.mutate({ nickName: newNickName }),
     },
     {
       label: t('내 소개'),
       value: user?.introduce || '',
-      placeholder: '소개를 입력해주세요.',
+      placeholder: t('{label}을(를) 입력해주세요', { label: t('내 소개') }),
       updateFn: (newIntroduce: string) => introduceMutation.mutate({ introduce: newIntroduce }),
     },
   ];
@@ -80,18 +80,18 @@ export const useMySettingsPanel = () => {
     {
       label: t('성별'),
       defaultValue: user?.gender || '',
-      placeholder: '성별을 선택해주세요.',
+      placeholder: t('{label}을(를) 선택해주세요', { label: t('성별') }),
       options: [
-        { value: 'FEMALE', label: '여자' },
-        { value: 'MALE', label: '남자' },
-        { value: 'UNKNOWN', label: '알 수 없음' },
+        { value: 'FEMALE', label: t('여자') },
+        { value: 'MALE', label: t('남자') },
+        { value: 'UNKNOWN', label: t('알 수 없음') },
       ],
       updateFn: (newGender: string) => genderMutation.mutate({ gender: newGender as Gender }),
     },
     {
       label: t('출생 연도'),
       defaultValue: user?.birthYear ? user.birthYear.toString() : '',
-      placeholder: '출생 연도를 선택해주세요.',
+      placeholder: t('{label}을(를) 선택해주세요', { label: t('출생 연도') }),
       options: birthYearOptions,
       updateFn: (newBirthYear: string) =>
         birthYearMutation.mutate({ birthYear: parseInt(newBirthYear) }),
@@ -99,7 +99,7 @@ export const useMySettingsPanel = () => {
     {
       label: t('국적'),
       defaultValue: user?.nationality || '',
-      placeholder: '국적을 선택해주세요.',
+      placeholder: t('{label}을(를) 선택해주세요', { label: t('국적') }),
       options: nationalityOptions,
       updateFn: (newNationality: string) =>
         nationalityMutation.mutate({ nationality: newNationality }),

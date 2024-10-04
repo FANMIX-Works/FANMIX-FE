@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, type UseMutationResult } from '@tanstack/react-query';
 import { useUserStore } from '@/stores/userStore';
 import { userService } from '@/services/userService';
 import { useInformationToast } from '../useInformationToast';
@@ -12,99 +12,74 @@ import type {
   UpdateMyProfileImageRequest,
   UserDetailResponse,
 } from '@/types/service/userServiceType';
+import { useTranslations } from 'next-intl';
 
-export const useUpdateMyProfileImage = () => {
-  const { showConfirmToast, showErrorToast } = useInformationToast();
+// 유저 데이터 Update Mutation
+type UpdateUserMutationParams<T> = {
+  mutationFn: (params: T) => Promise<UserDetailResponse>;
+  label: '프로필 이미지' | '닉네임' | '내 소개' | '성별' | '출생 연도' | '국적';
+  updateUserField: keyof UserDetailResponse['data'];
+};
+
+const useUpdateUserMutation = <T>({
+  mutationFn,
+  label,
+  updateUserField,
+}: UpdateUserMutationParams<T>): UseMutationResult<UserDetailResponse, AxiosError, T> => {
+  const t = useTranslations('api_result');
+  const t2 = useTranslations('my_page_edit_page');
   const setUser = useUserStore((state) => state.setUser);
+  const { showConfirmToast, showErrorToast } = useInformationToast();
+  return useMutation<UserDetailResponse, AxiosError, T>({
+    mutationFn,
+    onSuccess: (data) => {
+      setUser({ [updateUserField]: data.data[updateUserField] });
+      showConfirmToast(t('{label} 수정에 성공했어요', { label: t2(label) }));
+    },
+    onError: () => {
+      showErrorToast(t('{label} 수정에 실패했어요', { label }), t('다시 시도해 주세요'));
+    },
+  });
+};
 
-  return useMutation<UserDetailResponse, AxiosError, UpdateMyProfileImageRequest>({
+export const useUpdateMyProfileImage = () =>
+  useUpdateUserMutation<UpdateMyProfileImageRequest>({
     mutationFn: userService.updateMyProfileImage,
-    onSuccess: (data) => {
-      setUser({ profileImgUrl: data.data.profileImgUrl });
-      showConfirmToast('프로필 이미지 수정에 성공했어요.');
-    },
-    onError: () => {
-      showErrorToast('프로필 이미지 수정에 실패했어요.');
-    },
+    label: '프로필 이미지',
+    updateUserField: 'profileImgUrl',
   });
-};
 
-export const useUpdateMyNickname = () => {
-  const { showConfirmToast, showErrorToast } = useInformationToast();
-  const setUser = useUserStore((state) => state.setUser);
-
-  return useMutation<UserDetailResponse, AxiosError, UpdateMyNicknameRequest>({
+export const useUpdateMyNickname = () =>
+  useUpdateUserMutation<UpdateMyNicknameRequest>({
     mutationFn: userService.updateMyNickname,
-    onSuccess: (data) => {
-      setUser({ nickName: data.data.nickName });
-      showConfirmToast('닉네임 수정에 성공했어요.');
-    },
-    onError: () => {
-      showErrorToast('닉네임 수정에 실패했어요.');
-    },
+    label: '닉네임',
+    updateUserField: 'nickName',
   });
-};
 
-export const useUpdateMyIntroduce = () => {
-  const { showConfirmToast, showErrorToast } = useInformationToast();
-  const setUser = useUserStore((state) => state.setUser);
-
-  return useMutation<UserDetailResponse, AxiosError, UpdateMyIntroduceRequest>({
+export const useUpdateMyIntroduce = () =>
+  useUpdateUserMutation<UpdateMyIntroduceRequest>({
     mutationFn: userService.updateMyIntroduce,
-    onSuccess: (data) => {
-      setUser({ introduce: data.data.introduce });
-      showConfirmToast('자기소개 수정에 성공했어요.');
-    },
-    onError: () => {
-      showErrorToast('자기소개 수정에 실패했어요.');
-    },
+    label: '내 소개',
+    updateUserField: 'introduce',
   });
-};
 
-export const useUpdateMyGender = () => {
-  const { showConfirmToast, showErrorToast } = useInformationToast();
-  const setUser = useUserStore((state) => state.setUser);
-
-  return useMutation<UserDetailResponse, AxiosError, UpdateMyGenderRequest>({
+export const useUpdateMyGender = () =>
+  useUpdateUserMutation<UpdateMyGenderRequest>({
     mutationFn: userService.updateMyGender,
-    onSuccess: (data) => {
-      setUser({ gender: data.data.gender });
-      showConfirmToast('성별 수정에 성공했어요.');
-    },
-    onError: () => {
-      showErrorToast('성별 수정에 실패했어요.');
-    },
+    label: '성별',
+    updateUserField: 'gender',
   });
-};
 
-export const useUpdateMyBirthYear = () => {
-  const { showConfirmToast, showErrorToast } = useInformationToast();
-  const setUser = useUserStore((state) => state.setUser);
-
-  return useMutation<UserDetailResponse, AxiosError, UpdateMyBirthYearRequest>({
+export const useUpdateMyBirthYear = () =>
+  useUpdateUserMutation<UpdateMyBirthYearRequest>({
     mutationFn: userService.updateMyBirthYear,
-    onSuccess: (data) => {
-      setUser({ birthYear: data.data.birthYear });
-      showConfirmToast('출생연도 수정에 성공했어요.');
-    },
-    onError: () => {
-      showErrorToast('출생연도 수정에 실패했어요.');
-    },
+    label: '출생 연도',
+    updateUserField: 'birthYear',
   });
-};
 
-export const useUpdateMyNationality = () => {
-  const { showConfirmToast, showErrorToast } = useInformationToast();
-  const setUser = useUserStore((state) => state.setUser);
-
-  return useMutation<UserDetailResponse, AxiosError, UpdateMyNationalityRequest>({
+export const useUpdateMyNationality = () =>
+  useUpdateUserMutation<UpdateMyNationalityRequest>({
     mutationFn: userService.updateMyNationality,
-    onSuccess: (data) => {
-      setUser({ nationality: data.data.nationality });
-      showConfirmToast('국적 수정에 성공했어요.');
-    },
-    onError: () => {
-      showErrorToast('국적 수정에 실패했어요.');
-    },
+    label: '국적',
+    updateUserField: 'nationality',
   });
-};
