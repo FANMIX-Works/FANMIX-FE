@@ -145,6 +145,10 @@
     "최신 글": "Latest Post",
     "팬채널": "Fan Ch."
   },
+  "error_page": {
+    "페이지를 불러오는 데 문제가 생겼어요 아래 버튼을 클릭하여 다시 시도해주세요": "We encountered a problem while loading the page.\nPlease click the button below to try again.",
+    "다시 시도해볼게요": "Let's try again! 🚀"
+  },
   "main_search": {
     "FANMIX - 내 선택이 만드는 콘텐츠": "FANMIX - Content Created by My Choices",
     "나에게 맞는 인플루언서를 통해 콘텐츠를 더 풍성하게 즐기세요": "Enjoy richer content through influencers that suit you.",
