@@ -1,7 +1,6 @@
 'use client';
 import { useTranslations } from 'next-intl';
 
-import { Input } from '@/components/ui/input';
 import {
   Sheet,
   SheetContent,
@@ -12,17 +11,21 @@ import {
 } from '@/components/ui/sheet';
 
 import { VscSearch } from 'react-icons/vsc';
+
+import MainSearchInput from './MainSearchInput';
 import CommunitySearchResult from './CommunitySearchResult';
 import QuickLinksNavigation from './QuickLinksNavigation';
 import InfluencerSearchResult from './InfluencerSearchResult';
+
 import { useMainSearch } from './hooks/useMainSearch';
 import { useSearchCommunity } from './hooks/useSearchCommunity';
+import { useMainSearchInfluencer } from './hooks/useMainSearchInfluencer';
 
 const MainSearch = () => {
   const t = useTranslations('main_search');
   const { searchTerm, handleSearch } = useMainSearch();
   const { categoryResult } = useSearchCommunity(searchTerm);
-
+  const { influencerResult, isLoading, isError } = useMainSearchInfluencer(searchTerm);
   return (
     <Sheet>
       <SheetTrigger>
@@ -44,20 +47,7 @@ const MainSearch = () => {
             </SheetDescription>
           </SheetHeader>
           <section aria-label="검색어 입력" className="mb-[60px]">
-            <div className="relative w-full">
-              <Input
-                className="h-11 w-full border-neutral-300 bg-neutral-900 py-[13px] pl-10 pr-3 text-white body2-r placeholder:text-neutral-500"
-                placeholder={t('인플루언서 / 커뮤니티 검색')}
-                type="text"
-                inputMode="text"
-                enterKeyHint="send"
-                value={searchTerm}
-                onChange={handleSearch}
-              />
-              <button type="submit" className="absolute left-3 top-[13px]">
-                <VscSearch className="h-[18px] w-[18px] text-white" />
-              </button>
-            </div>
+            <MainSearchInput {...{ searchTerm, handleSearch }} />
           </section>
           <section aria-label="검색결과">
             <div>
@@ -66,7 +56,10 @@ const MainSearch = () => {
               </h2>
               {searchTerm ? (
                 <div className="flex flex-col gap-y-6">
-                  <InfluencerSearchResult />
+                  <InfluencerSearchResult
+                    influencers={influencerResult}
+                    {...{ isLoading, isError }}
+                  />
                   <CommunitySearchResult categories={categoryResult} />
                 </div>
               ) : (
