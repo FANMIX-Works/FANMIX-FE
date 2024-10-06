@@ -23,9 +23,11 @@ import { useMainSearchInfluencer } from './hooks/useMainSearchInfluencer';
 
 const MainSearch = () => {
   const t = useTranslations('main_search');
-  const { searchTerm, handleSearch } = useMainSearch();
-  const { categoryResult } = useSearchCommunity(searchTerm);
-  const { influencerResult, isLoading, isError } = useMainSearchInfluencer(searchTerm);
+  const { searchTerm, debouncedSearchTerm, handleSearch } = useMainSearch(300); // 검색 디바운스 0.3초
+
+  const { categoryResult } = useSearchCommunity(debouncedSearchTerm);
+  const { influencerResult, isLoading, isError } = useMainSearchInfluencer(debouncedSearchTerm);
+
   return (
     <Sheet>
       <SheetTrigger>
