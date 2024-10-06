@@ -9,16 +9,16 @@ import { BOARD_TYPE } from '@/types/domain/boardType';
 import type { SearchInfluencersByNameResponse } from '@/types/service/influencerServiceType';
 import { useTranslations } from 'next-intl';
 
-interface InfluencerSearchResultProps {
+interface InfluencerMainSearchResultProps {
   influencers: SearchInfluencersByNameResponse | undefined;
   isLoading: boolean;
   isError: boolean;
 }
-const InfluencerSearchResult = ({
+const InfluencerMainSearchResult = ({
   influencers,
   isLoading,
   isError,
-}: InfluencerSearchResultProps) => {
+}: InfluencerMainSearchResultProps) => {
   const t = useTranslations('influencer_index_page');
   if (isLoading) {
     return (
@@ -57,4 +57,4 @@ const InfluencerSearchResult = ({
   );
 };
 
-export default InfluencerSearchResult;
+export default InfluencerMainSearchResult;

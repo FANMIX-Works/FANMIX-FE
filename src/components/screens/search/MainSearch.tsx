@@ -13,9 +13,9 @@ import {
 import { VscSearch } from 'react-icons/vsc';
 
 import MainSearchInput from './MainSearchInput';
-import CommunitySearchResult from './CommunitySearchResult';
+import CommunitySearchResult from './CommunityMainSearchResult';
 import QuickLinksNavigation from './QuickLinksNavigation';
-import InfluencerSearchResult from './InfluencerSearchResult';
+import InfluencerSearchResult from './InfluencerMainSearchResult';
 
 import { useMainSearch } from './hooks/useMainSearch';
 import { useSearchCommunity } from './hooks/useSearchCommunity';
@@ -57,13 +57,20 @@ const MainSearch = () => {
                 {searchTerm ? t('검색 제안') : t('바로가기')}
               </h2>
               {searchTerm ? (
-                <div className="flex flex-col gap-y-6">
-                  <InfluencerSearchResult
-                    influencers={influencerResult}
-                    {...{ isLoading, isError }}
-                  />
-                  <CommunitySearchResult categories={categoryResult} />
-                </div>
+                (!influencerResult || influencerResult.data.length === 0) &&
+                categoryResult.length === 0 ? (
+                  <div className="h-full text-neutral-500 body3-r">
+                    {t('인플루언서 및 커뮤니티 검색 결과가 없어요')}
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-y-6">
+                    <InfluencerSearchResult
+                      influencers={influencerResult}
+                      {...{ isLoading, isError }}
+                    />
+                    <CommunitySearchResult categories={categoryResult} />
+                  </div>
+                )
               ) : (
                 <QuickLinksNavigation />
               )}
