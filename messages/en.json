@@ -146,8 +146,13 @@
     "팬채널": "Fan Ch."
   },
   "error_page": {
-    "페이지를 불러오는 데 문제가 생겼어요 아래 버튼을 클릭하여 다시 시도해주세요": "We encountered a problem while loading the page.\nPlease click the button below to try again.",
-    "다시 시도해볼게요": "Let's try again! 🚀"
+    "무언가 잘못되었어요": "Something went wrong!",
+    "페이지를 불러오는 데 문제가 발생했어요 다시 한번 시도해주세요": "There was a problem loading the page.\nPlease try again.",
+    "다시 시도하기": "Try again"
+  },
+  "not_found_page": {
+    "찾으시는 페이지를 찾을 수 없습니다 페이지가 삭제되었거나 주소가 변경되었을 수 있습니다 올바른 주소인지 다시 한번 확인해 주세요": "We couldn't find the page you're looking for.\nThe page may have been deleted\nor the address may have changed.\nPlease double-check that you have the correct address.",
+    "홈으로 가기": "Go to Home"
   },
   "main_search": {
     "FANMIX - 내 선택이 만드는 콘텐츠": "FANMIX - Content Created by My Choices",

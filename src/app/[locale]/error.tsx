@@ -4,8 +4,7 @@ import { useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { Button } from '@/components/ui/button';
-
-import VerticalLogo from '../../../public/assets/images/logo/logo_vertical.svg';
+import { LiaFrown } from 'react-icons/lia';
 
 export default function Error({
   error,
@@ -21,16 +20,16 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center space-y-6 p-10 text-center">
-      <VerticalLogo className="mb-8" />
-      <p className="whitespace-pre-line text-neutral-600">
-        {t('페이지를 불러오는 데 문제가 생겼어요 아래 버튼을 클릭하여 다시 시도해주세요')}
-      </p>
-      <Button
-        variant="destructive"
-        className="w-full transition-transform body3-m hover:scale-105"
-        onClick={() => reset()}>
-        {t('다시 시도해볼게요')}
+    <div className="h-full w-full gap-y-10 px-[52px] pb-[14px] flex-col-center">
+      <div className="flex-col-center">
+        <LiaFrown className="mb-1.5 h-[50px] w-[50px]" />
+        <p className="mb-3 h1-sb">{t('무언가 잘못되었어요')}</p>
+        <p className="whitespace-pre-line text-center text-neutral-400 body2-r">
+          {t('페이지를 불러오는 데 문제가 발생했어요 다시 한번 시도해주세요')}
+        </p>
+      </div>
+      <Button variant="destructive" className="w-full body3-m" onClick={() => reset()}>
+        {t('다시 시도하기')}
       </Button>
     </div>
   );
