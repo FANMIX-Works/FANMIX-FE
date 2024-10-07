@@ -1,11 +1,22 @@
-import type { InfluencerDetailResponse } from '@/types/service/influencerServiceType';
+import api from './fetch';
+import type {
+  InfluencerDetailResponse,
+  MyLatestReviewForInfluencerResponse,
+} from '@/types/service/influencerServiceType';
 
 export const getInfluencerData = async (
   influencerId: string,
 ): Promise<InfluencerDetailResponse> => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/influencers/${influencerId}`, {
-    next: { revalidate: 60 },
-  });
-  if (!res.ok) throw new Error('Failed to fetch influencer data');
-  return res.json();
+  return api.get<InfluencerDetailResponse>(
+    `${process.env.NEXT_PUBLIC_URL}/api/influencers/${influencerId}`,
+  );
+};
+
+export const getMyLatestReviewForInfluencer = async (
+  influencerId: string,
+): Promise<MyLatestReviewForInfluencerResponse> => {
+  return api.get<MyLatestReviewForInfluencerResponse>(
+    `${process.env.NEXT_PUBLIC_URL}/api/members/influencers/${influencerId}/reviews/latest`,
+    { hasAuth: true },
+  );
 };

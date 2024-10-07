@@ -7,7 +7,10 @@ import { Separator } from '@/components/ui/separator';
 import MyReview from './_components/MyReview';
 import TextReviewCard from './_components/TextReviewCard';
 
-import { getInfluencerData } from '@/services/serverFetch/influencerServerService';
+import {
+  getInfluencerData,
+  getMyLatestReviewForInfluencer,
+} from '@/services/serverFetch/influencerServerService';
 
 export async function generateMetadata({
   params: { locale },
@@ -27,6 +30,8 @@ export default async function InfluencerReviewListPage({
   params: { influencerId: string };
 }) {
   const { data: influencerData } = await getInfluencerData(influencerId);
+  const { data: MyLatestReviewData } = await getMyLatestReviewForInfluencer(influencerId);
+  console.log(MyLatestReviewData);
   return (
     <div className="pb-20">
       <section

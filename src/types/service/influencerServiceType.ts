@@ -131,3 +131,15 @@ export interface InfluencerDetailResponse extends ResponseBase {
     };
   };
 }
+
+export interface MyLatestReviewForInfluencerResponse extends ResponseBase {
+  data: {
+    reviewId: number;
+    isBefore15Days: boolean;
+    contentsRating: number;
+    communicationRating: number;
+    trustRating: number;
+    reviewDate: string; // ISO 8601 형식의 날짜 문자열
+    reviewContent: string;
+  };
+}
