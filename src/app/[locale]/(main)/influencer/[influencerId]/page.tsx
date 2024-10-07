@@ -5,7 +5,6 @@ import { getTranslations } from 'next-intl/server';
 import { Separator } from '@/components/ui/separator';
 
 import ContentTraits from './_components/ContentTraits';
-import BestReviewCard from './_components/BestReviewCard';
 import ReviewScoreCard from './_components/ReviewScoreCard';
 import InfluencerIntroduce from './_components/InfluencerIntroduce';
 import ViewAllReviewsButton from './_components/ViewAllReviewsButton';
@@ -15,6 +14,7 @@ import TooltipBox from '@/components/common/TooltipBox';
 import PageSpinner from '@/components/common/spinner/PageSpinner';
 
 import { getInfluencerData } from '@/services/serverFetch/influencerServerService';
+import BestReview from './_components/BestReview';
 
 export async function generateMetadata({
   params: { locale },
@@ -85,22 +85,13 @@ export default async function InfluencerPage({
           <ReviewScoreCard {...reviewScoreCard} />
         </section>
         <Separator className="h-2 w-full bg-neutral-900" />
-        <section
-          aria-label="BEST 리뷰"
-          className="mb-5 mt-[42px] flex flex-col justify-center gap-[15px] px-5">
+        <section aria-label="BEST 리뷰" className="mb-5 mt-[42px]">
           {influencerData.bestReview && (
-            <>
-              <div className="flex items-center gap-[5px]">
-                <h2 className="body3-m">{t('BEST 리뷰')}</h2>
-                <span className="text-neutral-300 sub1-m">
-                  {t('리뷰 {reviewsCount}개 중', { reviewsCount: influencerData.totalReviewCount })}
-                </span>
-              </div>
-              <BestReviewCard
-                influencerId={influencerData.influencerId}
-                {...influencerData.bestReview}
-              />
-            </>
+            <BestReview
+              influencerId={influencerData.influencerId}
+              reviewsCount={influencerData.totalReviewCount}
+              bestReview={influencerData.bestReview}
+            />
           )}
         </section>
         <nav className="px-5">

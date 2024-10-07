@@ -14,6 +14,7 @@ const ReviewScoreCard = ({
   trustRating,
 }: ReviewScoreCardProps) => {
   const t = useTranslations('influencer_rating_bar');
+  const tInfluencer = useTranslations('influencer_page');
   const average = Math.floor(contentsRating + communicationRating + trustRating);
   const metrics = [
     { label: t('콘텐츠'), score: contentsRating },
@@ -52,7 +53,7 @@ const ReviewScoreCard = ({
           </ul>
         </>
       ) : (
-        <p className="text-orange-400/40 body3-r">아직 작성된 리뷰가 없어요.</p>
+        <p className="text-orange-400/40 body3-r">{tInfluencer('아직 작성된 리뷰가 없어요')}</p>
       )}
     </div>
   );
