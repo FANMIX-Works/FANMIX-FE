@@ -22,3 +22,38 @@ export interface PopularReviewsResponse extends ResponseBase {
     isDisliked: boolean;
   }[];
 }
+
+// 내 마지막 한줄리뷰 응답
+export interface MyLatestReviewForInfluencerResponse extends ResponseBase {
+  data: {
+    reviewId: number;
+    isBefore15Days: boolean;
+    contentsRating: number;
+    communicationRating: number;
+    trustRating: number;
+    reviewDate: string; // ISO 8601 형식의 날짜 문자열
+    reviewContent: string;
+  };
+}
+
+// 한줄리뷰 작성 요청값
+interface InfluencerReviewRequest {
+  content: string;
+  contentsRating: number;
+  communicationRating: number;
+  trustRating: number;
+}
+// 생성 요청 (현재는 ReviewRequest와 동일)
+export interface CreateInfluencerReviewRequest extends InfluencerReviewRequest {}
+
+// 수정 요청 (현재는 ReviewRequest와 동일)
+export interface UpdateInfluencerReviewRequest extends InfluencerReviewRequest {}
+
+// 백엔드에서 아직 완성데이터 안넘겨줌
+export interface CreateInfluencerReviewResponse extends ResponseBase {
+  reviewId: number;
+  reviewContent: string;
+  contentsRating: number;
+  communicationRating: number;
+  trustRating: number;
+}

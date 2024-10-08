@@ -7,10 +7,7 @@ import { Separator } from '@/components/ui/separator';
 import MyReview from './_components/MyReview';
 import TextReviewCard from './_components/TextReviewCard';
 
-import {
-  getInfluencerData,
-  getMyLatestReviewForInfluencer,
-} from '@/services/serverFetch/influencerServerService';
+import { getInfluencerData } from '@/services/serverFetch/influencerServerService';
 
 export async function generateMetadata({
   params: { locale },
@@ -30,8 +27,6 @@ export default async function InfluencerReviewListPage({
   params: { influencerId: string };
 }) {
   const { data: influencerData } = await getInfluencerData(influencerId);
-  const { data: MyLatestReviewData } = await getMyLatestReviewForInfluencer(influencerId);
-  console.log(MyLatestReviewData);
   return (
     <div className="pb-20">
       <section
@@ -40,7 +35,7 @@ export default async function InfluencerReviewListPage({
         <InfluencerProfileCard {...influencerData} />
       </section>
       <section aria-label="내 한줄리뷰" className="mb-10 mt-2 px-5">
-        <MyReview />
+        <MyReview influencerId={parseInt(influencerId)} />
       </section>
       <Separator className="h-2 bg-neutral-900" />
       <section aria-label="한줄리뷰 전체 리스트" className="mt-[15px]">
