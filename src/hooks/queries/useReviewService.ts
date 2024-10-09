@@ -53,12 +53,42 @@ export const useDeleteInfluencerReveiw = () => {
   return useMutation<null, AxiosError, DeleteInfluencerReviewRequest>({
     mutationFn: reviewService.deleteInfluencerReview,
     onSuccess: (_, variables) => {
+      const influencerId = variables.influencerId;
+      const deleteRequestReviewId = variables.reviewId;
+
       // 내 최신리뷰 다시 가져와서 상태에 맞게 리렌더링되게 해야함
       queryClient.invalidateQueries({
         queryKey: ['myLatestReviewForInfluencer', variables.influencerId],
       });
-      // setQueryData
-      // 리액트쿼리 전체 리뷰 캐시 데이터 수정하기
+
+      // 특정 인플루언서의 전체리뷰 쿼리의 캐시데이터 수정하기
+      // 구조 상, MyReview에서 ReviewList의 sort 값을 가지고 있기 복잡함 (할 순 있는데, 굳이.. 싶음)
+      // => 그냥 sort에 두 값 다 넣어서 확인하기
+      // 최신순일 때
+      queryClient.setQueryData<SpecificInfluencerAllReviewsResponse>(
+        ['specificInfluencerAllReviews', influencerId, 'LATEST'],
+        (oldData) => {
+          if (!oldData) return oldData;
+
+          return {
+            ...oldData,
+            data: oldData.data.filter((review) => review.reviewId !== deleteRequestReviewId),
+          };
+        },
+      );
+
+      // 추천순일 때
+      queryClient.setQueryData<SpecificInfluencerAllReviewsResponse>(
+        ['specificInfluencerAllReviews', influencerId, 'RECOMMENDED'],
+        (oldData) => {
+          if (!oldData) return oldData;
+
+          return {
+            ...oldData,
+            data: oldData.data.filter((review) => review.reviewId !== deleteRequestReviewId),
+          };
+        },
+      );
     },
   });
 };
