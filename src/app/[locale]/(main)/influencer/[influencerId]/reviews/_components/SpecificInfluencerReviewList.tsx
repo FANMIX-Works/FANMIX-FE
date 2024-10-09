@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 
 import { Separator } from '@/components/ui/separator';
 
@@ -26,13 +27,14 @@ interface SpecificInfluencerReviewListProps {
   influencerId: number;
 }
 const SpecificInfluencerReviewList = ({ influencerId }: SpecificInfluencerReviewListProps) => {
+  const t = useTranslations('influencer_reviews_page');
   const { reviewListData, isLoading, isError, sortButtons } =
     useSpecificInfluencerReview(influencerId);
 
   if (isLoading) return <LoadingView />;
 
   if (!isError && (!reviewListData || reviewListData.data.length === 0))
-    return <StatusMessage message="첫 한줄리뷰를 작성해 주세요." />;
+    return <StatusMessage message={t('첫 한줄리뷰를 작성해 주세요')} />;
 
   return (
     <div className="flex h-full flex-col">
@@ -47,7 +49,7 @@ const SpecificInfluencerReviewList = ({ influencerId }: SpecificInfluencerReview
         ))}
       </div>
       {isError ? (
-        <StatusMessage message="한줄리뷰 전체 데이터를 가져오는데 문제가 생겼어요." />
+        <StatusMessage message={t('한줄리뷰 전체 데이터를 가져오는데 문제가 생겼어요')} />
       ) : (
         <>
           <Separator className="mt-[13px] h-[0.7px] bg-neutral-600" />
@@ -60,7 +62,7 @@ const SpecificInfluencerReviewList = ({ influencerId }: SpecificInfluencerReview
             ))}
           </ul>
           <div className="mb-8 mt-7 text-center text-neutral-500 body3-r">
-            모든 리뷰를 확인했어요.
+            {t('모든 리뷰를 확인했어요')}
           </div>
         </>
       )}
