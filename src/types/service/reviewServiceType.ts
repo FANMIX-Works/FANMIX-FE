@@ -1,5 +1,6 @@
 import type { ResponseBase } from './apiResponseBase';
 
+// 메인페이지 - 인기있는 리뷰
 export interface PopularReviewsResponse extends ResponseBase {
   data: {
     influencerId: number;
