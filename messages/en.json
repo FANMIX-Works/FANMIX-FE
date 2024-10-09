@@ -110,6 +110,10 @@
     "인플루언서 검색 중 오류가 발생했어요 다시 시도해 주세요": "An error occurred while searching for influencers.\nPlease try again.",
     "인플루언서 검색 결과가 없어요": "No influencer search results found."
   },
+  "influencer_reviews_page": {
+    "리뷰 작성 기능은 로그인 후 이용할 수 있어요": "You can use the review writing feature after logging in.",
+    "내 최근 한줄리뷰를 가져오는데 문제가 생겼어요": "There was a problem retrieving your recent one-line review."
+  },
   "review_page": {
     "추천": "Like",
     "비추천": "Dislike",
