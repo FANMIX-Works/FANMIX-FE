@@ -16,6 +16,7 @@ export const useMyReview = (influencerId: number) => {
       setReviewMode(REVIEW_MODE.VIEW);
     } else {
       // 최근 리뷰가 없음 -> 폼 모드
+      setMyLatestReviewData(null);
       setReviewMode(REVIEW_MODE.FORM_CREATE);
     }
   }, [data]);

@@ -3,16 +3,17 @@
 import { cn } from '@/lib/utils';
 import { Dispatch } from 'react';
 import { useTranslations } from 'next-intl';
+import { useReviewForm } from '../_hooks/useReviewForm';
 
 import { VscIndent } from 'react-icons/vsc';
 import TooltipBox from '@/components/common/TooltipBox';
-
-import { useReviewForm } from '../_hooks/useReviewForm';
+import PageSpinner from '@/components/common/spinner/PageSpinner';
 
 import type { ReviewMode, MyLatestReview } from '@/types/domain/reviewType';
 
 interface ReviewFormProps {
   influencerId: number;
+  reviewMode: ReviewMode;
   setReviewMode: Dispatch<React.SetStateAction<ReviewMode>>;
   setMyLatestReviewData: Dispatch<React.SetStateAction<MyLatestReview | null>>;
   defaultReviewData: MyLatestReview | null;
@@ -20,19 +21,28 @@ interface ReviewFormProps {
 
 const ReviewForm = ({
   influencerId,
+  reviewMode,
   setReviewMode,
   setMyLatestReviewData,
   defaultReviewData,
 }: ReviewFormProps) => {
   const t = useTranslations('review_form');
-  const { register, handleSubmit, onSubmit, onError, isValid, handleClickMetric, metricList } =
-    useReviewForm(
-      influencerId,
-      setReviewMode,
-      setMyLatestReviewData,
-      !!defaultReviewData,
-      defaultReviewData,
-    );
+  const {
+    register,
+    handleSubmit,
+    onSubmit,
+    onError,
+    isValid,
+    handleClickMetric,
+    metricList,
+    isPending,
+  } = useReviewForm(
+    influencerId,
+    setReviewMode,
+    setMyLatestReviewData,
+    reviewMode,
+    defaultReviewData,
+  );
 
   return (
     <div>
@@ -81,6 +91,7 @@ const ReviewForm = ({
           ))}
         </div>
       </form>
+      {isPending && <PageSpinner />}
     </div>
   );
 };

@@ -6,12 +6,11 @@ import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useModalStore } from '@/stores/modalStore';
+import { useReviewMutations } from './useReviewMutations';
+import { useInformationToast } from '@/hooks/useInformationToast';
 
-import MessageBox from '@/components/common/MessageBox';
 import ScoreSelectBox from '../_components/ScoreSelectBox';
 
-import { useInformationToast } from '@/hooks/useInformationToast';
-import { useCreateInfluencerReveiw } from '@/hooks/queries/useReviewService';
 import {
   REVIEW_MODE,
   reviewFormSchema,
@@ -19,7 +18,6 @@ import {
   type ReviewFormData,
   type MyLatestReview,
 } from '@/types/domain/reviewType';
-import { formatDateToISO } from '@/lib/date'; // 임시로 import, 백엔드에서 데이터 돌려주면 이거 없앨거임
 
 type MetricKey = keyof Omit<ReviewFormData, 'content'>;
 
@@ -27,12 +25,17 @@ export const useReviewForm = (
   influencerId: number,
   setReviewMode: Dispatch<React.SetStateAction<ReviewMode>>,
   setMyLatestReviewData: Dispatch<React.SetStateAction<MyLatestReview | null>>,
-  isModify: boolean,
+  reviewMode: ReviewMode,
   defaultReviewData: MyLatestReview | null,
 ) => {
   const t = useTranslations('review_form');
   const { openModal, closeModal } = useModalStore();
   const { showErrorToast } = useInformationToast();
+
+  const { handleCreateReview, handleUpdateReview, isPending } = useReviewMutations(
+    setReviewMode,
+    setMyLatestReviewData,
+  );
   const defaultReviewFormValues = {
     content: defaultReviewData?.reviewContent || '',
     contentsRating: defaultReviewData?.contentsRating || 0,
@@ -55,33 +58,11 @@ export const useReviewForm = (
   const communicationRating = watch('communicationRating');
   const trustRating = watch('trustRating');
 
-  const createReviewMutation = useCreateInfluencerReveiw();
   const onSubmit = async (reviewData: ReviewFormData) => {
-    try {
-      await createReviewMutation.mutateAsync({ influencerId, reviewData });
-      // TODO: 제출 로직 추가
-      alert('onSubmit의 await, 리뷰생성 성공');
-
-      openModal(
-        <MessageBox
-          title={isModify ? t('한줄리뷰가 수정되었어요') : t('한줄리뷰가 등록되었어요')}
-          buttons={[{ text: t('확인'), color: 'lime' }]}
-        />,
-      );
-
-      setMyLatestReviewData({
-        reviewId: 1, //이거 백엔드에서 돌려줘야함
-        isBefore15Days: false, //마지막 리뷰 15일 전인지 후인지
-        contentsRating: reviewData.contentsRating,
-        communicationRating: reviewData.communicationRating,
-        trustRating: reviewData.trustRating,
-        reviewDate: formatDateToISO(new Date()), // 이거 백엔드에서 돌려줘야함
-        reviewContent: reviewData.content,
-      });
-      setReviewMode(REVIEW_MODE.VIEW);
-    } catch {
-      // 여기서 useToast 하기
-      alert('onSubmit의 await, 리뷰 생성 실패');
+    if (reviewMode === REVIEW_MODE.FORM_CREATE) {
+      await handleCreateReview(influencerId, reviewData);
+    } else if (reviewMode === REVIEW_MODE.FORM_EDIT && defaultReviewData) {
+      await handleUpdateReview(influencerId, defaultReviewData.reviewId, reviewData);
     }
   };
 
@@ -121,5 +102,6 @@ export const useReviewForm = (
     isValid,
     handleClickMetric,
     metricList,
+    isPending,
   };
 };

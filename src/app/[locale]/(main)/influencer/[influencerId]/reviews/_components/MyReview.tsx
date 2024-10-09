@@ -51,6 +51,7 @@ const MyReview = ({ influencerId }: MyReviewProps) => {
     <div>
       {reviewMode === REVIEW_MODE.VIEW && myLatestReviewData ? (
         <ReviewView
+          influencerId={influencerId}
           setReviewMode={setReviewMode}
           setMyLatestReviewData={setMyLatestReviewData}
           reviewData={myLatestReviewData}

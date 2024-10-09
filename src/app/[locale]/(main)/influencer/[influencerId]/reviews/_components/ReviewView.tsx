@@ -1,20 +1,23 @@
 import { Dispatch } from 'react';
 import { useTranslations } from 'next-intl';
+import { useReviewView } from '../_hooks/useReviewView';
 
 import { Button } from '@/components/ui/button';
+import PageSpinner from '@/components/common/spinner/PageSpinner';
 import MetricsText from '@/components/domain/influencer/MetricsText';
 
 import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
-
 import type { MyLatestReview } from '@/types/domain/reviewType';
-import { type ReviewMode, REVIEW_MODE } from '@/types/domain/reviewType';
+import type { ReviewMode } from '@/types/domain/reviewType';
 
 type ReviewViewProps = {
+  influencerId: number;
   setReviewMode: Dispatch<React.SetStateAction<ReviewMode>>;
   setMyLatestReviewData: Dispatch<React.SetStateAction<MyLatestReview | null>>;
   reviewData: MyLatestReview;
 };
 const ReviewView = ({
+  influencerId,
   setReviewMode,
   setMyLatestReviewData,
   reviewData: {
@@ -28,23 +31,14 @@ const ReviewView = ({
   },
 }: ReviewViewProps) => {
   const t = useTranslations('review_view');
-
+  const { handleDeleteReview, handleEditReview, handlePostNewReview, isPending } = useReviewView(
+    setReviewMode,
+    setMyLatestReviewData,
+  );
   const metricsData = {
     contentsRating,
     communicationRating,
     trustRating,
-  };
-
-  // 수정/삭제 로직은 훅으로 분리하기
-  const handleDeleteReview = () => {
-    alert(reviewId + '삭제~');
-  };
-  const handleEditReview = () => {
-    setReviewMode(REVIEW_MODE.FORM);
-  };
-  const handlePostNewReview = () => {
-    setMyLatestReviewData(null); // 새로 생성하니 defaultReviewData를 비우기 위해 null로 업데이트
-    setReviewMode(REVIEW_MODE.FORM);
   };
 
   return (
@@ -64,7 +58,7 @@ const ReviewView = ({
           <Button
             variant="outline"
             className="h-[34px] flex-1 body3-r"
-            onClick={handleDeleteReview}>
+            onClick={() => handleDeleteReview(influencerId, reviewId)}>
             {t('삭제하기')}
           </Button>
           <Button variant="white" className="h-[34px] flex-1 body3-m" onClick={handleEditReview}>
@@ -84,6 +78,7 @@ const ReviewView = ({
           </Button>
         </div>
       )}
+      {isPending && <PageSpinner />}
     </div>
   );
 };

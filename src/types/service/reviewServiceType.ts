@@ -43,17 +43,25 @@ interface InfluencerReviewRequest {
   communicationRating: number;
   trustRating: number;
 }
-// 생성 요청 (현재는 ReviewRequest와 동일)
+// 리뷰 생성 요청 (현재는 ReviewRequest와 동일)
 export interface CreateInfluencerReviewRequest extends InfluencerReviewRequest {}
 
-// 수정 요청 (현재는 ReviewRequest와 동일)
+// 리뷰 수정 요청 (현재는 ReviewRequest와 동일)
 export interface UpdateInfluencerReviewRequest extends InfluencerReviewRequest {}
 
 // 백엔드에서 아직 완성데이터 안넘겨줌
-export interface CreateInfluencerReviewResponse extends ResponseBase {
-  reviewId: number;
-  reviewContent: string;
+interface InfluencerReviewResponse {
+  content: string;
   contentsRating: number;
   communicationRating: number;
   trustRating: number;
+}
+
+// 리뷰 생성 응답
+export interface CreateInfluencerReviewResponse extends ResponseBase {
+  data: InfluencerReviewResponse;
+}
+// 리뷰 수정 응답
+export interface UpdateInfluencerReviewResponse extends ResponseBase {
+  data: InfluencerReviewResponse;
 }

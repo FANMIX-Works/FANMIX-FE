@@ -6,7 +6,8 @@ export const REVIEW_MAX_SCORE = 10;
 // 리뷰 모드
 export const REVIEW_MODE = {
   VIEW: 'VIEW',
-  FORM: 'FORM',
+  FORM_CREATE: 'FORM_CREATE',
+  FORM_EDIT: 'FORM_EDIT',
 } as const;
 export type ReviewMode = keyof typeof REVIEW_MODE;
 
