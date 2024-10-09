@@ -51,10 +51,13 @@ export interface UpdateInfluencerReviewRequest extends InfluencerReviewRequest {
 
 // 백엔드에서 아직 완성데이터 안넘겨줌
 interface InfluencerReviewResponse {
-  content: string;
+  reviewId: number;
+  isBefore15Days: boolean;
   contentsRating: number;
   communicationRating: number;
   trustRating: number;
+  reviewDate: string; // ISO 8601 형식의 날짜 문자열
+  reviewContent: string;
 }
 
 // 리뷰 생성 응답
