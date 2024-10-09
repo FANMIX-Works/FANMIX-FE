@@ -5,7 +5,9 @@ import { reviewService } from '@/services/reviewService';
 import type {
   CreateInfluencerReviewRequest,
   CreateInfluencerReviewResponse,
+  DeleteInfluencerReviewRequest,
   MyLatestReviewForInfluencerResponse,
+  UpdateInfluencerReviewRequest,
   UpdateInfluencerReviewResponse,
 } from '@/types/service/reviewServiceType';
 
@@ -20,13 +22,8 @@ export const useMyLatestReviewForInfluencer = (influencerId: number) => {
 
 // 인플루언서 리뷰 생성
 export const useCreateInfluencerReveiw = () => {
-  return useMutation<
-    CreateInfluencerReviewResponse,
-    AxiosError,
-    { influencerId: number; reviewData: CreateInfluencerReviewRequest }
-  >({
-    mutationFn: ({ influencerId, reviewData }) =>
-      reviewService.createInfluencerReview(influencerId, reviewData),
+  return useMutation<CreateInfluencerReviewResponse, AxiosError, CreateInfluencerReviewRequest>({
+    mutationFn: reviewService.createInfluencerReview,
     onSuccess: () => {
       // submit할 때 돌려받은 데이터로 리액트쿼리 전체 리뷰 캐시 데이터 수정하기, 또는 백엔드에서 돌려준 데이터로..
       // setQueryData
@@ -36,13 +33,8 @@ export const useCreateInfluencerReveiw = () => {
 
 // 인플루언서 리뷰 수정
 export const useUpdateInfluencerReveiw = () => {
-  return useMutation<
-    UpdateInfluencerReviewResponse,
-    AxiosError,
-    { influencerId: number; reviewId: number; reviewData: CreateInfluencerReviewRequest }
-  >({
-    mutationFn: ({ influencerId, reviewId, reviewData }) =>
-      reviewService.updateInfluencerReview(influencerId, reviewId, reviewData),
+  return useMutation<UpdateInfluencerReviewResponse, AxiosError, UpdateInfluencerReviewRequest>({
+    mutationFn: reviewService.updateInfluencerReview,
     onSuccess: () => {
       // submit할 때 돌려받은 데이터로 리액트쿼리 전체 리뷰 캐시 데이터 수정하기, 또는 백엔드에서 돌려준 데이터로..
       // setQueryData
@@ -54,9 +46,8 @@ export const useUpdateInfluencerReveiw = () => {
 export const useDeleteInfluencerReveiw = () => {
   const queryClient = useQueryClient();
 
-  return useMutation<null, AxiosError, { influencerId: number; reviewId: number }>({
-    mutationFn: ({ influencerId, reviewId }) =>
-      reviewService.deleteInfluencerReview(influencerId, reviewId),
+  return useMutation<null, AxiosError, DeleteInfluencerReviewRequest>({
+    mutationFn: reviewService.deleteInfluencerReview,
     onSuccess: (_, variables) => {
       // 내 최신리뷰 다시 가져와서 상태에 맞게 리렌더링되게 해야함
       queryClient.invalidateQueries({
