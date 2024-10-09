@@ -115,7 +115,7 @@ export interface SpecificInfluencerAllReviewsResponse extends ResponseBase {
 }
 
 // 모든 인플루언서의 전체 리뷰 데이터
-export interface AllInfluencerAllReviewsRequest {
+export interface AllInfluencersAllReviewsRequest {
   sort: AllInfluencerReviewsSortType;
 }
 
@@ -141,5 +141,5 @@ export interface AllInfluencersAllReviewsResponse extends ResponseBase {
     isMyReview: boolean;
     isLiked: boolean;
     isDisliked: boolean;
-  };
+  }[];
 }
