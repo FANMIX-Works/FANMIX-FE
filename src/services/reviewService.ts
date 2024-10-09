@@ -1,6 +1,8 @@
 import { ax, handleAxiosError } from './axios';
 
 import type {
+  AllInfluencersAllReviewsRequest,
+  AllInfluencersAllReviewsResponse,
   CreateInfluencerReviewRequest,
   CreateInfluencerReviewResponse,
   DeleteInfluencerReviewRequest,
@@ -102,6 +104,20 @@ export const reviewService = {
     }
   },
 
+  // 전체 한줄리뷰 조회
+  allInfluencersAllReviews: async ({ sort }: AllInfluencersAllReviewsRequest) => {
+    try {
+      const response = await ax.get<AllInfluencersAllReviewsResponse>(
+        `/api/influencers/reviews?sort=${sort}`,
+      );
+      console.log('allInfluencersAllReviews:', response.data);
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error);
+      throw error;
+    }
+  },
+
   // 한줄리뷰 좋아요/싫어요 평가
 
   // 리뷰 상세조회, 댓글 리스트 포힘
@@ -109,6 +125,4 @@ export const reviewService = {
   // 한줄리뷰 댓글 작성
 
   // 한줄리뷰 댓글 삭제
-
-  // 전체 한줄리뷰 조회
 };
