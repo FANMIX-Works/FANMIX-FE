@@ -7,5 +7,6 @@ export const getInfluencerReviewDetailWithCommentsData = async (
 ): Promise<InfluencerReviewDetailWithCommentsResponse> => {
   return api.get<InfluencerReviewDetailWithCommentsResponse>(
     `${process.env.NEXT_PUBLIC_URL}/api/influencers/${influencerId}/reviews/${reviewId}/comments`,
+    { hasAuth: true },
   );
 };

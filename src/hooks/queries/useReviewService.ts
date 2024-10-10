@@ -333,7 +333,6 @@ export const useInfluencerReviewLikeDislike = () => {
     onSuccess: (_, variables) => {
       // setQueryData로 리뷰의 좋아요/싫어요 캐시 수정하기
       const { influencerId, reviewId, isLike } = variables;
-      alert(`${reviewId}를 ${isLike ? '좋아요' : '싫어요'} 처리`);
 
       queryClient.setQueryData<InfluencerReviewDetailWithCommentsResponse>(
         ['influencerReviewDetailWithComments', influencerId, reviewId],

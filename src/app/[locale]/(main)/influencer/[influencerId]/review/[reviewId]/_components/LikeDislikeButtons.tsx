@@ -20,11 +20,11 @@ const LikeDislikeButtons = ({
 }: LikeDislikeButtonsProps) => {
   const t = useTranslations('review_page');
   const { isLiked, isDisliked, handleClickAction } = useLikeDislikeReview(
+    influencerId,
     reviewId,
     initialIsLiked,
     initialIsDisliked,
   );
-  console.log(influencerId);
 
   return (
     <div className="flex w-full items-center justify-end gap-x-2 px-5">
