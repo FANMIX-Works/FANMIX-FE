@@ -11,6 +11,8 @@ import InfluencerImageCarousel from './_components/InfluencerImageCarousel';
 
 import { getWeeklyHotInfluencersData } from '@/services/serverFetch/influencerServerService';
 import { getRecentlyVerifiedInfluencersData } from '@/services/serverFetch/influencerServerService';
+import { getPopularReviewsData } from '@/services/serverFetch/reviewServerService';
+import { getPopularPostsData } from '@/services/serverFetch/communityServerService';
 
 export async function generateMetadata({
   params: { locale },
@@ -35,8 +37,28 @@ export default async function MainPage({
   const t = await getTranslations({ locale, namespace: 'main_page' });
   const isLogout = searchParams.isLogout === 'true';
 
-  const { data: weeklyHotInfluencerData } = await getWeeklyHotInfluencersData();
-  const { data: recentlyVerifiedInfluencersData } = await getRecentlyVerifiedInfluencersData();
+  const [
+    weeklyHotInfluencerResult,
+    recentlyVerifiedInfluencersResult,
+    popularReviewsResult,
+    popularPostsResult,
+  ] = await Promise.allSettled([
+    getWeeklyHotInfluencersData(),
+    getRecentlyVerifiedInfluencersData(),
+    getPopularReviewsData(),
+    getPopularPostsData(),
+  ]);
+
+  const weeklyHotInfluencerData =
+    weeklyHotInfluencerResult.status === 'fulfilled' ? weeklyHotInfluencerResult.value.data : [];
+  const recentlyVerifiedInfluencersData =
+    recentlyVerifiedInfluencersResult.status === 'fulfilled'
+      ? recentlyVerifiedInfluencersResult.value.data
+      : [];
+  const popularReviewsData =
+    popularReviewsResult.status === 'fulfilled' ? popularReviewsResult.value.data : [];
+  const popularPostsData =
+    popularPostsResult.status === 'fulfilled' ? popularPostsResult.value.data : [];
 
   return (
     <div className="mt-6 w-full pb-20 pt-[35px] flex-col-center">
@@ -52,7 +74,7 @@ export default async function MainPage({
             {t('이번 주 가장 핫한 인플루언서를 만나보세요')}
           </p>
         </header>
-        <InfluencerShowcase influencers={weeklyHotInfluencerData || []} />
+        <InfluencerShowcase influencers={weeklyHotInfluencerData} />
       </section>
 
       <section aria-label="인증 인플루언서" className="mb-[50px] flex w-full flex-col gap-4 pl-5">
@@ -65,13 +87,12 @@ export default async function MainPage({
           </div>
           <p className="text-neutral-300 body3-r">{t('절차를 통해 인증된 인플루언서입니다')}</p>
         </header>
-        <InfluencerShowcase influencers={recentlyVerifiedInfluencersData || []} />
+        <InfluencerShowcase influencers={recentlyVerifiedInfluencersData} />
       </section>
 
       <Separator className="h-2 bg-neutral-900" />
-
       <section aria-label="인기 글, 리뷰 탭" className="mt-6 w-full px-5">
-        <PopularContentTabs />
+        <PopularContentTabs reviews={popularReviewsData} posts={popularPostsData} />
       </section>
     </div>
   );
