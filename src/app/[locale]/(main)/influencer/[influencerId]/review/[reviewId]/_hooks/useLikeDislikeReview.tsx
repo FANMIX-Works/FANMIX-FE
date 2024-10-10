@@ -33,7 +33,10 @@ export const useLikeDislikeReview = (
 
   const handleClickAction = (action: ButtonAction) => {
     if (!isLoggedIn) {
-      showErrorToast('리뷰 평가는 로그인 후 이용할 수 있어요.', '로그인 후 다시 시도해 주세요,');
+      showErrorToast(
+        t('리뷰 평가 기능은 로그인 후 이용할 수 있어요'),
+        t('로그인 후 다시 이용해 주세요'),
+      );
       return;
     }
     if (isLiked || isDisliked) {
@@ -68,7 +71,7 @@ export const useLikeDislikeReview = (
                   setIsDisliked(true);
                 }
               } catch {
-                showErrorToast('리뷰 평가에 실패했어요.', '다시 시도해 주세요.');
+                showErrorToast(t('리뷰 평가에 실패했어요'), t('다시 시도해 주세요'));
               }
             },
           },

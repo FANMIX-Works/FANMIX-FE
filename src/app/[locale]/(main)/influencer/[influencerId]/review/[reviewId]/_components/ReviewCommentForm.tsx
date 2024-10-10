@@ -21,7 +21,7 @@ const ReviewCommentForm = ({ influencerId, reviewId }: ReviewCommentFormProps) =
   if (!isLoggedIn)
     return (
       <p className="h-full text-orange-300 flex-center body3-r">
-        댓글 기능은 로그인 후 이용할 수 있어요.
+        {t('댓글 기능은 로그인 후 이용할 수 있어요')}
       </p>
     );
   return (

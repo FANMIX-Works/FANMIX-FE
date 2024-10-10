@@ -31,7 +31,7 @@ export const useMyCommentMutations = () => {
         content: commentContent,
       });
     } catch {
-      showErrorToast('댓글 작성에 실패했습니다.', '다시 시도해 주세요.');
+      showErrorToast(t('댓글 작성에 실패했어요'), t('다시 시도해 주세요'));
     }
   };
 
@@ -52,9 +52,9 @@ export const useMyCommentMutations = () => {
                   reviewId,
                   commentId,
                 });
-                showConfirmToast('댓글이 정상적으로 삭제되었어요.');
+                showConfirmToast(t('댓글이 정상적으로 삭제되었어요'));
               } catch {
-                showErrorToast('댓글 삭제에 실패했어요', '다시 시도해 주세요');
+                showErrorToast(t('댓글 삭제에 실패했어요'), t('다시 시도해 주세요'));
               }
             },
           },

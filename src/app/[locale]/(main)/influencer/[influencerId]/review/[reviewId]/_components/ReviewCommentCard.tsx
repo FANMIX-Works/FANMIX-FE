@@ -1,24 +1,10 @@
 import { cn } from '@/lib/utils';
 
-import { useTranslations } from 'next-intl';
 import { useMyCommentMutations } from '../_hooks/useMyCommentMutations';
 
 import { VscChromeClose } from 'react-icons/vsc';
 import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
-
-interface DeleteCommentProps {
-  isMyComment: boolean;
-}
-const DeleteComment = ({ isMyComment }: DeleteCommentProps) => {
-  const t = useTranslations('review_page');
-  return (
-    <header className="flex w-full items-center text-neutral-400">
-      <span className="text-neutral-500 body3-r">
-        {isMyComment ? t('삭제한 댓글이에요') : t('삭제된 댓글이에요')}
-      </span>
-    </header>
-  );
-};
+import DeletedComment from './DeletedComment';
 
 interface ReviewCommentCardProps {
   influencerId: number;
@@ -45,7 +31,7 @@ const ReviewCommentCard = ({
   return (
     <div className="flex flex-col justify-center gap-y-2.5 pb-[15px]">
       {isDeleted ? (
-        <DeleteComment isMyComment={isMyComment} />
+        <DeletedComment isMyComment={isMyComment} />
       ) : (
         <>
           <header

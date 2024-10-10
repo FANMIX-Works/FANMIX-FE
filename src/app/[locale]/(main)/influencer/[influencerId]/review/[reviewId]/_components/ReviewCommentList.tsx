@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 import { Separator } from '@/components/ui/separator';
 
 import ReviewCommentCard from './ReviewCommentCard';
@@ -32,6 +33,7 @@ const ReviewCommentList = ({
   reviewId,
   defaultCommentList,
 }: ReviewCommentListProps) => {
+  const t = useTranslations('review_page');
   const { commentList, isLoading, isError, isEmpty } = useReviewCommentList(
     influencerId,
     reviewId,
@@ -39,8 +41,8 @@ const ReviewCommentList = ({
   );
   if (isLoading) return <LoadingView />;
   if (isError)
-    return <StatusMessage message="댓글을 불러오는데 문제가 발생했어요.\n다시 시도해 주세요." />;
-  if (isEmpty) return <StatusMessage message="첫 댓글을 작성해주세요." />;
+    return <StatusMessage message={t('댓글을 불러오는데 문제가 발생했어요 다시 시도해 주세요')} />;
+  if (isEmpty) return <StatusMessage message={t('첫 댓글을 작성해 주세요')} />;
   return (
     <ul>
       {commentList.map((comment, index) => (
