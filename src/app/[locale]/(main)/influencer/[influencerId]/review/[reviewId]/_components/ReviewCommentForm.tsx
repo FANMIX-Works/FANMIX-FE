@@ -2,10 +2,10 @@
 
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
-import { VscSend } from 'react-icons/vsc';
-
 import { useAuthStore } from '@/stores/authStore';
 import { useReviewCommentForm } from '../_hooks/useReviewCommentForm';
+
+import { VscSend } from 'react-icons/vsc';
 
 interface ReviewCommentFormProps {
   influencerId: number;
@@ -13,11 +13,11 @@ interface ReviewCommentFormProps {
 }
 const ReviewCommentForm = ({ influencerId, reviewId }: ReviewCommentFormProps) => {
   const t = useTranslations('review_page');
+  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
   const { register, handleSubmit, isValid, onSubmit, onError } = useReviewCommentForm(
     influencerId,
     reviewId,
   );
-  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
   if (!isLoggedIn)
     return (
       <p className="h-full text-orange-300 flex-center body3-r">

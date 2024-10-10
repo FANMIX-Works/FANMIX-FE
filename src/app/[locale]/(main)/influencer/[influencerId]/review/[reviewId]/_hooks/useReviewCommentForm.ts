@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 import { useTranslations } from 'next-intl';
 import { useInformationToast } from '@/hooks/useInformationToast';
-import { useCreateInfluencerReviewComment } from '@/hooks/queries/useReviewService';
+import { useMyCommentMutations } from './useMyCommentMutations';
 
 const commentSchema = z.object({
   commentContent: z.string().min(1),
@@ -28,21 +28,11 @@ export const useReviewCommentForm = (influencerId: number, reviewId: number) => 
     resolver: zodResolver(commentSchema),
     mode: 'onChange',
   });
+  const { handleCreateComment } = useMyCommentMutations();
 
-  const createCommentMutation = useCreateInfluencerReviewComment();
   const onSubmit = async (data: CommentFormData) => {
-    console.log(data);
-    try {
-      await createCommentMutation.mutateAsync({
-        influencerId,
-        reviewId,
-        content: data.commentContent,
-      });
-    } catch {
-      showErrorToast('댓글 작성에 실패했습니다.', '다시 시도해 주세요.');
-    } finally {
-      reset();
-    }
+    await handleCreateComment(influencerId, reviewId, data.commentContent);
+    reset();
   };
 
   const onError = () => {

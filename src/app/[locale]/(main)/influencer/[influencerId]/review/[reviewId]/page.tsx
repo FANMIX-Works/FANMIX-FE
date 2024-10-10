@@ -24,7 +24,7 @@ export default async function InfluencerReviewPage({
 }: {
   params: { influencerId: string; reviewId: string };
 }) {
-  // 리뷰 상세 + 코멘트 리스트
+  // 리뷰 상세 + 코멘트 리스트, 서버에서 default로 깔아둘 데이터 로딩
   const { data: reviewData } = await getInfluencerReviewDetailWithCommentsData(
     influencerId,
     reviewId,

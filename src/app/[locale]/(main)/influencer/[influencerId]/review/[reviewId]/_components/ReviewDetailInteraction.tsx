@@ -1,44 +1,21 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import InteractionStats from '@/components/domain/board/InteractionStats';
 import { BOARD_CARD_TYPE } from '@/types/domain/boardType';
-import { useInfluencerReviewDetailWithComments } from '@/hooks/queries/useReviewService';
+import { useReviewInteraction, type ReviewInteraction } from '../_hooks/useReviewInteraction';
 
 interface ReviewDetailInteractionProps {
   influencerId: number;
   reviewId: number;
-  defaultInteractionData: {
-    reviewLikeCount: number;
-    reviewDislikeCount: number;
-    reviewCommentsCount: number;
-  };
+  defaultInteractionData: ReviewInteraction;
 }
 const ReviewDetailInteraction = ({
   influencerId,
   reviewId,
   defaultInteractionData,
 }: ReviewDetailInteractionProps) => {
-  const [interactionData, setInteractionData] = useState(defaultInteractionData);
-
-  const { data, isSuccess } = useInfluencerReviewDetailWithComments({
-    influencerId,
-    reviewId,
-  });
-
-  useEffect(() => {
-    if (isSuccess) {
-      if (data && data.data && data.data.review) {
-        const { review: reviewData } = data.data;
-        const interactionData = {
-          reviewLikeCount: reviewData.reviewLikeCount,
-          reviewDislikeCount: reviewData.reviewDislikeCount,
-          reviewCommentsCount: reviewData.reviewCommentsCount,
-        };
-        setInteractionData(interactionData);
-      }
-    }
-  }, [data, isSuccess]);
+  // useQuery의 캐시 데이터 사용을 위해 상태값으로 관리
+  const { interactionData } = useReviewInteraction(influencerId, reviewId, defaultInteractionData);
 
   return (
     <InteractionStats
