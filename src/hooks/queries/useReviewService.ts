@@ -250,7 +250,7 @@ export const useCreateInfluencerReviewComment = () => {
   >({
     mutationFn: reviewService.createInfluencerReviewComment,
     onSuccess: ({ data }, variables) => {
-      // setQueryData로 코멘트 리스트 캐시 수정하기
+      // setQueryData로 리뷰의 댓글 수, 코멘트 리스트 캐시 수정하기
       const { influencerId, reviewId } = variables;
 
       const newCommentData = {
@@ -267,10 +267,14 @@ export const useCreateInfluencerReviewComment = () => {
         ['influencerReviewDetailWithComments', influencerId, reviewId],
         (oldData) => {
           if (!oldData) return oldData;
+          const oldReviewDetailData = oldData.data;
           return {
             ...oldData,
             data: {
-              review: { ...oldData.data.review },
+              review: {
+                ...oldReviewDetailData.review,
+                reviewCommentsCount: oldReviewDetailData.review.reviewCommentsCount + 1,
+              },
               commentList: [...oldData.data.commentList, newCommentData],
             },
           };
@@ -287,7 +291,7 @@ export const useDeleteInfluencerReviewComment = () => {
   return useMutation<null, AxiosError, DeleteInfluencerReviewCommentRequest>({
     mutationFn: reviewService.deleteInfluencerReviewComment,
     onSuccess: (_, variables) => {
-      // setQueryData로 코멘트 리스트 캐시 수정하기
+      // setQueryData로 리뷰의 댓글 수, 코멘트 리스트 캐시 수정하기
       const influencerId = variables.influencerId;
       const reviewId = variables.reviewId;
       const deleteRequestCommentId = variables.commentId;
@@ -296,13 +300,21 @@ export const useDeleteInfluencerReviewComment = () => {
         ['influencerReviewDetailWithComments', influencerId, reviewId],
         (oldData) => {
           if (!oldData) return oldData;
-
+          const oldReviewDetailData = oldData.data;
           return {
             ...oldData,
             data: {
-              review: { ...oldData.data.review },
-              commentList: oldData.data.commentList.filter(
-                (comment) => comment.commentId !== deleteRequestCommentId,
+              review: {
+                ...oldReviewDetailData.review,
+                reviewCommentsCount: oldReviewDetailData.review.reviewCommentsCount - 1,
+              },
+              commentList: oldReviewDetailData.commentList.map((comment) =>
+                comment.commentId === deleteRequestCommentId
+                  ? {
+                      ...comment,
+                      isDeleted: true,
+                    }
+                  : comment,
               ),
             },
           };
@@ -314,11 +326,35 @@ export const useDeleteInfluencerReviewComment = () => {
 
 // 리뷰 좋아요/싫어요
 export const useInfluencerReviewLikeDislike = () => {
+  const queryClient = useQueryClient();
+
   return useMutation<null, AxiosError, InfluencerReviewLikeDislikeRequest>({
     mutationFn: reviewService.influencerReviewLikeDislike,
     onSuccess: (_, variables) => {
-      const { isLike, reviewId } = variables;
+      // setQueryData로 리뷰의 좋아요/싫어요 캐시 수정하기
+      const { influencerId, reviewId, isLike } = variables;
       alert(`${reviewId}를 ${isLike ? '좋아요' : '싫어요'} 처리`);
+
+      queryClient.setQueryData<InfluencerReviewDetailWithCommentsResponse>(
+        ['influencerReviewDetailWithComments', influencerId, reviewId],
+        (oldData) => {
+          if (!oldData) return oldData;
+          const { review } = oldData.data;
+          return {
+            ...oldData,
+            data: {
+              ...oldData.data,
+              review: {
+                ...review,
+                reviewLikeCount: review.reviewLikeCount + (isLike ? 1 : 0),
+                reviewDislikeCount: review.reviewDislikeCount + (isLike ? 0 : 1),
+                isLiked: isLike,
+                isDisliked: !isLike,
+              },
+            },
+          };
+        },
+      );
     },
   });
 };

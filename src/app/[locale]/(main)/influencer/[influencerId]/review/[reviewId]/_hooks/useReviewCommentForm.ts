@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 import { useTranslations } from 'next-intl';
 import { useInformationToast } from '@/hooks/useInformationToast';
+import { useCreateInfluencerReviewComment } from '@/hooks/queries/useReviewService';
 
 const commentSchema = z.object({
   commentContent: z.string().min(1),
@@ -14,7 +15,7 @@ const commentSchema = z.object({
 
 type CommentFormData = z.infer<typeof commentSchema>;
 
-export const useReviewCommentForm = () => {
+export const useReviewCommentForm = (influencerId: number, reviewId: number) => {
   const t = useTranslations('review_page');
   const { showErrorToast } = useInformationToast();
 
@@ -28,11 +29,20 @@ export const useReviewCommentForm = () => {
     mode: 'onChange',
   });
 
-  const onSubmit = (data: CommentFormData) => {
+  const createCommentMutation = useCreateInfluencerReviewComment();
+  const onSubmit = async (data: CommentFormData) => {
     console.log(data);
-    // 여기에 실제 제출 로직을 구현할 수 있습니다.
-    // 예: API 호출 등
-    reset();
+    try {
+      await createCommentMutation.mutateAsync({
+        influencerId,
+        reviewId,
+        content: data.commentContent,
+      });
+    } catch {
+      showErrorToast('댓글 작성에 실패했습니다.', '다시 시도해 주세요.');
+    } finally {
+      reset();
+    }
   };
 
   const onError = () => {

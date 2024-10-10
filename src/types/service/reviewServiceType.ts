@@ -156,7 +156,7 @@ export interface InfluencerReviewDetailWithCommentsResponse extends ResponseBase
       reviewerId: number;
       reviewerNickName: string;
       averageRating: number;
-      contentRating: number;
+      contentsRating: number;
       communicationRating: number;
       trustRating: number;
       reviewDate: string;

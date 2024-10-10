@@ -7,11 +7,13 @@ import { VscThumbsdown, VscThumbsup } from 'react-icons/vsc';
 import { BUTTON_ACTION, useLikeDislikeReview } from '../_hooks/useLikeDislikeReview';
 
 interface LikeDislikeButtonsProps {
+  influencerId: number;
   reviewId: number;
   initialIsLiked: boolean;
   initialIsDisliked: boolean;
 }
 const LikeDislikeButtons = ({
+  influencerId,
   reviewId,
   initialIsLiked,
   initialIsDisliked,
@@ -22,6 +24,7 @@ const LikeDislikeButtons = ({
     initialIsLiked,
     initialIsDisliked,
   );
+  console.log(influencerId);
 
   return (
     <div className="flex w-full items-center justify-end gap-x-2 px-5">
