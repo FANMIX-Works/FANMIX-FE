@@ -15,7 +15,7 @@ export const BUTTON_ACTION = {
 type ButtonAction = keyof typeof BUTTON_ACTION;
 
 export const useLikeDislikeReview = (
-  reviewId: string,
+  reviewId: number,
   initialIsLiked: boolean,
   initialIsDisliked: boolean,
 ) => {

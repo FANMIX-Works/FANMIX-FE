@@ -7,7 +7,7 @@ import { VscThumbsdown, VscThumbsup } from 'react-icons/vsc';
 import { BUTTON_ACTION, useLikeDislikeReview } from '../_hooks/useLikeDislikeReview';
 
 interface LikeDislikeButtonsProps {
-  reviewId: string;
+  reviewId: number;
   initialIsLiked: boolean;
   initialIsDisliked: boolean;
 }

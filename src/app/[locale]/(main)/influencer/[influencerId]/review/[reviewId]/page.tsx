@@ -30,7 +30,11 @@ export default function InfluencerReviewPage({
         <ReviewDetailContent />
       </section>
       <section aria-label="리뷰 추천, 비추천" className="mb-[25px] flex-shrink-0">
-        <LikeDislikeButtons reviewId="3" initialIsLiked={false} initialIsDisliked={false} />
+        <LikeDislikeButtons
+          reviewId={parseInt(reviewId)}
+          initialIsLiked={false}
+          initialIsDisliked={false}
+        />
       </section>
       <section aria-label="리뷰 댓글 리스트" className="flex-1 bg-neutral-900">
         <ReviewCommentList />
