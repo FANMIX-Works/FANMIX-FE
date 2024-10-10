@@ -1,5 +1,6 @@
 import { AxiosError } from 'axios';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useUserStore } from '@/stores/userStore';
 
 import { reviewService } from '@/services/reviewService';
 import type {
@@ -14,7 +15,6 @@ import type {
   UpdateInfluencerReviewRequest,
   UpdateInfluencerReviewResponse,
 } from '@/types/service/reviewServiceType';
-import { useUserStore } from '@/stores/userStore';
 
 // 내 가장 최근 리뷰
 export const useMyLatestReviewForInfluencer = (influencerId: number) => {
@@ -99,11 +99,50 @@ export const useCreateInfluencerReveiw = () => {
 
 // 인플루언서 리뷰 수정
 export const useUpdateInfluencerReveiw = () => {
+  const queryClient = useQueryClient();
+
   return useMutation<UpdateInfluencerReviewResponse, AxiosError, UpdateInfluencerReviewRequest>({
     mutationFn: reviewService.updateInfluencerReview,
-    onSuccess: () => {
-      // submit할 때 돌려받은 데이터로 리액트쿼리 전체 리뷰 캐시 데이터 수정하기, 또는 백엔드에서 돌려준 데이터로..
-      // setQueryData
+    onSuccess: (_, variables) => {
+      const { influencerId, reviewId, reviewData } = variables;
+
+      // submit할 때 돌려받은 데이터로 리액트쿼리 전체 리뷰 캐시 데이터 수정하기
+      // 수정 가능한 항목 : 내용, 평점
+      const updateReviewInCache = (oldData: SpecificInfluencerAllReviewsResponse | undefined) => {
+        if (!oldData) return oldData;
+
+        return {
+          ...oldData,
+          data: oldData.data.map((review) =>
+            review.reviewId === reviewId
+              ? {
+                  ...review,
+                  reviewContent: reviewData.content,
+                  communicationRating: reviewData.communicationRating,
+                  contentsRating: reviewData.contentsRating,
+                  trustRating: reviewData.trustRating,
+                  averageRating:
+                    (reviewData.communicationRating +
+                      reviewData.contentsRating +
+                      reviewData.trustRating) /
+                    3,
+                }
+              : review,
+          ),
+        };
+      };
+
+      // 최신순 업데이트
+      queryClient.setQueryData<SpecificInfluencerAllReviewsResponse>(
+        ['specificInfluencerAllReviews', influencerId, 'LATEST'],
+        updateReviewInCache,
+      );
+
+      // 추천순 업데이트
+      queryClient.setQueryData<SpecificInfluencerAllReviewsResponse>(
+        ['specificInfluencerAllReviews', influencerId, 'RECOMMENDED'],
+        updateReviewInCache,
+      );
     },
   });
 };
