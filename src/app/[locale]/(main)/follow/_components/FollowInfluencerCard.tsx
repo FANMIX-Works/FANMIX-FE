@@ -1,12 +1,12 @@
 import { cn } from '@/lib/utils';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
 import Image from 'next/image';
 import InfluencerActionMenu from './InfluencerActionMenu';
 import FilledRatingBar from '@/components/domain/influencer/FilledRatingBar';
 import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadge';
 import GoFanChannelButton from '@/components/domain/influencer/GoFanChannelButton';
-
-import { useTranslations } from 'next-intl';
 
 import { REVIEW_MAX_SCORE } from '@/types/domain/reviewType';
 import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
@@ -39,22 +39,26 @@ const FollowInfluencerCard = ({
   return (
     <article
       className={cn('relative gap-x-4 py-[15px] flex-center', isOnePick && 'bg-orange-700/20')}>
-      <figure className="relative h-[100px] w-[100px] flex-shrink-0 bg-slate-400">
-        <Image
-          priority
-          src={influencerImageUrl}
-          alt={`인플루언서 ${influencerName}의 사진`}
-          fill
-          className="object-cover"
-          sizes="100%"
-        />
-      </figure>
+      <Link className="flex-shrink-0" href={`/influencer/${influencerId}`}>
+        <figure className="relative h-[100px] w-[100px] bg-slate-400">
+          <Image
+            priority
+            src={influencerImageUrl}
+            alt={`인플루언서 ${influencerName}의 사진`}
+            fill
+            className="object-cover"
+            sizes="100%"
+          />
+        </figure>
+      </Link>
       <div className="flex-1">
         <header className="mb-1 flex justify-between">
           <div className="flex flex-col justify-center gap-y-1">
             {isOnePick && <p className="text-orange-500 sub1-m">MY ONE PICK</p>}
             <h2 className="flex items-center gap-x-[3px]">
-              <span className="body2-sb">{influencerName}</span>
+              <Link href={`/influencer/${influencerId}`} className="body2-sb">
+                {influencerName}
+              </Link>
               {isAuthenticated && <AuthenticatedBadge size={18} />}
             </h2>
           </div>

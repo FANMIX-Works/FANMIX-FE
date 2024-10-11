@@ -1,10 +1,12 @@
+import dynamic from 'next/dynamic';
+
 import { Metadata } from 'next';
+import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
 import SlideBarTabs from '@/components/common/SlideBarTabs';
 import FollowInfluencerList from './_components/FollowInfluencerList';
-import FollowCommunityList from './_components/FollowCommunityList';
-import { useTranslations } from 'next-intl';
+const FollowCommunityList = dynamic(() => import('./_components/FollowCommunityList'));
 
 export async function generateMetadata({
   params: { locale },
