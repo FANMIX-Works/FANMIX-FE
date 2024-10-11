@@ -13,17 +13,17 @@ import ButtonListDrawer from '@/components/common/ButtonListDrawer';
 interface InfluencerActionMenuProps {
   influencerId: number;
   influencerName: string;
+  communityId: number | null;
   isOnePick: boolean;
   isAuthenticated: boolean;
-  communityId: number;
 }
 
 const InfluencerActionMenu = ({
   influencerId,
   influencerName,
+  communityId,
   isOnePick,
   isAuthenticated,
-  communityId,
 }: InfluencerActionMenuProps) => {
   const t = useTranslations('follow_influencer_card');
   const { setOnePickInfluencer, removeOnePickInfluencer } =
@@ -32,7 +32,7 @@ const InfluencerActionMenu = ({
   const { toggleFollowState } = useInfluencerFollow(influencerId);
   const buttons = [];
 
-  if (isAuthenticated) {
+  if (isAuthenticated && communityId !== null && communityId !== undefined) {
     buttons.push({
       text: t('팬채널 가기'),
       onClick: () => checkAccessAndNavigateToFanChannel(influencerId, communityId, true),
