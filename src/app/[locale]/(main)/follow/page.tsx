@@ -40,7 +40,7 @@ export default function FollowPage() {
     },
   ];
   return (
-    <div className="w-full px-5 pb-20 pt-[35px]">
+    <div className="h-full w-full px-5 pt-[35px]">
       <SlideBarTabs tabs={tabs} defaultValue={TAB_TYPES.FOLLOW_INFLUENCERS} />
     </div>
   );

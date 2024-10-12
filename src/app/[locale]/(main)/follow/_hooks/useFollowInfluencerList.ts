@@ -47,6 +47,7 @@ export const useFollowInfluencerList = () => {
   ];
   return {
     influencerListData: onePickPrioritizedInfluencers,
+    isEmpty: onePickPrioritizedInfluencers.length === 0,
     isLoading,
     isError,
     sortButtons,
