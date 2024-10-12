@@ -95,9 +95,10 @@ const FollowInfluencerCard = ({
             />
           </div>
           <GoFanChannelButton
-            {...{ influencerId, communityId: fanChannelId || -1 }}
+            {...{ influencerId, communityId: fanChannelId }}
             variant="destructive"
             className={cn('h-9 px-4 py-2 body3-m', !isAuthenticated && 'bg-neutral-600')}
+            isFollowing={true}
             disabled={!isAuthenticated}>
             {isAuthenticated ? t('팬채널') : t('미인증')}
           </GoFanChannelButton>

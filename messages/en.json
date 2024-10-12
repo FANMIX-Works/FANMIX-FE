@@ -255,7 +255,9 @@
   "fan_channel_access": {
     "팔로우 설정 시 팬채널에 입장할 수 있어요": "You can enter the fan channel\nonce you follow.",
     "뒤로": "Back",
-    "팔로우하기": "Follow"
+    "팔로우하기": "Follow",
+    "아직 팬채널이 생성되지 않았어요": "The fan channel has not been created yet.",
+    "관리자 승인 후 생성될 예정이에요": "It will be created after admin approval."
   },
   "community_category": {
     "19+": "18+",
