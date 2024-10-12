@@ -44,10 +44,10 @@ const FollowInfluencerList = () => {
       </nav>
       {isError ? (
         <StatusMessage
-          message={'팔로우 중인 인플루언서를 불러오는 중, 문제가 발생했어요.\n다시 시도해 주세요.'}
+          message={t('팔로우 중인 인플루언서를 불러오는 중 문제가 발생했어요 다시 시도해 주세요')}
         />
       ) : isEmpty ? (
-        <StatusMessage message={'아직 팔로우한 인플루언서가 없어요.'} />
+        <StatusMessage message={t('팔로우한 인플루언서가 없어요')} />
       ) : (
         <>
           <ul

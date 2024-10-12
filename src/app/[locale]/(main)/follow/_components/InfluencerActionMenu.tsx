@@ -32,7 +32,7 @@ const InfluencerActionMenu = ({
   const { toggleFollowState } = useInfluencerFollow(influencerId);
   const buttons = [];
 
-  if (isAuthenticated && communityId !== null && communityId !== undefined) {
+  if (isAuthenticated) {
     buttons.push({
       text: t('팬채널 가기'),
       onClick: () => checkAccessAndNavigateToFanChannel(influencerId, communityId, true),
