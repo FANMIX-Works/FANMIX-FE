@@ -13,7 +13,6 @@ export const useOnePickInfluencerMutations = (influencerId: number) => {
   const { showConfirmToast, showErrorToast } = useInformationToast();
 
   const handleOnePickAction = async (isSettingOnePick: boolean) => {
-    const onePick = isSettingOnePick ? 1 : 0;
     const successMessage = isSettingOnePick
       ? 'ONE PICK 인플루언서가 설정되었어요'
       : 'ONE PICK 인플루언서가 해제되었어요';
@@ -22,7 +21,7 @@ export const useOnePickInfluencerMutations = (influencerId: number) => {
       : 'ONE PICK 인플루언서 해제에 실패했어요';
 
     try {
-      await updateOnePickMutation.mutateAsync({ influencerId, onePick });
+      await updateOnePickMutation.mutateAsync({ influencerId, onePick: isSettingOnePick });
       showConfirmToast(t(successMessage));
     } catch {
       showErrorToast(t(errorMessage), t('다시 시도해 주세요'));
