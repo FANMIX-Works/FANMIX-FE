@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { VscEllipsis } from 'react-icons/vsc';
 
 import { useTranslations } from 'next-intl';
@@ -51,7 +52,12 @@ const InfluencerActionMenu = ({
       description={isOnePick ? 'MY ONE PICK' : ''}
       buttons={buttons}>
       <nav>
-        <VscEllipsis className="h-[18px] w-[18px] rotate-90 cursor-pointer duration-300 hover:scale-125" />
+        <VscEllipsis
+          className={cn(
+            'h-[18px] w-[18px] rotate-90 cursor-pointer duration-300 hover:scale-125',
+            isOnePick && 'text-orange-400',
+          )}
+        />
       </nav>
     </ButtonListDrawer>
   );

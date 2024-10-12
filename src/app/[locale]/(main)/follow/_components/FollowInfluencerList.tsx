@@ -7,7 +7,7 @@ import FollowInfluencerCard from './FollowInfluencerCard';
 import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 
 const LoadingView = () => (
-  <div className="h-full flex-center">
+  <div className="h-full pb-24 flex-center">
     <ComponentSpinner />
   </div>
 );
@@ -52,7 +52,7 @@ const FollowInfluencerList = () => {
         <>
           <ul
             aria-label="팔로우 중인 인플루언서 리스트"
-            className="mb-[30px] w-full flex-col-center">
+            className="mb-[30px] w-full gap-y-1.5 flex-col-center">
             {influencerListData.map((influencerData) => (
               <li key={influencerData.influencerId} className="w-full">
                 <FollowInfluencerCard {...influencerData} />

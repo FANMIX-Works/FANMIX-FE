@@ -38,7 +38,10 @@ const FollowInfluencerCard = ({
   const isAuthenticated = authenticationStatus === 'APPROVED';
   return (
     <article
-      className={cn('relative gap-x-4 py-[15px] flex-center', isOnePick && 'bg-orange-700/20')}>
+      className={cn(
+        'relative gap-x-4 py-[15px] flex-center',
+        isOnePick && 'mt-[15px] bg-orange-700/20 py-5',
+      )}>
       <Link className="flex-shrink-0" href={`/influencer/${influencerId}`}>
         <figure className="relative h-[100px] w-[100px] bg-slate-400">
           <Image
