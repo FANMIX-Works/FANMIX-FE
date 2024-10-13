@@ -165,7 +165,8 @@
     "팔로워": "Followers",
     "글 수": "Posts",
     "최신 글": "Latest Post",
-    "팬채널": "Fan Ch."
+    "팬채널": "Fan Ch.",
+    "아직 등록된 글이 없어요": "No posts yet."
   },
   "review_index_page": {
     "최신순": "Latest",
@@ -253,7 +254,8 @@
     "팬채널 가기": "Go to Fan Channel",
     "원픽 인플루언서 변경": "Change One-Pick Influencer",
     "원픽 인플루언서 해제": "Remove One-Pick Influencer",
-    "팔로우 해제": "Unfollow"
+    "팔로우 해제": "Unfollow",
+    "아직 등록된 리뷰가 없어요": "No reviews yet."
   },
   "fan_channel_access": {
     "팔로우 설정 시 팬채널에 입장할 수 있어요": "You can enter the fan channel\nonce you follow.",
