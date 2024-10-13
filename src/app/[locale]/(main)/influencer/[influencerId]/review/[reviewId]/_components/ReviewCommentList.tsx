@@ -8,12 +8,6 @@ import ReviewCommentCard from './ReviewCommentCard';
 import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 import { useReviewCommentList, type ReviewComment } from '../_hooks/useReviewCommentList';
 
-const LoadingView = () => (
-  <div className="h-full flex-center">
-    <ComponentSpinner />
-  </div>
-);
-
 interface StatusMessageProps {
   message: string;
 }
@@ -39,7 +33,7 @@ const ReviewCommentList = ({
     reviewId,
     defaultCommentList,
   );
-  if (isLoading) return <LoadingView />;
+  if (isLoading) return <ComponentSpinner className="h-full flex-center" />;
   if (isError)
     return <StatusMessage message={t('댓글을 불러오는데 문제가 발생했어요 다시 시도해 주세요')} />;
   if (isEmpty) return <StatusMessage message={t('첫 댓글을 작성해 주세요')} />;

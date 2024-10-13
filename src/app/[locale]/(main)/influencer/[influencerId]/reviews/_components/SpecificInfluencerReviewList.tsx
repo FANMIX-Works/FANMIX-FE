@@ -10,12 +10,6 @@ import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 
 import { useSpecificInfluencerReview } from '../_hooks/useSpecificInfluencerReview';
 
-const LoadingView = () => (
-  <div className="h-full flex-center">
-    <ComponentSpinner />
-  </div>
-);
-
 interface StatusMessageProps {
   message: string;
 }
@@ -31,7 +25,7 @@ const SpecificInfluencerReviewList = ({ influencerId }: SpecificInfluencerReview
   const { reviewListData, isLoading, isError, sortButtons } =
     useSpecificInfluencerReview(influencerId);
 
-  if (isLoading) return <LoadingView />;
+  if (isLoading) return <ComponentSpinner className="h-full flex-center" />;
 
   if (!isError && (!reviewListData || reviewListData.data.length === 0))
     return <StatusMessage message={t('첫 한줄리뷰를 작성해 주세요')} />;

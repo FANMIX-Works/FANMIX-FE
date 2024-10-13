@@ -9,12 +9,6 @@ import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 
 import ImageReviewCard from './ImageReviewCard';
 
-const LoadingView = () => (
-  <div className="h-full flex-center">
-    <ComponentSpinner />
-  </div>
-);
-
 interface StatusMessageProps {
   message: string;
 }
@@ -28,7 +22,8 @@ const AllReviewsWrapper = () => {
   const t = useTranslations('review_index_page');
   const { reviewListData, isLoading, isError, sortButtons } = useAllReviews();
 
-  if (isLoading) return <LoadingView />;
+  if (isLoading) return <ComponentSpinner className="h-full flex-center" />;
+
   if (!isError && (!reviewListData || reviewListData.data.length === 0))
     return <StatusMessage message={t('등록된 한줄리뷰가 없어요')} />;
 

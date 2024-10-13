@@ -10,11 +10,6 @@ import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 
 import { REVIEW_MODE } from '@/types/domain/reviewType';
 
-const LoadingView = () => (
-  <div className="mt-10 w-full">
-    <ComponentSpinner />
-  </div>
-);
 interface StatusMessageProps {
   message: string;
 }
@@ -41,7 +36,8 @@ const MyReview = ({ influencerId }: MyReviewProps) => {
     isLoading,
   } = useMyReview(influencerId);
 
-  if (isLoading) return <LoadingView />;
+  if (isLoading) return <ComponentSpinner className="mt-10 w-full" />;
+
   if (!isLoggedIn)
     return <StatusMessage message={t('리뷰 작성 기능은 로그인 후 이용할 수 있어요')} />;
   if (isError)

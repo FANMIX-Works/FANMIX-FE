@@ -6,12 +6,6 @@ import { useFollowInfluencerList } from '../_hooks/useFollowInfluencerList';
 import FollowInfluencerCard from './FollowInfluencerCard';
 import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 
-const LoadingView = () => (
-  <div className="h-full pb-24 flex-center">
-    <ComponentSpinner />
-  </div>
-);
-
 interface StatusMessageProps {
   message: string;
 }
@@ -27,7 +21,7 @@ const FollowInfluencerList = () => {
   const { influencerListData, isEmpty, isLoading, isError, sortButtons } =
     useFollowInfluencerList();
 
-  if (isLoading) return <LoadingView />;
+  if (isLoading) return <ComponentSpinner className="h-full pb-24 flex-center" />;
 
   return (
     <div className="mt-5 flex h-full flex-col">

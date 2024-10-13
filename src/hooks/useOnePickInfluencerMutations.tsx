@@ -6,7 +6,7 @@ import MessageBox from '@/components/common/MessageBox';
 import { useInformationToast } from './useInformationToast';
 
 export const useOnePickInfluencerMutations = (influencerId: number) => {
-  const t = useTranslations('onepick_influencer_mutations');
+  const t = useTranslations('one_pick_influencer_mutations');
   const openModal = useModalStore((state) => state.openModal);
 
   const updateOnePickMutation = useUpdateOnePickInfluencer();
