@@ -60,7 +60,7 @@ export interface UserOnePickInfluencerResponse extends ResponseBase {
     totalReviewCount: number;
     isAuthenticated: boolean;
     isFollowing: boolean;
-    fanChannelId: number;
+    fanChannelId: number | null;
   } | null;
 }
 

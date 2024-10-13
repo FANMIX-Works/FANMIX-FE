@@ -1,9 +1,8 @@
 import { Metadata } from 'next';
-import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
 import UserProfile from './_components/UserProfile';
-import OnePickInfluencer from '@/components/domain/influencer/OnePickInfluencer';
+// import OnePickInfluencer from '@/components/domain/influencer/OnePickInfluencer';
 import CommentHistory from '@/components/domain/user/activityHistory/CommentHistory';
 // import PostHistory from '@/components/domain/user/activityHistory/PostHistory';
 // import ReviewHistory from '@/components/domain/user/activityHistory/ReviewHistory';
@@ -23,17 +22,20 @@ export async function generateMetadata({
   };
 }
 
-export default function UserProfilePage({ params: { userId } }: { params: { userId: string } }) {
+export default async function UserProfilePage({
+  params: { locale, userId },
+}: {
+  params: { locale: string; userId: string };
+}) {
+  const t = await getTranslations({ locale, namespace: 'user_page' });
   console.log(userId);
-  const t = useTranslations('user_page');
-
-  const onePickData = {
-    influencerId: 3,
-    communityId: 4,
-    influencerName: '으뜸언니',
-    influencerImageUrl: '',
-    isOthersPick: false,
-  };
+  // const onePickData = {
+  //   influencerId: 3,
+  //   communityId: 4,
+  //   influencerName: '으뜸언니',
+  //   influencerImageUrl: '',
+  //   isOthersPick: false,
+  // };
 
   const userData = {
     userNickName: '닉네임이다',
@@ -71,7 +73,7 @@ export default function UserProfilePage({ params: { userId } }: { params: { user
         <p className="body3-r">{userData.introduction}</p>
       </section>
       <section aria-label={`${userData.userNickName}의 원픽 인플루언서`} className="mb-6">
-        <OnePickInfluencer {...onePickData} isOthersPick />
+        {/* <OnePickInfluencer {...onePickData} isOthersPick /> */}
       </section>
       <section
         aria-label={`${userData.userNickName}의 활동내역`}
