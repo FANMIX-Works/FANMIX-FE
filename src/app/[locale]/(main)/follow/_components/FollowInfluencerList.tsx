@@ -46,7 +46,7 @@ const FollowInfluencerList = () => {
               </li>
             ))}
           </ul>
-          <MessageText message={t('팔로우 중인 모든 인플루언서를 확인했어요')} />
+          <MessageText className="pb-20" message={t('팔로우 중인 모든 인플루언서를 확인했어요')} />
         </>
       )}
     </div>
