@@ -26,7 +26,7 @@ const SpecificInfluencerReviewList = ({ influencerId }: SpecificInfluencerReview
 
   return (
     <div className="flex h-full flex-col">
-      <SortOptionsList sortButtons={sortButtons} />
+      <SortOptionsList className="px-5" sortButtons={sortButtons} />
       {isError ? (
         <MessageText
           className="h-full"
