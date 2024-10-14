@@ -26,6 +26,9 @@ export interface LoginResponse extends ResponseBase {
   };
 }
 
+export interface UserDetailRequest {
+  userId: number;
+}
 export interface UserDetailResponse extends ResponseBase {
   data: {
     id: number;

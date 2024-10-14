@@ -54,12 +54,12 @@ export interface ImageReviewCardData {
   reviewId: number;
   influencerName: string;
   influencerImageUrl: string;
-  isAuthenticated: boolean;
+  influencerIsAuthenticated: boolean;
   contentsRating: number;
   communicationRating: number;
   trustRating: number;
   reviewContent: string;
-  latestReviewDate: string;
+  reviewDate: string;
   reviewLikeCount: number;
   reviewDislikeCount: number;
   reviewCommentsCount: number;

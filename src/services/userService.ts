@@ -9,6 +9,7 @@ import type {
   UpdateMyProfileImageRequest,
   UserCommentHistoryRequest,
   UserCommentHistoryResponse,
+  UserDetailRequest,
   UserDetailResponse,
   UserPostHistoryRequest,
   UserPostHistoryResponse,
@@ -18,9 +19,9 @@ import type {
 
 export const userService = {
   // 특정 유저 상세정보 조회
-  userDetail: async (id: string): Promise<UserDetailResponse> => {
+  userDetail: async ({ userId }: UserDetailRequest): Promise<UserDetailResponse> => {
     try {
-      const response = await ax.get<UserDetailResponse>(`/api/members/${id}`);
+      const response = await ax.get<UserDetailResponse>(`/api/members/${userId}`);
       console.log('userDetail Response:', response.data);
       return response.data;
     } catch (error) {

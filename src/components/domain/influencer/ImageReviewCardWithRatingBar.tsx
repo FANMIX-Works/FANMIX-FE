@@ -22,12 +22,12 @@ const ImageReviewCardWithRatingBar = ({
     reviewId,
     influencerName,
     influencerImageUrl,
-    isAuthenticated,
+    influencerIsAuthenticated,
     contentsRating,
     communicationRating,
     trustRating,
     reviewContent,
-    latestReviewDate,
+    reviewDate,
     reviewLikeCount,
     reviewDislikeCount,
     reviewCommentsCount,
@@ -52,7 +52,7 @@ const ImageReviewCardWithRatingBar = ({
         <div className="w-full overflow-hidden">
           <header aria-label="인플루언서 이름" className="mb-1.5 flex items-center gap-1">
             <h1 className="body2-sb">{influencerName}</h1>
-            {isAuthenticated && (
+            {influencerIsAuthenticated && (
               <VscPassFilled
                 className="h-[18px] w-[18px] text-lime-400"
                 aria-label="인증된 인플루언서"
@@ -79,7 +79,7 @@ const ImageReviewCardWithRatingBar = ({
                   }}
                 />
                 <time className="text-neutral-400 sub2-m">
-                  {formatDateToYYMMDD(parseISOToDate(latestReviewDate))}
+                  {formatDateToYYMMDD(parseISOToDate(reviewDate))}
                 </time>
               </footer>
             </section>

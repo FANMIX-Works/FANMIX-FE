@@ -12,6 +12,7 @@ import type {
   UpdateMyProfileImageRequest,
   UserCommentHistoryRequest,
   UserCommentHistoryResponse,
+  UserDetailRequest,
   UserDetailResponse,
   UserPostHistoryRequest,
   UserPostHistoryResponse,
@@ -90,6 +91,14 @@ export const useUpdateMyNationality = () =>
     updateUserField: 'nationality',
   });
 
+// 유저 상세 정보
+export const useUserDetail = ({ userId }: UserDetailRequest) => {
+  return useQuery<UserDetailResponse, AxiosError>({
+    queryKey: ['userDetail', userId],
+    queryFn: () => userService.userDetail({ userId }),
+    enabled: !!userId,
+  });
+};
 // 활동내역 - 리뷰 리스트
 export const useUserReviewHistory = ({ userId }: UserReviewHistoryRequset) => {
   return useQuery<UserReviewHistoryResponse, AxiosError>({
