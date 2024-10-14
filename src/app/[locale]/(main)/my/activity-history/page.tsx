@@ -27,12 +27,6 @@ export async function generateMetadata({
 
 export default function MyActivityHistoryPage() {
   const t = useTranslations('my_activity_history_page');
-  const userData = {
-    userNickName: '닉네임이다',
-    profileImgUrl: '', // 비워질 경우, fallback으로 이름 첫글자 표시
-    email: '0000000@gmail.com',
-  };
-
   const tabs = [
     {
       value: '1',
@@ -54,7 +48,7 @@ export default function MyActivityHistoryPage() {
   return (
     <div className="m-5 h-[calc(100%-130px)] pb-20 pt-[35px]">
       <section aria-label="유저 정보" className="h-[54px]">
-        <MyHistoryProfile {...userData} />
+        <MyHistoryProfile />
       </section>
       <section aria-label="활동 내역 탭" className="h-full pt-5">
         <SlideBarTabs tabs={tabs} defaultValue="1" />
