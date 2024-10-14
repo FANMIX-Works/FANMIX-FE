@@ -7,9 +7,12 @@ import type {
   UpdateMyNationalityRequest,
   UpdateMyNicknameRequest,
   UpdateMyProfileImageRequest,
+  UserCommentHistoryRequest,
   UserCommentHistoryResponse,
   UserDetailResponse,
+  UserPostHistoryRequest,
   UserPostHistoryResponse,
+  UserReviewHistoryRequset,
   UserReviewHistoryResponse,
 } from '@/types/service/userServiceType';
 
@@ -130,7 +133,9 @@ export const userService = {
     }
   },
   // 활동내역 - 리뷰 리스트
-  userReviewHistory: async (userId: number): Promise<UserReviewHistoryResponse> => {
+  userReviewHistory: async ({
+    userId,
+  }: UserReviewHistoryRequset): Promise<UserReviewHistoryResponse> => {
     try {
       const response = await ax.get<UserReviewHistoryResponse>(
         `/api/public/members/${userId}/activity/reviews`,
@@ -144,7 +149,7 @@ export const userService = {
   },
 
   // 활동내역 - 글 리스트
-  userPostHistory: async (userId: number): Promise<UserPostHistoryResponse> => {
+  userPostHistory: async ({ userId }: UserPostHistoryRequest): Promise<UserPostHistoryResponse> => {
     try {
       const response = await ax.get<UserPostHistoryResponse>(
         `/api/public/members/${userId}/activity/posts`,
@@ -158,7 +163,9 @@ export const userService = {
   },
 
   // 활동내역 - 댓글 리스트
-  userCommentHistory: async (userId: number): Promise<UserCommentHistoryResponse> => {
+  userCommentHistory: async ({
+    userId,
+  }: UserCommentHistoryRequest): Promise<UserCommentHistoryResponse> => {
     try {
       const response = await ax.get<UserCommentHistoryResponse>(
         `/api/public/members/${userId}/activity/comments`,

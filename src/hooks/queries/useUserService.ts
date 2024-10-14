@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios';
-import { useMutation, type UseMutationResult } from '@tanstack/react-query';
+import { useMutation, useQuery, type UseMutationResult } from '@tanstack/react-query';
 import { useUserStore } from '@/stores/userStore';
 import { userService } from '@/services/userService';
 import { useInformationToast } from '../useInformationToast';
@@ -10,7 +10,13 @@ import type {
   UpdateMyNationalityRequest,
   UpdateMyNicknameRequest,
   UpdateMyProfileImageRequest,
+  UserCommentHistoryRequest,
+  UserCommentHistoryResponse,
   UserDetailResponse,
+  UserPostHistoryRequest,
+  UserPostHistoryResponse,
+  UserReviewHistoryRequset,
+  UserReviewHistoryResponse,
 } from '@/types/service/userServiceType';
 import { useTranslations } from 'next-intl';
 
@@ -83,3 +89,30 @@ export const useUpdateMyNationality = () =>
     label: '국적',
     updateUserField: 'nationality',
   });
+
+// 활동내역 - 리뷰 리스트
+export const useUserReviewHistory = ({ userId }: UserReviewHistoryRequset) => {
+  return useQuery<UserReviewHistoryResponse, AxiosError>({
+    queryKey: ['userReviewHistory', userId],
+    queryFn: () => userService.userReviewHistory({ userId }),
+    enabled: !!userId,
+  });
+};
+
+// 활동내역 - 글 리스트
+export const useUserPostHistory = ({ userId }: UserPostHistoryRequest) => {
+  return useQuery<UserPostHistoryResponse, AxiosError>({
+    queryKey: ['userPostHistory', userId],
+    queryFn: () => userService.userPostHistory({ userId }),
+    enabled: !!userId,
+  });
+};
+
+// 활동내역 - 댓글 리스트
+export const useUserCommentHistory = ({ userId }: UserCommentHistoryRequest) => {
+  return useQuery<UserCommentHistoryResponse, AxiosError>({
+    queryKey: ['userCommentHistory', userId],
+    queryFn: () => userService.userCommentHistory({ userId }),
+    enabled: !!userId,
+  });
+};

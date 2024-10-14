@@ -66,6 +66,9 @@ export interface UpdateMyNationalityRequest {
   nationality: string;
 }
 
+export interface UserReviewHistoryRequset {
+  userId: number;
+}
 export interface UserReviewHistoryResponse extends ResponseBase {
   data: {
     influencerId: number;
@@ -86,6 +89,9 @@ export interface UserReviewHistoryResponse extends ResponseBase {
   }[];
 }
 
+export interface UserPostHistoryRequest {
+  userId: number;
+}
 export interface UserPostHistoryResponse extends ResponseBase {
   data: {
     communityId: number;
@@ -99,6 +105,10 @@ export interface UserPostHistoryResponse extends ResponseBase {
     postDisLikeCount: number;
     postCommentCount: number;
   }[];
+}
+
+export interface UserCommentHistoryRequest {
+  userId: number;
 }
 export interface UserCommentHistoryResponse extends ResponseBase {
   data: {
