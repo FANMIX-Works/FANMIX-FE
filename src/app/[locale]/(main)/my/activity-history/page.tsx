@@ -7,11 +7,10 @@ import SlideBarTabs from '@/components/common/SlideBarTabs';
 
 import MyHistoryProfile from './_components/MyHistoryProfile';
 
-import { commentData } from '@/constants/testData';
-
 import MyReviewHistory from './_components/MyReviewHistory';
 // import PostHistory from '@/components/domain/user/activityHistory/PostHistory';
-import CommentHistory from '@/components/domain/user/activityHistory/CommentHistory';
+// import CommentHistory from '@/components/domain/user/activityHistory/CommentHistory';
+import MessageText from '@/components/common/MessageText';
 
 export async function generateMetadata({
   params: { locale },
@@ -25,23 +24,31 @@ export async function generateMetadata({
   };
 }
 
+const TAB_TYPES = {
+  MY_REVIEWS: 'MY_REVIEWS',
+  MY_POSTS: 'MY_POSTS',
+  MY_COMMENT: 'MY_COMMENT',
+} as const;
+
 export default function MyActivityHistoryPage() {
   const t = useTranslations('my_activity_history_page');
   const tabs = [
     {
-      value: '1',
+      value: TAB_TYPES.MY_REVIEWS,
       label: t('내 한줄 리뷰'),
       content: <MyReviewHistory />,
     },
-    // {
-    //   value: '2',
-    //   label: t('내 글'),
-    //   content: <PostHistory />,
-    // },
     {
-      value: '3',
+      value: TAB_TYPES.MY_POSTS,
+      label: t('내 글'),
+      content: <MessageText className="h-full" message={t('커뮤니티 기능은 준비 중이에요')} />,
+      // content: <PostHistory />,
+    },
+    {
+      value: TAB_TYPES.MY_COMMENT,
       label: t('내 댓글'),
-      content: <CommentHistory comments={commentData} />,
+      content: <MessageText className="h-full" message={t('커뮤니티 기능은 준비 중이에요')} />,
+      // content: <CommentHistory />,
     },
   ];
 
@@ -51,7 +58,7 @@ export default function MyActivityHistoryPage() {
         <MyHistoryProfile />
       </section>
       <section aria-label="활동 내역 탭" className="h-full pt-5">
-        <SlideBarTabs tabs={tabs} defaultValue="1" />
+        <SlideBarTabs tabs={tabs} defaultValue={TAB_TYPES.MY_REVIEWS} />
       </section>
     </div>
   );

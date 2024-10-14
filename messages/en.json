@@ -74,7 +74,10 @@
     "내 한줄 리뷰": "My Reviews",
     "내 글": "My Posts",
     "내 댓글": "My Comments",
-    "모든 내용을 확인했어요": "You've seen all the content."
+    "모든 내용을 확인했어요": "You've seen all the content.",
+    "나의 리뷰를 불러오는 데 실패했어요 다시 시도해 주세요": "Failed to load your reviews.\nPlease try again.",
+    "아직 내가 작성한 리뷰가 없어요": "You haven't written any reviews yet.",
+    "커뮤니티 기능은 준비 중이에요": "Community features are coming soon."
   },
   "user_page": {
     "한줄 리뷰": "Reviews",

@@ -20,11 +20,11 @@ const ReviewHistory = ({ reviewHistoryData, isLoading, isError }: ReviewHistoryP
     return (
       <MessageText
         className="h-full"
-        message={'나의 리뷰를 불러오는데 실패했어요.\n다시 시도해 주세요'}
+        message={t('나의 리뷰를 불러오는 데 실패했어요 다시 시도해 주세요')}
       />
     );
   if (!reviewHistoryData || reviewHistoryData.length === 0)
-    return <MessageText className="h-full" message="아직 내가 작성한 리뷰가 없어요." />;
+    return <MessageText className="h-full" message={t('아직 내가 작성한 리뷰가 없어요')} />;
   return (
     <div className="h-full w-full overflow-y-auto pb-8 pt-5 scrollbar-hide-smooth">
       <ul className="flex w-full flex-col items-center gap-[30px]">
