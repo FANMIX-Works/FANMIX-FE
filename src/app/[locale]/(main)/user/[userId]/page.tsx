@@ -50,13 +50,13 @@ export default async function UserProfilePage({
     {
       value: TAB_TYPES.USER_POSTS,
       label: t('글'),
-      content: <MessageText className="h-full" message={'커뮤니티 기능은 준비 중이에요'} />,
+      content: <MessageText className="h-full" message={t('커뮤니티 기능은 준비 중이에요')} />,
       // content: <PostHistory />,
     },
     {
       value: TAB_TYPES.USER_COMMENT,
       label: t('댓글'),
-      content: <MessageText className="h-full" message={'커뮤니티 기능은 준비 중이에요'} />,
+      content: <MessageText className="h-full" message={t('커뮤니티 기능은 준비 중이에요')} />,
       // content: <CommentHistory />,
     },
   ];
