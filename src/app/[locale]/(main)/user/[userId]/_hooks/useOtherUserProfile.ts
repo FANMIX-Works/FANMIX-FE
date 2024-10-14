@@ -1,6 +1,6 @@
 import { useUserDetail } from '@/hooks/queries/useUserService';
 
-export const useUserProfile = (userId: number) => {
+export const useOtherUserProfile = (userId: number) => {
   const { data, isLoading, isError } = useUserDetail({ userId });
 
   return {

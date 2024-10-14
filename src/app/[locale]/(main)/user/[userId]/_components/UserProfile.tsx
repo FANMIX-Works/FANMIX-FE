@@ -6,13 +6,13 @@ import ComponentSpinner from '@/components/common/spinner/ComponentSpinner';
 import UserProfileHeader from './UserProfileHeader';
 import UserIntroduce from './UserIntroduce';
 
-import { useUserProfile } from '../_hooks/useUserProfile';
+import { useOtherUserProfile } from '../_hooks/useOtherUserProfile';
 
 interface UserProfileProps {
   userId: number;
 }
 const UserProfile = ({ userId }: UserProfileProps) => {
-  const { userData, isLoading, isError } = useUserProfile(userId);
+  const { userData, isLoading, isError } = useOtherUserProfile(userId);
 
   if (isLoading) return <ComponentSpinner />;
   if (isError)

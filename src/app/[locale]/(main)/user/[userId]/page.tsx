@@ -7,9 +7,9 @@ import SlideBarTabs from '@/components/common/SlideBarTabs';
 import UserProfile from './_components/UserProfile';
 import OnePickInfluencer from '@/components/domain/influencer/OnePickInfluencer';
 
+import UserReviewHistory from './_components/UserReviewHistory';
 // import CommentHistory from '@/components/domain/user/activityHistory/CommentHistory';
 // import PostHistory from '@/components/domain/user/activityHistory/PostHistory';
-// import ReviewHistory from '@/components/domain/user/activityHistory/ReviewHistory';
 
 import { getUserOnePickInfluencerData } from '@/services/serverFetch/influencerServerService';
 
@@ -45,8 +45,7 @@ export default async function UserProfilePage({
     {
       value: TAB_TYPES.USER_REVIEWS,
       label: t('한줄 리뷰'),
-      content: <MessageText className="h-full" message={'커뮤니티 기능은 준비 중이에요'} />,
-      // content: <ReviewHistory reviews={reviewData} />,
+      content: <UserReviewHistory userId={parseInt(userId)} />,
     },
     {
       value: TAB_TYPES.USER_POSTS,
