@@ -8,7 +8,8 @@ import SlideBarTabs from '@/components/common/SlideBarTabs';
 import MyHistoryProfile from './_components/MyHistoryProfile';
 
 import { commentData } from '@/constants/testData';
-// import ReviewHistory from '@/components/domain/user/activityHistory/ReviewHistory';
+
+import MyReviewHistory from './_components/MyReviewHistory';
 // import PostHistory from '@/components/domain/user/activityHistory/PostHistory';
 import CommentHistory from '@/components/domain/user/activityHistory/CommentHistory';
 
@@ -33,15 +34,15 @@ export default function MyActivityHistoryPage() {
   };
 
   const tabs = [
-    // {
-    //   value: '1',
-    //   label: t('내 한줄 리뷰'),
-    //   content: <ReviewHistory reviews={reviewData} />,
-    // },
+    {
+      value: '1',
+      label: t('내 한줄 리뷰'),
+      content: <MyReviewHistory />,
+    },
     // {
     //   value: '2',
     //   label: t('내 글'),
-    //   content: <PostHistory posts={postData} />,
+    //   content: <PostHistory />,
     // },
     {
       value: '3',

@@ -72,20 +72,23 @@ export interface UserReviewHistoryRequset {
 export interface UserReviewHistoryResponse extends ResponseBase {
   data: {
     influencerId: number;
+    reviewId: number;
     influencerName: string;
     influencerImageUrl: string;
     selfIntroduction: string;
     gender: Gender;
     nationality: string;
     tagList: string[];
-    reviewId: number;
     reviewContent: string;
-    contentRating: number;
+    contentsRating: number;
     communicationRating: number;
     trustRating: number;
     latestReviewDate: string;
     isAuthenticated: boolean;
     isFollowing: boolean;
+    reviewLikeCount: number;
+    reviewDislikeCount: number;
+    reviewCommentsCount: number;
   }[];
 }
 
