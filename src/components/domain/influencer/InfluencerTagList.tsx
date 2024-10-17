@@ -30,7 +30,9 @@ const LinkedTag = ({
   content: string;
   variant: InfluencerTagListProps['variant'];
 }) => (
-  <Link href={`/influencer?searchType=TAG&keyword=${content}`} className="contents">
+  <Link
+    href={`/influencer?searchType=TAG&keyword=${encodeURIComponent(content)}`}
+    className="contents">
     <Badge variant={variant}>{`#${content}`}</Badge>
   </Link>
 );
