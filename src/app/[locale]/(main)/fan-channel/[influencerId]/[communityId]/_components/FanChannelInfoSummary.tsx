@@ -39,6 +39,7 @@ const FanChannelInfoSummary = ({ influencerId }: FanChannelInfoSummaryProps) => 
             <AuthenticatedBadge size={18} />
           </h2>
           <InfluencerFollowToggleButton
+            isInFanChannel
             influencerId={influencerId}
             className="bg-orange-700/50 text-white"
           />

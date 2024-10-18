@@ -6,18 +6,18 @@ import { useInfluencerFollowToggle } from '@/hooks/useInfluencerFollowToggle';
 
 interface FollowToggleButtonProps {
   influencerId: number;
-  showUnfollowMessage?: boolean;
+  isInFanChannel?: boolean;
   className?: string;
 }
 const InfluencerFollowToggleButton = ({
   influencerId,
-  showUnfollowMessage = false,
+  isInFanChannel = false,
   className,
 }: FollowToggleButtonProps) => {
   // ssr 데이터에 의존하지 말고 follow 여부 확인 api 따로 호출해서 관리하기
   const { isFollowing, toggleFollowState } = useInfluencerFollowToggle(
     influencerId,
-    showUnfollowMessage,
+    isInFanChannel,
   );
 
   return (
