@@ -173,6 +173,9 @@
     "팬채널": "Fan Ch.",
     "아직 등록된 글이 없어요": "No posts yet."
   },
+  "fan_channel_page": {
+    "팬채널에 접근할 수 없으신가요? 팔로우한 인플루언서의 팬채널만 입장 가능해요 인플루언서를 팔로우하고 다시 시도해 주세요": "Unable to access the fan channel?\nOnly fan channels of influencers you follow are accessible.\n\nPlease follow the influencer and try again! 😊"
+  },
   "review_index_page": {
     "최신순": "Latest",
     "추천순": "Most recommended",
