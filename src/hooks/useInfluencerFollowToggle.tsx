@@ -7,7 +7,10 @@ import { useInfluencerFollowStatus, useToggleInfluencerFollow } from './queries/
 import { useTranslations } from 'next-intl';
 
 // 서버에서 현재 인플루언서 팔로우 상태를 가져오고, toggle하는 mutation 함수를 리턴
-export const useInfluencerFollowToggle = (influencerId: number) => {
+export const useInfluencerFollowToggle = (influencerId: number, showUnfollowMessage: boolean) => {
+  // showUnfollowMessage 로 언팔로우 시 메시지 띄우는 작업 추가하기 (메인으로 돌아가진다)
+  console.log(showUnfollowMessage);
+
   const t = useTranslations('influencer_follow_mutations');
   const { showErrorToast } = useInformationToast();
   const { checkAuthAndProceed } = useAuthCheck();

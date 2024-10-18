@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { getInfluencerFollowStatusData } from '@/services/serverFetch/followServerService';
 
+import FanChannelHeader from './_components/FanChannelHeader';
 import FanChannelAccessMessage from './_components/FanChannelAccessMessage';
 
 export async function generateMetadata({
@@ -29,7 +30,13 @@ export default async function FanChannelPage({
   console.log(influencerId, communityId);
   return (
     <div className="h-full pb-20 pt-[35px]">
-      {isFollowing ? '팔로우 중' : <FanChannelAccessMessage />}
+      {isFollowing ? (
+        <div>
+          <FanChannelHeader influencerId={parseInt(influencerId)} />
+        </div>
+      ) : (
+        <FanChannelAccessMessage />
+      )}
     </div>
   );
 }
