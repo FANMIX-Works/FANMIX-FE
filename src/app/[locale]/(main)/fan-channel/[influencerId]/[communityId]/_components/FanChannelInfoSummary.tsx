@@ -9,11 +9,13 @@ import AuthenticatedBadge from '@/components/domain/influencer/AuthenticatedBadg
 import { formatNumber } from '@/lib/text';
 import { formatDateToYYMMDD, parseISOToDate } from '@/lib/date';
 import InfluencerFollowToggleButton from '@/components/domain/influencer/InfluencerFollowToggleButton';
+import { useTranslations } from 'next-intl';
 
 interface FanChannelInfoSummaryProps {
   influencerId: number;
 }
 const FanChannelInfoSummary = ({ influencerId }: FanChannelInfoSummaryProps) => {
+  const t = useTranslations('fan_channel_page');
   const latestPostDate = '2024-10-18T14:30:00.000Z';
   const influencerName = '알간지';
   return (
@@ -46,20 +48,20 @@ const FanChannelInfoSummary = ({ influencerId }: FanChannelInfoSummaryProps) => 
         </header>
         <div className="flex items-end justify-between">
           <div className="grid grid-cols-[auto,auto,1fr] items-center gap-x-[15px] gap-y-1 text-neutral-300 sub1-r">
-            <span className="text-left">{'팔로워'}</span>
+            <span className="text-left">{t('팔로워')}</span>
             <Separator className="h-3 w-[1px] bg-neutral-500" aria-hidden="true" />
             <span>{formatNumber(1000)}</span>
 
-            <span className="text-left">{'글 수'}</span>
+            <span className="text-left">{t('글 수')}</span>
             <Separator className="h-3 w-[1px] bg-neutral-500" aria-hidden="true" />
             <span>{formatNumber(33)}</span>
 
-            <span className="text-left">{'최신 글'}</span>
+            <span className="text-left">{t('최신 글')}</span>
             <Separator className="h-3 w-[1px] bg-neutral-500" aria-hidden="true" />
             {latestPostDate ? (
               <time>{formatDateToYYMMDD(parseISOToDate(latestPostDate))}</time>
             ) : (
-              <p className="text-neutral-300/50 sub2-m">{'아직 등록된 글이 없어요'}</p>
+              <p className="text-neutral-300/50 sub2-m">{t('아직 등록된 글이 없어요')}</p>
             )}
           </div>
         </div>

@@ -56,19 +56,19 @@ export const useInfluencerFollowToggle = (influencerId: number, isInFanChannel: 
   const showUnfollowConfirmation = useCallback(() => {
     openModal(
       <MessageBox
-        title="팔로우를 해제하시겠어요?"
-        description={'팬채널에서 팔로우 해제 시,\n메인 페이지로 이동합니다.'}
+        title={t('팔로우를 해제하시겠어요?')}
+        description={t('팬채널에서 팔로우 해제 시 메인 페이지로 이동합니다')}
         buttons={[
-          { text: '취소', color: 'gray' },
+          { text: t('취소'), color: 'gray' },
           {
-            text: '해제하기',
+            text: t('해제하기'),
             color: 'lime',
             onClick: () => performToggle(false),
           },
         ]}
       />,
     );
-  }, [openModal, performToggle]);
+  }, [t, openModal, performToggle]);
 
   // 인플루언서 팔로우 상태를 토글하는 함수
   const toggleFollowState = useCallback(() => {
