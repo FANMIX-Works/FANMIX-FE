@@ -2,7 +2,8 @@ import { Metadata, Viewport } from 'next';
 import { getTranslations } from 'next-intl/server';
 
 import { Separator } from '@/components/ui/separator';
-import CommunityNavigation from './_components/CommunityNavigation';
+
+import CommunityIconNavigation from './_components/CommunityIconNavigation';
 import AllCommunitiesPostList from './_components/AllCommunitiesPostList';
 
 export async function generateMetadata({
@@ -27,7 +28,7 @@ export const viewport: Viewport = {
 export default function CommunityIndexPage() {
   return (
     <div className="pt-[35px]">
-      <CommunityNavigation />
+      <CommunityIconNavigation />
       <Separator className="h-2 bg-neutral-800" />
       <AllCommunitiesPostList />
     </div>

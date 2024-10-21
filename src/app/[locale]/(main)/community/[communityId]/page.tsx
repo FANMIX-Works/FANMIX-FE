@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 
 import CommunityBanner from './_components/CommunityBanner';
 import CommunityPostList from './_components/CommunityPostList';
+import CommunityBadgeNavigation from './_components/CommunityBadgeNavigation';
 
 export async function generateMetadata({
   params: { locale },
@@ -24,7 +25,7 @@ export default function CommunityPage({
   console.log(communityId);
   return (
     <div className="pt-[35px]">
-      <div>태그들, Link로 만들어서 페이지 이동시키기</div>
+      <CommunityBadgeNavigation communityId={parseInt(communityId)} />
       <CommunityBanner communityId={parseInt(communityId)} />
       <CommunityPostList />
     </div>
