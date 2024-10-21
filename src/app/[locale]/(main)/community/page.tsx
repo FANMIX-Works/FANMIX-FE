@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 
 import { Separator } from '@/components/ui/separator';
 import CommunityNavigation from './_components/CommunityNavigation';
+import AllCommunitiesPostList from './_components/AllCommunitiesPostList';
 
 export async function generateMetadata({
   params: { locale },
@@ -25,9 +26,10 @@ export const viewport: Viewport = {
 
 export default function CommunityIndexPage() {
   return (
-    <div className="pb-20 pt-[35px]">
+    <div className="pt-[35px]">
       <CommunityNavigation />
       <Separator className="h-2 bg-neutral-800" />
+      <AllCommunitiesPostList />
     </div>
   );
 }

@@ -183,6 +183,11 @@
     "추천순": "Most recommended",
     "인기순": "Most Popular"
   },
+  "community_index_page": {
+    "최신순": "Latest",
+    "추천순": "Most recommended",
+    "인기순": "Most Popular"
+  },
   "review_index_page": {
     "최신순": "Latest",
     "추천순": "Most recommended",
