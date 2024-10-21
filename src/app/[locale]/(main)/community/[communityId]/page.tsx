@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import CommunityPostList from './_components/CommunityPostList';
 
 export async function generateMetadata({
   params: { locale },
@@ -18,5 +19,12 @@ export default function CommunityPage({
 }: {
   params: { communityId: string };
 }) {
-  return <div className="pb-20 pt-[35px]">{`${communityId}번 커뮤니티 페이지 (글 리스트)`}</div>;
+  console.log(communityId);
+  return (
+    <div className="pt-[35px]">
+      <div>태그들, Link로 만들어서 페이지 이동시키기</div>
+      <div>배너와 팔로우 설정</div>
+      <CommunityPostList />
+    </div>
+  );
 }
