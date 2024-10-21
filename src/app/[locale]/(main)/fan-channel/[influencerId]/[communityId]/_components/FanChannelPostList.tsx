@@ -19,7 +19,7 @@ const FanChannelPostList = () => {
         </li>
         <li>
           <Separator className="h-[1px] bg-neutral-800" />
-          <FanChannelPostCard isMyPost={false} />
+          <FanChannelPostCard isMyPost={false} postImageUrl={'33'} />
         </li>
         <li>
           <Separator className="h-[1px] bg-neutral-800" />

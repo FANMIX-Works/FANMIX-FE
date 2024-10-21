@@ -14,7 +14,7 @@ const AllCommunitiesPostList = () => {
       <ul className="mt-[15px] flex flex-col">
         <li>
           <Separator className="h-[1px] bg-neutral-800" />
-          <CommunityPostCard isMyPost />
+          <CommunityPostCard isMyPost postImageUrl="url이라고 가정" />
         </li>
         <li>
           <Separator className="h-[1px] bg-neutral-800" />
@@ -22,11 +22,11 @@ const AllCommunitiesPostList = () => {
         </li>
         <li>
           <Separator className="h-[1px] bg-neutral-800" />
-          <CommunityPostCard isMyPost={false} />
+          <CommunityPostCard isMyPost={false} postImageUrl="url이라고 가정" />
         </li>
         <li>
           <Separator className="h-[1px] bg-neutral-800" />
-          <CommunityPostCard isMyPost={false} />
+          <CommunityPostCard isMyPost={false} postImageUrl="url이라고 가정" />
         </li>
       </ul>
       <MessageText className="py-10" message="모든 내용을 확인했습니다." />

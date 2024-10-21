@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import { cn } from '@/lib/utils';
 import { Link } from '@/i18n/routing';
 
@@ -11,10 +13,11 @@ import UserActivityHistoryLink from '@/components/domain/user/UserActivityHistor
 import { BOARD_CARD_TYPE } from '@/types/domain/boardType';
 
 interface FanChannelPostCardProps {
+  postImageUrl?: string;
   isMyPost: boolean;
 }
 
-const FanChannelPostCard = ({ isMyPost }: FanChannelPostCardProps) => {
+const FanChannelPostCard = ({ postImageUrl, isMyPost }: FanChannelPostCardProps) => {
   return (
     <Link href="/fan-channel/17/10/3" className="relative">
       <article className={cn('flex flex-col gap-y-3 py-5', isMyPost && 'bg-orange-700/15')}>
@@ -33,14 +36,28 @@ const FanChannelPostCard = ({ isMyPost }: FanChannelPostCardProps) => {
           </UserActivityHistoryLink>
           {isMyPost && <LiaEllipsisVSolid className="h-[18px] w-[18px] hover:scale-125" />}
         </header>
-        <div className="flex flex-col gap-y-1.5">
-          <h2 className="truncate body1-sb">
-            팬채널 글 제목 제목그렞목글제제목그렞목글제글제목그렞목글제
-          </h2>
-          <p className="h-15 line-clamp-3 text-neutral-200 body3-r">
-            글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영
-            글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영
-          </p>
+        <div className="flex items-center gap-x-4">
+          <div className="flex flex-col gap-y-1.5">
+            <h2 className="line-clamp-1 body1-sb">
+              팬채널 글 제목 제목그렞목글제제목그렞목글제글제목그렞목글제
+            </h2>
+            <p className="h-15 line-clamp-3 text-neutral-200 body3-r">
+              글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영
+              글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영
+            </p>
+          </div>
+          {postImageUrl && (
+            <div className="relative h-[90px] w-[90px] flex-shrink-0">
+              <Image
+                priority
+                src={'/assets/images/test/alganzi.png'}
+                alt={`${'글 제목'}에 포함된 이미지`}
+                fill
+                className="object-cover"
+                sizes="90px"
+              />
+            </div>
+          )}
         </div>
         <footer className="flex items-center justify-between">
           <ViewStat viewCount={1000} />

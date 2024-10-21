@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import { cn } from '@/lib/utils';
 import { Link } from '@/i18n/routing';
 
@@ -11,10 +13,11 @@ import UserActivityHistoryLink from '@/components/domain/user/UserActivityHistor
 import { BOARD_CARD_TYPE } from '@/types/domain/boardType';
 
 interface CommunityPostCardProps {
+  postImageUrl?: string;
   isMyPost: boolean;
 }
 
-const CommunityPostCard = ({ isMyPost }: CommunityPostCardProps) => {
+const CommunityPostCard = ({ postImageUrl, isMyPost }: CommunityPostCardProps) => {
   return (
     <Link href="/community/17/1" className="relative">
       <article className={cn('flex flex-col gap-y-3 py-5', isMyPost && 'bg-orange-700/15')}>
@@ -33,19 +36,33 @@ const CommunityPostCard = ({ isMyPost }: CommunityPostCardProps) => {
           </UserActivityHistoryLink>
           {isMyPost && <LiaEllipsisVSolid className="h-[18px] w-[18px] hover:scale-125" />}
         </header>
-        <div className="flex flex-col gap-y-1.5">
-          <div className="flex items-center gap-x-1.5">
-            <span className="flex-shrink-0 rounded-full bg-orange-600 px-2.5 py-0.5 sub1-m">
-              자기개발
-            </span>
-            <h2 className="truncate body1-sb">
-              팬채널 글 제목 제목그렞목글제제목그렞목글제글제목그렞목글제
-            </h2>
+        <div className="flex items-center gap-x-4">
+          <div className="flex flex-col gap-y-1.5">
+            <div className="flex items-center gap-x-1.5">
+              <span className="flex-shrink-0 rounded-full bg-orange-600 px-2.5 py-0.5 sub1-m">
+                자기개발
+              </span>
+              <h2 className="line-clamp-1 body1-sb">
+                when it was filled by english nononononono nononononono
+              </h2>
+            </div>
+            <p className="h-15 line-clamp-3 w-full text-neutral-200 body3-r">
+              텍스트 텍스트텍스 트텍스트텍스트 텍스트텍스트텍 스트텍스트텍
+              스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트
+            </p>
           </div>
-          <p className="h-15 line-clamp-3 text-neutral-200 body3-r">
-            글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영
-            글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영글내영
-          </p>
+          {postImageUrl && (
+            <div className="relative h-[90px] w-[90px] flex-shrink-0">
+              <Image
+                priority
+                src={'/assets/images/test/alganzi.png'}
+                alt={`${'글 제목'}에 포함된 이미지`}
+                fill
+                className="object-cover"
+                sizes="90px"
+              />
+            </div>
+          )}
         </div>
         <footer className="flex items-center justify-between">
           <ViewStat viewCount={1000} />
