@@ -178,7 +178,10 @@
     "팔로워": "Followers",
     "글 수": "Posts",
     "최신 글": "Latest Post",
-    "아직 등록된 글이 없어요": "No posts yet."
+    "아직 등록된 글이 없어요": "No posts yet.",
+    "최신순": "Latest",
+    "추천순": "Most recommended",
+    "인기순": "Most Popular"
   },
   "review_index_page": {
     "최신순": "Latest",
