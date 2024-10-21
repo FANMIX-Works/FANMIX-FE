@@ -38,7 +38,7 @@ const FanChannelCard = ({
   return (
     <article className="flex items-center gap-x-5">
       <Link href={`/influencer/${influencerId}`}>
-        <figure className="relative h-[90px] w-[90px] flex-shrink-0">
+        <div className="relative h-[90px] w-[90px] flex-shrink-0">
           <Image
             priority
             src={influencerImageUrl}
@@ -47,7 +47,7 @@ const FanChannelCard = ({
             className="object-cover"
             sizes="90px"
           />
-        </figure>
+        </div>
       </Link>
       <div className="flex flex-1 flex-col justify-center gap-y-[9px]">
         <header>

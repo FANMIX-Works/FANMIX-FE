@@ -43,7 +43,7 @@ const FollowInfluencerCard = ({
         isOnePick && 'mt-[15px] bg-orange-700/20 py-5',
       )}>
       <Link className="flex-shrink-0" href={`/influencer/${influencerId}`}>
-        <figure className="relative h-[100px] w-[100px] bg-slate-400">
+        <div className="relative h-[100px] w-[100px] bg-slate-400">
           <Image
             priority
             src={influencerImageUrl}
@@ -52,7 +52,7 @@ const FollowInfluencerCard = ({
             className="object-cover"
             sizes="100px"
           />
-        </figure>
+        </div>
       </Link>
       <div className="flex-1">
         <header className="mb-1 flex justify-between">

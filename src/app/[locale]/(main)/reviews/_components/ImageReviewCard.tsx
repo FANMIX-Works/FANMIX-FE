@@ -47,7 +47,7 @@ const ImageReviewCard = ({
     <Link href={`/influencer/${influencerId}/review/${reviewId}`}>
       <article className="gap-y-2.5 flex-col-center">
         <div className="w-full gap-x-[14px] flex-center">
-          <figure className="relative h-[70px] w-[70px] flex-shrink-0">
+          <div className="relative h-[70px] w-[70px] flex-shrink-0">
             <Image
               priority
               src={influencerImageUrl}
@@ -56,7 +56,7 @@ const ImageReviewCard = ({
               className="object-cover"
               sizes="70px"
             />
-          </figure>
+          </div>
           <div className="flex-1">
             <header className="mb-0.5 flex items-center gap-x-[3px]">
               <h2 className="body2-sb">{influencerName}</h2>

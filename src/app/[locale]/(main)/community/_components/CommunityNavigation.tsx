@@ -15,16 +15,13 @@ const CommunityNavigation = () => {
             return (
               <li key={ID} className="w-[52px]">
                 <Link href={`/community/${ID}`} className="gap-y-0.5 flex-col-center">
-                  <figure className="relative h-[50px] w-[50px]">
-                    <Image
-                      priority
-                      src={ICON_PATH}
-                      alt={`${t(NAME)} 아이콘`}
-                      fill
-                      className="object-cover"
-                      sizes="50px"
-                    />
-                  </figure>
+                  <Image
+                    priority
+                    src={ICON_PATH}
+                    alt={`${t(NAME)} 아이콘`}
+                    width={50}
+                    height={50}
+                  />
                   <span className="text-center">{t(NAME)}</span>
                 </Link>
               </li>
