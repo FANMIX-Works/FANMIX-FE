@@ -22,7 +22,7 @@ const CommunityNavigation = () => {
                       alt={`${t(NAME)} 아이콘`}
                       fill
                       className="object-cover"
-                      sizes="100%"
+                      sizes="50px"
                     />
                   </figure>
                   <span className="text-center">{t(NAME)}</span>

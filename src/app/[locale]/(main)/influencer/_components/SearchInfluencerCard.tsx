@@ -43,7 +43,7 @@ const SearchInfluencerCard = ({
             alt={`인플루언서 ${influencerName} 사진`}
             fill
             className="object-cover"
-            sizes="100%"
+            sizes="100px"
           />
         </figure>
         <div className="flex-1">

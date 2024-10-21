@@ -47,7 +47,7 @@ const InfluencerProfileCard = ({
             src={influencerImageUrl}
             alt={`${influencerName}의 프로필 이미지`}
             fill
-            sizes="100%"
+            sizes="130px"
             className="object-cover"
           />
         </figure>

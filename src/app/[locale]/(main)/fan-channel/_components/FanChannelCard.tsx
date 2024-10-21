@@ -45,7 +45,7 @@ const FanChannelCard = ({
             alt={`인플루언서 ${influencerName}의 사진"`}
             fill
             className="object-cover"
-            sizes="100%"
+            sizes="90px"
           />
         </figure>
       </Link>

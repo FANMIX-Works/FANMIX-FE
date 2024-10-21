@@ -54,7 +54,7 @@ const ImageReviewCard = ({
               alt={`인플루언서 ${influencerName} 사진`}
               fill
               className="object-cover"
-              sizes="100%"
+              sizes="70px"
             />
           </figure>
           <div className="flex-1">
@@ -65,7 +65,7 @@ const ImageReviewCard = ({
             <div className="mb-2 flex">
               <MetricsText {...{ contentsRating, communicationRating, trustRating }} />
             </div>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between gap-x-2">
               <InteractionStats
                 boardCardType={BOARD_CARD_TYPE.REVIEW}
                 {...{
