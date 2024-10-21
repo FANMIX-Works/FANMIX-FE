@@ -9,7 +9,7 @@ import { useCommunityPostList } from '../_hooks/useCommunityPostList';
 const CommunityPostList = () => {
   const { sortButtons } = useCommunityPostList();
   return (
-    <section className="mt-[30px] px-5">
+    <section className="mt-[25px] px-5">
       <SortOptionsList sortButtons={sortButtons} />
       <ul className="mt-[15px] flex flex-col">
         <li>

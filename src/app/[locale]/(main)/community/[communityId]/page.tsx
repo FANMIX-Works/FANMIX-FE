@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+
+import CommunityBanner from './_components/CommunityBanner';
 import CommunityPostList from './_components/CommunityPostList';
 
 export async function generateMetadata({
@@ -23,7 +25,7 @@ export default function CommunityPage({
   return (
     <div className="pt-[35px]">
       <div>태그들, Link로 만들어서 페이지 이동시키기</div>
-      <div>배너와 팔로우 설정</div>
+      <CommunityBanner communityId={parseInt(communityId)} />
       <CommunityPostList />
     </div>
   );
