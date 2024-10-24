@@ -63,10 +63,14 @@ export const useSearchInfluencers = (initialCondition: SearchInfluencersRequest)
 
 // 원픽 인플루언서 조회
 export const useUserOnePickInfluencer = ({ userId }: UserOnePickInfluencerRequest) => {
-  return useQuery<UserOnePickInfluencerResponse, AxiosError>({
+  return useSuspenseQuery<UserOnePickInfluencerResponse | null, AxiosError>({
     queryKey: ['userOnePickInfluencer', userId],
-    queryFn: () => influencerService.userOnePickInfluencer({ userId }),
-    enabled: !!userId,
+    queryFn: () => {
+      if (!userId) {
+        return null;
+      }
+      return influencerService.userOnePickInfluencer({ userId });
+    },
   });
 };
 
