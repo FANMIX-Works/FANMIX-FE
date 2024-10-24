@@ -36,6 +36,7 @@ export const useSearchInfluencers = (initialCondition: SearchInfluencersRequest)
   const [searchParams, setSearchParams] = useState<SearchInfluencersRequest | null>(
     initialCondition,
   );
+  // #20241024.syjang, useQuery 유지
   const query = useQuery<SearchInfluencersResponse, AxiosError>({
     queryKey: ['searchInfluencers', searchParams],
     queryFn: () => influencerService.searchInfluencers(searchParams!),

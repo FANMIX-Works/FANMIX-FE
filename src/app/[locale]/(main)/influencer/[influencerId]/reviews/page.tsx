@@ -2,9 +2,10 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
 import { Separator } from '@/components/ui/separator';
-import InfluencerProfileCard from '../_components/InfluencerProfileCard';
+
 import MyReview from './_components/MyReview';
-import SpecificInfluencerReviewList from './_components/SpecificInfluencerReviewList';
+import InfluencerProfileCard from '../_components/InfluencerProfileCard';
+import SpecificInfluencerReviewWrapper from './_components/SpecificInfluencerReviewWrapper';
 
 import { getInfluencerData } from '@/services/serverFetch/influencerServerService';
 
@@ -38,7 +39,7 @@ export default async function InfluencerReviewListPage({
       </section>
       <Separator className="h-2 flex-shrink-0 bg-neutral-900" />
       <section aria-label="한줄리뷰 전체 리스트" className="mt-[15px] flex-1 pb-20">
-        <SpecificInfluencerReviewList influencerId={parseInt(influencerId)} />
+        <SpecificInfluencerReviewWrapper influencerId={parseInt(influencerId)} />
       </section>
     </div>
   );

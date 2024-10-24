@@ -204,14 +204,13 @@ export const useSpecificInfluencerAllReviews = ({
   influencerId,
   sort,
 }: SpecificInfluencerAllReviewsRequest) => {
-  return useQuery<SpecificInfluencerAllReviewsResponse, AxiosError>({
+  return useSuspenseQuery<SpecificInfluencerAllReviewsResponse, AxiosError>({
     queryKey: ['specificInfluencerAllReviews', influencerId, sort],
     queryFn: () =>
       reviewService.specificInfluencerAllReviews({
         influencerId,
         sort,
       }),
-    enabled: !!influencerId,
   });
 };
 
