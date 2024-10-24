@@ -10,7 +10,6 @@ const MyOnePickInfluencer = () => {
 
   if (!onePickData?.data) return null;
 
-  // 원픽 데이터 가져오기..
   return (
     <OnePickInfluencer {...onePickData.data} communityId={onePickData.data.fanChannelId || null} />
   );

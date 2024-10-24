@@ -80,7 +80,8 @@
     "한줄 리뷰": "Reviews",
     "글": "Posts",
     "댓글": "Comments",
-    "커뮤니티 기능은 준비 중이에요": "Community features are in preparation."
+    "커뮤니티 기능은 준비 중이에요": "Community features are in preparation.",
+    "유저 정보를 불러오는데 실패했어요 다시 시도해 주세요": "Failed to load user information.\nPlease try again."
   },
   "customer_center_page": {
     "가이드 및 도움말": "Guides and Help",
