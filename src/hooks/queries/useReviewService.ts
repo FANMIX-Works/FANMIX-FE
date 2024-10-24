@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios';
-import { useMutation, useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
+import { useMutation, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { useUserStore } from '@/stores/userStore';
 
 import { reviewService } from '@/services/reviewService';
@@ -24,10 +24,9 @@ import type {
 
 // 내 가장 최근 리뷰
 export const useMyLatestReviewForInfluencer = (influencerId: number) => {
-  return useQuery<MyLatestReviewForInfluencerResponse, AxiosError>({
+  return useSuspenseQuery<MyLatestReviewForInfluencerResponse, AxiosError>({
     queryKey: ['myLatestReviewForInfluencer', influencerId],
     queryFn: () => reviewService.myLatestReviewForInfluencer(influencerId),
-    enabled: !!influencerId,
   });
 };
 
