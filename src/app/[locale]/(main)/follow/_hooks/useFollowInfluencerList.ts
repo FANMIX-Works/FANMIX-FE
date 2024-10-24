@@ -5,7 +5,7 @@ import { useMyFollowedInfluencers } from '@/hooks/queries/useFollowService';
 import { type MyFollowedInfluencerSortType } from '@/types/domain/followType';
 
 export const useFollowInfluencerList = (sort: MyFollowedInfluencerSortType) => {
-  const { data, isLoading, isError } = useMyFollowedInfluencers({ sort });
+  const { data } = useMyFollowedInfluencers({ sort });
 
   const onePickPrioritizedInfluencers = useMemo(() => {
     if (!data?.data) return [];
@@ -21,8 +21,6 @@ export const useFollowInfluencerList = (sort: MyFollowedInfluencerSortType) => {
 
   return {
     influencerListData: onePickPrioritizedInfluencers,
-    isLoading,
-    isError,
     isEmpty: onePickPrioritizedInfluencers.length === 0,
   };
 };
