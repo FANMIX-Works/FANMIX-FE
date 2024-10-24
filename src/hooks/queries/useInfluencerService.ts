@@ -1,11 +1,11 @@
 import { useCallback, useState } from 'react';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { isEqual } from 'lodash';
 
 import { influencerService } from '@/services/influencerService';
 import type {
-  InfluencerDetailResponse,
+  // InfluencerDetailResponse,
   SearchInfluencersByNameResponse,
   SearchInfluencersRequest,
   SearchInfluencersResponse,
@@ -17,19 +17,18 @@ import type {
 import { MyFollowedInfluencersResponse } from '@/types/service/followServiceType';
 import { useUserStore } from '@/stores/userStore';
 
-export const useInfluencerDetail = (influencerId: number) => {
-  return useQuery<InfluencerDetailResponse, AxiosError>({
-    queryKey: ['influencerDetail', influencerId],
-    queryFn: () => influencerService.influencerDetail({ influencerId }),
-    enabled: !!influencerId,
-  });
-};
+// export const useInfluencerDetail = (influencerId: number) => {
+//   return useQuery<InfluencerDetailResponse, AxiosError>({
+//     queryKey: ['influencerDetail', influencerId],
+//     queryFn: () => influencerService.influencerDetail({ influencerId }),
+//     enabled: !!influencerId,
+//   });
+// };
 
 export const useSearchInfluencersByName = (searchTerm: string) => {
-  return useQuery<SearchInfluencersByNameResponse, AxiosError>({
+  return useSuspenseQuery<SearchInfluencersByNameResponse, AxiosError>({
     queryKey: ['searchInfluencersByName', searchTerm],
     queryFn: () => influencerService.searchInfluencersByName(searchTerm),
-    enabled: !!searchTerm,
   });
 };
 
