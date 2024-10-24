@@ -217,13 +217,12 @@ export const useSpecificInfluencerAllReviews = ({
 
 // 전체 인플루언서의 전체 리뷰
 export const useAllInfluencersAllReviews = ({ sort }: AllInfluencersAllReviewsRequest) => {
-  return useQuery<AllInfluencersAllReviewsResponse, AxiosError>({
+  return useSuspenseQuery<AllInfluencersAllReviewsResponse, AxiosError>({
     queryKey: ['allInfluencersAllReviews', sort],
     queryFn: () =>
       reviewService.allInfluencersAllReviews({
         sort,
       }),
-    enabled: !!sort,
   });
 };
 
