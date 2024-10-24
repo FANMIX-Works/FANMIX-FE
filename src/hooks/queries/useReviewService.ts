@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { useUserStore } from '@/stores/userStore';
 
 import { reviewService } from '@/services/reviewService';
@@ -232,10 +232,11 @@ export const useInfluencerReviewDetailWithComments = ({
   influencerId,
   reviewId,
 }: InfluencerReviewDetailWithCommentsRequest) => {
-  return useQuery<InfluencerReviewDetailWithCommentsResponse, AxiosError>({
+  return useSuspenseQuery<InfluencerReviewDetailWithCommentsResponse, AxiosError>({
     queryKey: ['influencerReviewDetailWithComments', influencerId, reviewId],
     queryFn: () => reviewService.influencerReviewDetailWithComments({ influencerId, reviewId }),
-    enabled: !!influencerId && !!reviewId,
+
+    // enabled: !!influencerId && !!reviewId,
   });
 };
 
