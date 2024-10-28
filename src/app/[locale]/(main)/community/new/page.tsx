@@ -9,7 +9,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'top_title' });
 
   return {
-    title: t('글쓰기'),
+    title: t('커뮤니티 글쓰기'),
   };
 }
 

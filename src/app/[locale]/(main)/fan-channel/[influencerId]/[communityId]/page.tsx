@@ -33,7 +33,10 @@ export default async function FanChannelPage({
     <div className="h-full pb-20 pt-[35px]">
       {isFollowing ? (
         <div>
-          <FanChannelHeader influencerId={parseInt(influencerId)} />
+          <FanChannelHeader
+            influencerId={parseInt(influencerId)}
+            communityId={parseInt(communityId)}
+          />
           <FanChannelPostList />
         </div>
       ) : (

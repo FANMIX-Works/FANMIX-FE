@@ -76,8 +76,8 @@ export const ROUTES = {
   },
   COMMUNITY_NEW: {
     ROOT: '/community',
-    PATH: '/community/[communityId]/new',
-    LABEL: '글쓰기',
+    PATH: '/community/new',
+    LABEL: '커뮤니티 글쓰기',
     HAS_PREV_BTN: true,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
@@ -123,7 +123,7 @@ export const ROUTES = {
   FAN_CHANNEL_NEW: {
     ROOT: '/fan-channel',
     PATH: '/fan-channel/[influencerId]/[communityId]/new',
-    LABEL: '글쓰기',
+    LABEL: '팬채널 글쓰기',
     HAS_PREV_BTN: true,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
@@ -267,6 +267,13 @@ export const ROUTES = {
 
 // ROUTES 객체의 타입을 정의
 export type RouteKey = keyof typeof ROUTES;
+export const RouteKeys = Object.keys(ROUTES).reduce(
+  (acc, key) => {
+    acc[key as RouteKey] = key as RouteKey;
+    return acc;
+  },
+  {} as Record<RouteKey, RouteKey>,
+);
 
 type BaseRouteValue = {
   ROOT: string;
