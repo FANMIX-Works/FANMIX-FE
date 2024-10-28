@@ -16,6 +16,7 @@ export const useCurrentRouteLabel = (): {
   hideRightNav: boolean;
   hideBottomNav: boolean;
   hideScrollTopBtn: boolean;
+  hideCreatePostBtn: boolean;
   headerColor: HeaderColor;
 } => {
   const pathname = usePathname();
@@ -74,6 +75,7 @@ export const useCurrentRouteLabel = (): {
       hideRightNav: currentRoute.HIDE_RIGHT_NAV,
       hideBottomNav: currentRoute.HIDE_BOTTOM_NAV,
       hideScrollTopBtn: currentRoute.HIDE_SCROLL_TOP_BTN,
+      hideCreatePostBtn: currentRoute.HIDE_CREATE_POST_BTN,
       headerColor: currentRoute.HEADER_COLOR || DEFAULT_HEADER_COLOR,
     };
   } else {
@@ -85,6 +87,7 @@ export const useCurrentRouteLabel = (): {
       hideRightNav: ROUTES.HOME.HIDE_RIGHT_NAV,
       hideBottomNav: ROUTES.HOME.HIDE_BOTTOM_NAV,
       hideScrollTopBtn: ROUTES.HOME.HIDE_SCROLL_TOP_BTN,
+      hideCreatePostBtn: ROUTES.HOME.HIDE_CREATE_POST_BTN,
       headerColor: DEFAULT_HEADER_COLOR,
     };
   }
