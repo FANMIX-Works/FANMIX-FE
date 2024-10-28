@@ -46,7 +46,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
-    HIDE_SCROLL_TOP_BTN: false,
+    HIDE_SCROLL_TOP_BTN: true,
   },
   COMMUNITY: {
     ROOT: '/community',
@@ -56,7 +56,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
-    HIDE_SCROLL_TOP_BTN: false,
+    HIDE_SCROLL_TOP_BTN: true,
   },
   COMMUNITY_POST: {
     ROOT: '/community',
@@ -67,6 +67,16 @@ export const ROUTES = {
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
     HIDE_SCROLL_TOP_BTN: false,
+  },
+  COMMUNITY_NEW: {
+    ROOT: '/community',
+    PATH: '/community/[communityId]/new',
+    LABEL: '글쓰기',
+    HAS_PREV_BTN: true,
+    HIDE_TITLE: false,
+    HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: true,
+    HIDE_SCROLL_TOP_BTN: true,
   },
 
   // 팬채널
@@ -88,7 +98,7 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
-    HIDE_SCROLL_TOP_BTN: false,
+    HIDE_SCROLL_TOP_BTN: true,
   },
   FAN_CHANNEL_POST: {
     ROOT: '/fan-channel',
@@ -98,7 +108,17 @@ export const ROUTES = {
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,
-    HIDE_SCROLL_TOP_BTN: false,
+    HIDE_SCROLL_TOP_BTN: true,
+  },
+  FAN_CHANNEL_NEW: {
+    ROOT: '/fan-channel',
+    PATH: '/fan-channel/[influencerId]/[communityId]/new',
+    LABEL: '글쓰기',
+    HAS_PREV_BTN: true,
+    HIDE_TITLE: false,
+    HIDE_RIGHT_NAV: false,
+    HIDE_BOTTOM_NAV: true,
+    HIDE_SCROLL_TOP_BTN: true,
   },
 
   // 마이페이지
@@ -151,7 +171,7 @@ export const ROUTES = {
     ROOT: '/influencer',
     PATH: '/influencer',
     LABEL: '인플루언서 찾기',
-    HAS_PREV_BTN: false,
+    HAS_PREV_BTN: true,
     HIDE_TITLE: false,
     HIDE_RIGHT_NAV: false,
     HIDE_BOTTOM_NAV: false,

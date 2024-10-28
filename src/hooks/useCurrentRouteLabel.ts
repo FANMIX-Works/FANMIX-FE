@@ -20,16 +20,50 @@ export const useCurrentRouteLabel = (): {
 } => {
   const pathname = usePathname();
   const currentRoot = getRootPath(pathname);
+  const pathSegments = pathname.split('/');
+  const lastPathSegment = pathSegments[pathSegments.length - 1];
 
+  // 1. 정확한 경로 매칭 먼저 시도
   let currentRoute: RouteValue | undefined = Object.values(ROUTES).find(
     (route) => route.PATH === pathname,
   );
 
   if (!currentRoute) {
-    currentRoute = Object.values(ROUTES).find(
-      (route) =>
-        route.ROOT === currentRoot && route.PATH.split('/').length === pathname.split('/').length, // ROOT, 세그먼트 개수 비교
-    );
+    // 2. 같은 ROOT를 가진 라우트들만 필터링
+    const sameRootRoutes = Object.values(ROUTES).filter((route) => route.ROOT === currentRoot);
+
+    // 3. 마지막 세그먼트가 정적 문자열인 라우트 먼저 체크
+    currentRoute = sameRootRoutes.find((route) => {
+      const routeSegments = route.PATH.split('/');
+      const lastRouteSegment = routeSegments[routeSegments.length - 1];
+
+      // 세그먼트 개수가 같고
+      if (routeSegments.length !== pathSegments.length) return false;
+
+      // 마지막 세그먼트가 동적이 아니고([]) 정확히 일치하면
+      if (!lastRouteSegment.startsWith('[') && lastRouteSegment === lastPathSegment) {
+        // 나머지 세그먼트도 검사
+        return routeSegments.every((routeSeg, index) => {
+          const pathSeg = pathSegments[index];
+          return routeSeg === pathSeg || (routeSeg.startsWith('[') && routeSeg.endsWith(']'));
+        });
+      }
+      return false;
+    });
+
+    // 4. 정적 문자열 매칭 실패시 동적 세그먼트 라우트 체크
+    if (!currentRoute) {
+      currentRoute = sameRootRoutes.find((route) => {
+        const routeSegments = route.PATH.split('/');
+
+        if (routeSegments.length !== pathSegments.length) return false;
+
+        return routeSegments.every((routeSeg, index) => {
+          const pathSeg = pathSegments[index];
+          return routeSeg === pathSeg || (routeSeg.startsWith('[') && routeSeg.endsWith(']'));
+        });
+      });
+    }
   }
 
   if (currentRoute) {
