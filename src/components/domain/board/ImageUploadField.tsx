@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import { LiaCameraSolid } from 'react-icons/lia';
 import { VscClose, VscEdit } from 'react-icons/vsc';
@@ -13,6 +14,7 @@ interface ImageUploadFieldProps {
   setValue: UseFormSetValue<PostFormData>;
 }
 const ImageUploadField = ({ setValue }: ImageUploadFieldProps) => {
+  const t = useTranslations('post_form');
   const {
     fileInputRef,
     previewImageUrl,
@@ -53,7 +55,7 @@ const ImageUploadField = ({ setValue }: ImageUploadFieldProps) => {
           className="h-[150px] w-[150px] flex-shrink-0 cursor-pointer border border-neutral-500 text-neutral-500 flex-col-center"
           onClick={handleImageUploadClick}>
           <LiaCameraSolid className="h-[30px] w-[30px]" />
-          <span className="body3-sb">사진 올리기</span>
+          <span className="body3-sb">{t('사진 올리기')}</span>
         </div>
       )}
       <input

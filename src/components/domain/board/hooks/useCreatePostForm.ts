@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -7,6 +8,7 @@ import { useInformationToast } from '@/hooks/useInformationToast';
 import { postFormSchema, type PostFormData } from '@/types/domain/boardType';
 
 export const useCreatePostForm = (defaultPostData: PostFormData) => {
+  const t = useTranslations('post_form');
   const {
     register,
     handleSubmit,
@@ -25,8 +27,8 @@ export const useCreatePostForm = (defaultPostData: PostFormData) => {
   };
   const onError = () => {
     showErrorToast(
-      '카테고리와 제목 및 내용을 입력해주세요.',
-      '카테고리, 제목, 내용을 입력해야 게시글을 등록할 수 있어요.',
+      t('카테고리와 제목 및 내용을 입력해 주세요'),
+      t('카테고리 제목 내용을 입력해야 게시글을 등록할 수 있어요'),
     );
   };
 
