@@ -4,8 +4,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 interface UserAvatarProps {
   size: number;
-  profileImgUrl: string;
   userNickName: string;
+  profileImgUrl?: string;
 }
 
 // 유저 프로필 아바타
