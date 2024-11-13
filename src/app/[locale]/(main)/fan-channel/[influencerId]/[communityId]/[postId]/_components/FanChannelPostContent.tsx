@@ -1,12 +1,13 @@
 import PostContent from '@/components/domain/board/post/PostContent';
 import PostInteractionArea from '@/components/domain/board/post/PostInteractionArea';
 
-interface CommunityPostContentProps {
+interface FanChannelPostContentProps {
+  influencerId: number;
   communityId: number;
   postId: number;
 }
 
-const CommunityPostContent = ({ communityId, postId }: CommunityPostContentProps) => {
+const FanChannelPostContent = ({ communityId, postId }: FanChannelPostContentProps) => {
   console.log(communityId, postId);
   const content = {
     userId: 1,
@@ -16,7 +17,6 @@ const CommunityPostContent = ({ communityId, postId }: CommunityPostContentProps
     postDate: '24.09.05 00:00:00',
     imgUrl: '',
     profileImgUrl: '',
-    communityName: '게임',
   };
   const stat = {
     likesCount: 0,
@@ -31,4 +31,4 @@ const CommunityPostContent = ({ communityId, postId }: CommunityPostContentProps
     </section>
   );
 };
-export default CommunityPostContent;
+export default FanChannelPostContent;

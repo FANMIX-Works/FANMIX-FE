@@ -2,12 +2,13 @@
 
 // import CreateCommentForm from '@/components/domain/board/CreateCommentForm';
 
-interface CommunityPostCommentFormProps {
+interface FanChannelPostCommentFormProps {
+  influencerId: number;
   communityId: number;
   postId: number;
 }
 
-const CommunityPostCommentForm = ({ communityId, postId }: CommunityPostCommentFormProps) => {
+const FanChannelPostCommentForm = ({ communityId, postId }: FanChannelPostCommentFormProps) => {
   console.log(communityId, postId);
   return (
     <section
@@ -18,4 +19,4 @@ const CommunityPostCommentForm = ({ communityId, postId }: CommunityPostCommentF
   );
 };
 
-export default CommunityPostCommentForm;
+export default FanChannelPostCommentForm;
